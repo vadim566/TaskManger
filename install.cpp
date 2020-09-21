@@ -1,0 +1,80 @@
+#include "install.h"
+#include <iostream>
+#include <string>
+using namespace std;
+void install::setNumberOfResource(int numberOfResource=0)
+{
+		this->numberOfResource = numberOfResource;
+		int i = 0;
+		for (; i < numberOfResource; i++)
+		{
+			setResourceList(this->resourceList[i]);
+		}
+
+}
+
+void install::setTestInclude(bool testInclude)
+{
+	this->testInclude = testInclude;
+}
+
+void install::setResourceList(resource * resourceList)
+{
+	string tmp;
+	double tmp1;
+	resourceList = NULL;
+	resourceList = new resource;
+
+	cout << "Enter Name of Resource: ";
+	cin >> tmp;
+	resourceList->setNameOfResource(tmp);
+
+	cout << "Enter unit of mesure: ";
+	cin >> tmp;
+	resourceList->setUnit(tmp);
+
+	cout << "Enter amount of unit of the resource: ";
+	cin >> tmp;
+	resourceList->setAmountOfResource(tmp1);
+
+}
+install & install::operator+=(const resource & r)
+{
+	if(this->getNumberOfResource()+1>MAX_AMOUNT_RESOURCE)
+		cout << "Too many Resource in the install" << endl;
+
+	else
+	{
+		this->setResourceList(this->resourceList[getNumberOfResource()]);
+	}
+	return *this;
+}
+
+void install::PrintT() const
+{
+	cout << "The name of the install:" << this->getName();
+	cout << "The initial date of access:" << this->getInitDate();
+	cout << "The final date of access:" << this->getFinalDate();
+	cout << "There are " << this->getNumberOfResource() << "in the installation";
+	int i = 0;
+	for (; i < getNumberOfResource(); i++)
+	{
+		this->resourceList[i]->printR();
+	}
+}
+
+void install::removeI()
+{
+	int i = 0;
+	for (; i < this->getNumberOfResource(); i++)
+	{
+		this->resourceList[i]->removeR();
+	}
+	delete this;
+}
+
+install::~install()
+{
+	removeI();
+}
+

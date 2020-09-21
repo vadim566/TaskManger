@@ -39,7 +39,7 @@ access::access(string location, string initDate, string finalDate, string name):
 	int i = 0;
 	for (; i < numberOfParticipants; i++)
 	{
-		setParticipantList(participantList[i]);
+		setParticipantList(this->participantList[i]);
 	}
 }
 
@@ -51,12 +51,18 @@ void access::setLocation(string location)
 void access::setNumberOfParticipants(int numberOfParticipants)
 {
 	this->numberOfParticipants = numberOfParticipants;
+	int i = 0;
+	for (; i < numberOfParticipants; i++)
+	{
+		setParticipantList(this->participantList[i]);
+	}
 }
 
 void access::setParticipantList(participant *participantList)
 {
 	string tmp;
-	participantList = new participant;
+	participantList = NULL;
+	participantList = new participant;//if not working move attach to this. and then make new one
 	cout << "enter the name of the participant: ";
 	cin >> tmp;
 	participantList->setName(tmp);
@@ -125,15 +131,13 @@ bool access::isExpired( string currentDate)const
 
 access & access::operator+=(const participant & p)
 {
-	if (this->numberOfParticipants + 1 > MAX_PPL)
+	if (this->getNumberOfParticipants() + 1 > MAX_PPL)
 		cout << "Too many participants in the access" << endl;
 	else
 	{
-		this->setParticipantList(this->participantList[numberOfParticipants]);
+		this->setParticipantList(this->participantList[getNumberOfParticipants()]);//send to the last ptr of particiant in the array to be set by the set function
 	}
-
-
-		return *this;
+			return *this;
 }
 
 void access::PrintT() const
@@ -141,9 +145,9 @@ void access::PrintT() const
 	cout << "The name of the access:" << this->getName();
 	cout << "The initial date of access:" << this->getInitDate();
 	cout << "The final date of access:" << this->getFinalDate();
-	cout << "There are " << this->numberOfParticipants << " in the access";
+	cout << "There are " << this->getNumberOfParticipants() << " in the access";
 	int i = 0;
-	for (; i < numberOfParticipants; i++)
+	for (; i < getNumberOfParticipants(); i++)
 	{
 		this->participantList[i]->printP();
 	}

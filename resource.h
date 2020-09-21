@@ -1,5 +1,5 @@
 #include <iostream>
-
+#include <string>
 using namespace std;
 
 class resource
@@ -17,6 +17,8 @@ public:
 	void setUnit(string unit);
 	string getUnit()const {return unit;};
 
+
+	void printR()const;
 	void removeR();
 	~resource();
 

@@ -33,6 +33,9 @@
     <ClInclude Include="participant.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="install.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="task.cpp">
@@ -48,6 +51,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="resource.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="install.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

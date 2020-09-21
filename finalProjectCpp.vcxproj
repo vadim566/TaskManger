@@ -124,6 +124,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="access.h" />
+    <ClInclude Include="install.h" />
     <ClInclude Include="participant.h" />
     <ClInclude Include="payAccess.h" />
     <ClInclude Include="project.h" />
@@ -132,6 +133,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="access.cpp" />
+    <ClCompile Include="install.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="participant.cpp" />
     <ClCompile Include="resource.cpp" />

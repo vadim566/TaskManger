@@ -1,4 +1,5 @@
 #include "resource.h"
+
 #pragma once
 
 resource::resource(string nameOfResource, string unit, double amountOfResource)
@@ -29,6 +30,13 @@ void resource::setAmountOfResource(double amountOfResource)
 void resource::setUnit(string unit)
 {
 	this->unit = unit;
+}
+
+void resource::printR() const
+{
+	cout << "Name of Resource: " << this->getNameOfResource();
+	cout << "amount: " << this->getAmountOfResource()<<" " <<this->getUnit<<endl;
+
 }
 
 void resource::removeR()
