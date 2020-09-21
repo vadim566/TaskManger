@@ -127,6 +127,7 @@
     <ClInclude Include="Header.h" />
     <ClInclude Include="payAccess.h" />
     <ClInclude Include="project.h" />
+    <ClInclude Include="resource.h" />
     <ClInclude Include="task.h" />
   </ItemGroup>
   <ItemGroup>
