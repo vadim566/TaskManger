@@ -131,6 +131,7 @@
     <ClInclude Include="task.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="access.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="task.cpp" />
   </ItemGroup>
