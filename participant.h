@@ -23,7 +23,8 @@ public:
 
 	void printP()const;
 	void removeP();
-
+	~participant();
+	
 	
 
 private:

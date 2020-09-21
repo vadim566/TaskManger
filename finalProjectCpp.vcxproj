@@ -124,7 +124,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="access.h" />
-    <ClInclude Include="Header.h" />
     <ClInclude Include="participant.h" />
     <ClInclude Include="payAccess.h" />
     <ClInclude Include="project.h" />

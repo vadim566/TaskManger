@@ -50,3 +50,9 @@ void participant::removeP()
 	delete this;
 }
 
+participant::~participant()
+{
+	this->removeP();
+}
+
+

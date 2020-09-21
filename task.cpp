@@ -36,4 +36,9 @@ void task::removeT()
 	delete this;
 }
 
+task::~task()
+{
+	this->removeT();
+}
+
 

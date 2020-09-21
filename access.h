@@ -8,7 +8,7 @@ public:
 	access(string location,int numberOfParticipants, string initDate, string finalDate, string name);
 	access( int numberOfParticipants, string initDate, string finalDate, string name);
 	access(string location, string initDate, string finalDate, string name);
-	~access();
+	
 	
 	void setLocation(string location);
 	string getLocation()const { return location; };
@@ -23,6 +23,10 @@ public:
 
 	access &operator+=(const participant &p);
 	virtual void PrintT()const;
+
+	void removeA();
+	~access();
+	
 
 private:
 	

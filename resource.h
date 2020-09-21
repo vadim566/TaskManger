@@ -18,6 +18,8 @@ public:
 	string getUnit()const {return unit;};
 
 	void removeR();
+	~resource();
+
 
 private:
 	double amountOfResource;

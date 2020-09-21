@@ -35,3 +35,8 @@ void resource::removeR()
 {
 	delete this;
 }
+
+resource::~resource()
+{
+	this->removeR();
+}

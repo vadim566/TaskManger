@@ -150,4 +150,21 @@ void access::PrintT() const
 
 }
 
+void access::removeA()
+{
+	int i = 0;
+	for (; i < this->getNumberOfParticipants(); i++)
+	{
+		this->participantList[i]->removeP();
+	}
+	delete this;
+}
+
+access::~access()
+{
+	
+		this->removeA();
+	
+}
+
 

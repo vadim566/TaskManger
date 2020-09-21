@@ -35,6 +35,7 @@ public:
 	//remover
 	void removeT();
 	
+	~task();
 
 private:
 	
