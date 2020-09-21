@@ -37,6 +37,14 @@ void participant::setPosition(string poistion)
 	this->position = position;
 }
 
+void participant::printP()const
+{
+	cout << "Name of particpant: " << this->getName();
+	cout << "Last Name: " << this->getLastName();
+	cout << "Name of the Organization: " << this->getOrganization();
+	cout << "Position in the organization: " << this->getPosition();
+}
+
 void participant::removeP()
 {
 	delete this;

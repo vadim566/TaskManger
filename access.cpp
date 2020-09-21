@@ -1,9 +1,47 @@
 #include "access.h"
-#include <iomanip>
+
 using namespace std;
 
 
 
+
+access::access(string location, int numberOfParticipants, string initDate, string finalDate, string name):task(initDate,finalDate,name)
+{
+	
+	if (numberOfParticipants > MAX_PPL)
+	{
+		numberOfParticipants = MAX_PPL;
+		cout << "Max participants in access:" << MAX_PPL <<"the value of participant has changed to max value"<< endl;
+	}
+		this->setLocation(location);
+		int i = 0;
+		for (; i < numberOfParticipants; i++)
+		{
+			setParticipantList(participantList[i]);
+		}
+}
+
+access::access(int numberOfParticipants, string initDate, string finalDate, string name):task(initDate, finalDate, name)
+{
+	this->setLocation("virtual:VC/ZOOM/Tel");
+	
+	int i = 0;
+	for (; i < numberOfParticipants; i++)
+	{
+		setParticipantList(participantList[i]);
+	}
+}
+
+access::access(string location, string initDate, string finalDate, string name):task(initDate, finalDate, name)
+{
+	int numberOfParticipants = 2;
+	this->setLocation(location);
+	int i = 0;
+	for (; i < numberOfParticipants; i++)
+	{
+		setParticipantList(participantList[i]);
+	}
+}
 
 void access::setLocation(string location)
 {
@@ -17,13 +55,24 @@ void access::setNumberOfParticipants(int numberOfParticipants)
 
 void access::setParticipantList(participant *participantList)
 {
-	if (participantList!=nullptr)
-	{
-		this->participantList = participantList;
-	}
+	string tmp;
+	participantList = new participant;
+	cout << "enter the name of the participant: ";
+	cin >> tmp;
+	participantList->setName(tmp);
+	cout << "enter the name of the last name of participant: ";
+	cin >> tmp;
+	participantList->setLastName(tmp);
+	cout << "enter the name of the organization: ";
+	cin >> tmp;
+	participantList->setOrganization(tmp);
+	cout << "enter the position in the organization: ";
+	cin >> tmp;
+	participantList->setPosition(tmp);
 }
 
-bool access::isExpired(string currentDate)
+
+bool access::isExpired( string currentDate)const
 {
 	string tmpFinal = this->getFinalDate(),tmpCurrent=currentDate;
 	string delimiter = " \ ",token0,token1;
@@ -72,6 +121,33 @@ bool access::isExpired(string currentDate)
 	}
 
 	return false;
+}
+
+access & access::operator+=(const participant & p)
+{
+	if (this->numberOfParticipants + 1 > MAX_PPL)
+		cout << "Too many participants in the access" << endl;
+	else
+	{
+		this->setParticipantList(this->participantList[numberOfParticipants]);
+	}
+
+
+		return *this;
+}
+
+void access::PrintT() const
+{
+	cout << "The name of the access:" << this->getName();
+	cout << "The initial date of access:" << this->getInitDate();
+	cout << "The final date of access:" << this->getFinalDate();
+	cout << "There are " << this->numberOfParticipants << " in the access";
+	int i = 0;
+	for (; i < numberOfParticipants; i++)
+	{
+		this->participantList[i]->printP();
+	}
+
 }
 
 

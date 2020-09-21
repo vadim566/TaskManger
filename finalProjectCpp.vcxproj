@@ -125,6 +125,7 @@
   <ItemGroup>
     <ClInclude Include="access.h" />
     <ClInclude Include="Header.h" />
+    <ClInclude Include="participant.h" />
     <ClInclude Include="payAccess.h" />
     <ClInclude Include="project.h" />
     <ClInclude Include="resource.h" />
@@ -133,6 +134,8 @@
   <ItemGroup>
     <ClCompile Include="access.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="participant.cpp" />
+    <ClCompile Include="resource.cpp" />
     <ClCompile Include="task.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

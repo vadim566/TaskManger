@@ -30,7 +30,7 @@ public:
 
 
 	//pure virtual print
-	virtual void printT(int taskNumber) const = 0;
+	virtual void printT() const = 0;
 
 	//remover
 	void removeT();

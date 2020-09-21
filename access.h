@@ -1,11 +1,13 @@
 #include "task.h"
 #include "participant.h"
-
+#define MAX_PPL 5
 
 class access:public task
 {
 public:
-	access();
+	access(string location,int numberOfParticipants, string initDate, string finalDate, string name);
+	access( int numberOfParticipants, string initDate, string finalDate, string name);
+	access(string location, string initDate, string finalDate, string name);
 	~access();
 	
 	void setLocation(string location);
@@ -17,15 +19,15 @@ public:
 
 	void setParticipantList(participant *participantList);
 
-	bool isExpired(string currentDate);
+	bool isExpired( string currentDate)const;
 
 	access &operator+=(const participant &p);
-	virtual void PrintT(int taskNunmber)const;
+	virtual void PrintT()const;
 
 private:
 	
 	int numberOfParticipants;
-	participant *participantList;
+	participant *participantList[MAX_PPL];
 	string location;
 };
 

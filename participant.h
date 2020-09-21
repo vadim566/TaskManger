@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include <string>
 using namespace std;
 
 
@@ -20,6 +21,7 @@ public:
 	void setPosition(string poistion);
 	string getPosition()const { return position; };
 
+	void printP()const;
 	void removeP();
 
 	
