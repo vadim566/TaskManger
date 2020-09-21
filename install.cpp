@@ -2,6 +2,37 @@
 #include <iostream>
 #include <string>
 using namespace std;
+
+
+
+
+install::install(int numberOfResource, bool test, string initDate, string finalDate, string name):task(initDate, finalDate, name)
+{
+	this->setNumberOfResource(numberOfResource);
+	this->setTestInclude(test);
+}
+
+install::install(bool test, string initDate, string finalDate, string name) :task(initDate, finalDate, name)
+{
+	this->setNumberOfResource(0);
+	this->setTestInclude(test);
+	
+}
+
+install::install(int numberOfResource, string initDate, string finalDate, string name) :task(initDate, finalDate, name)
+{
+	this->setNumberOfResource(numberOfResource);
+	this->setTestInclude(0);
+}
+
+install::install():task()
+{
+	this->setNumberOfResource(0);
+	this->setTestInclude(0);
+	
+}
+
+
 void install::setNumberOfResource(int numberOfResource=0)
 {
 		this->numberOfResource = numberOfResource;
@@ -72,6 +103,9 @@ void install::removeI()
 	}
 	delete this;
 }
+
+
+
 
 install::~install()
 {

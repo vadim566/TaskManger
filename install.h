@@ -7,11 +7,14 @@
 class install:public task
 {
 public:
+	install(int numberOfResource, bool test, string initDate, string finalDate, string name);
+	install(bool test, string initDate, string finalDate, string name);
+	install(int numberOfResource, string initDate, string finalDate, string name);
 	install();
 	~install();
 
 
-	void setNumberOfResource(int numberOfResource=0);
+	void setNumberOfResource(int numberOfResource);
 	int getNumberOfResource()const { return numberOfResource; };
 	
 	void setTestInclude(bool testInclude);
