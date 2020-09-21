@@ -31,4 +31,9 @@ void task::setFinalDate(string finalDate)//set final date of a task
 	this->finalDate = finalDate;
 }
 
+void task::removeT()
+{
+	delete this;
+}
+
 

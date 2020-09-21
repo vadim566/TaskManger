@@ -9,7 +9,7 @@ public:
 	~access();
 
 private:
-	string *participants;
+	
 	int numberOfParticipants;
 	string location;
 };
