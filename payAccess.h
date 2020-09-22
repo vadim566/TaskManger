@@ -1,5 +1,9 @@
+#ifndef _ACCESS_H
+#define _ACCESS_H
 #include "access.h"
+#endif // !_ACCESS_H
 
+#define _PAYACC_H
 class payAccess:public access
 {
 public:

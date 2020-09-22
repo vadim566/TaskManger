@@ -1,6 +1,6 @@
 #include "resource.h"
 
-#pragma once
+
 
 resource::resource(string nameOfResource, string unit, double amountOfResource)
 {

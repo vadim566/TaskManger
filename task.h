@@ -1,8 +1,17 @@
 /*task.h*/
+
+#ifndef STD_LIB
+#define STD_LIB
+
 #include <iostream>
 #include <string>
-
 using namespace std;
+
+#endif // !STD_LIB
+
+
+#define _TASK_H
+
 class task
 {
 public:
@@ -30,11 +39,11 @@ public:
 
 
 	//pure virtual print
-	virtual void printT() const = 0;
+	virtual void PrintT(ostream& out)const  = 0;
 
 	//remover
 	void removeT();
-	
+
 	~task();
 
 private:

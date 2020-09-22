@@ -1,5 +1,5 @@
 #include "participant.h"
-#pragma once
+
 
 participant::participant(string nameP, string lastName, string organization, string position)
 {

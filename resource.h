@@ -1,7 +1,13 @@
+#ifndef STD_LIB
+#define STD_LIB
+
 #include <iostream>
 #include <string>
 using namespace std;
 
+#endif // !STD_LIB
+ 
+#define _RESOURCE_H
 class resource
 {
 public:

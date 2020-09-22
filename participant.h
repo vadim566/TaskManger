@@ -1,7 +1,13 @@
-#pragma once
+
+#ifndef STD_LIB
+#define STD_LIB
+
 #include <iostream>
 #include <string>
 using namespace std;
+
+#endif // !STD_LIB
+
 
 
 class participant

@@ -1,7 +1,5 @@
 #include "install.h"
-#include <iostream>
-#include <string>
-using namespace std;
+
 
 
 
@@ -81,7 +79,7 @@ install & install::operator+=(const resource & r)
 	return *this;
 }
 
-void install::PrintT() const
+void install::PrintT()const 
 {
 	cout << "The name of the install:" << this->getName();
 	cout << "The initial date of access:" << this->getInitDate();
@@ -93,6 +91,8 @@ void install::PrintT() const
 		this->resourceList[i]->printR();
 	}
 }
+
+
 
 void install::removeI()
 {
