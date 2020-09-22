@@ -101,7 +101,7 @@ void install::removeI()
 	{
 		this->resourceList[i]->removeR();
 	}
-	delete this;
+	task::removeT();
 }
 
 

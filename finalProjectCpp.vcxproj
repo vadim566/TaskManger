@@ -136,6 +136,7 @@
     <ClCompile Include="install.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="participant.cpp" />
+    <ClCompile Include="payAccess.cpp" />
     <ClCompile Include="resource.cpp" />
     <ClCompile Include="task.cpp" />
   </ItemGroup>

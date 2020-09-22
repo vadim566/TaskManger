@@ -43,6 +43,12 @@ access::access(string location, string initDate, string finalDate, string name):
 	}
 }
 
+access::access():task()
+{
+	this->setLocation("home");
+	this->setNumberOfParticipants(0);
+}
+
 void access::setLocation(string location)
 {
 	this->location = location;
@@ -140,7 +146,7 @@ access & access::operator+=(const participant & p)
 			return *this;
 }
 
-void access::PrintT() const
+void access::PrintT(ostream& out) const
 {
 	cout << "The name of the access:" << this->getName();
 	cout << "The initial date of access:" << this->getInitDate();
@@ -161,7 +167,7 @@ void access::removeA()
 	{
 		this->participantList[i]->removeP();
 	}
-	delete this;
+	task::removeT();
 }
 
 access::~access()
