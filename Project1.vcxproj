@@ -18,10 +18,29 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="access.h" />
+    <ClInclude Include="install.h" />
+    <ClInclude Include="participant.h" />
+    <ClInclude Include="payAccess.h" />
+    <ClInclude Include="project.h" />
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="task.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="access.cpp" />
+    <ClCompile Include="install.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="participant.cpp" />
+    <ClCompile Include="payAccess.cpp" />
+    <ClCompile Include="project.cpp" />
+    <ClCompile Include="resource.cpp" />
+    <ClCompile Include="task.cpp" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
-    <ProjectGuid>{9C776A0E-3BCE-4EB7-80C4-34B20AEDCCB0}</ProjectGuid>
-    <RootNamespace>finalProjectCpp</RootNamespace>
+    <ProjectGuid>{AF9962EA-05E1-409B-8FC8-70E4066C6217}</ProjectGuid>
+    <RootNamespace>Project1</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -122,25 +141,6 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClInclude Include="access.h" />
-    <ClInclude Include="install.h" />
-    <ClInclude Include="participant.h" />
-    <ClInclude Include="payAccess.h" />
-    <ClInclude Include="project.h" />
-    <ClInclude Include="resource.h" />
-    <ClInclude Include="task.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="access.cpp" />
-    <ClCompile Include="install.cpp" />
-    <ClCompile Include="main.cpp" />
-    <ClCompile Include="participant.cpp" />
-    <ClCompile Include="payAccess.cpp" />
-    <ClCompile Include="project.cpp" />
-    <ClCompile Include="resource.cpp" />
-    <ClCompile Include="task.cpp" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

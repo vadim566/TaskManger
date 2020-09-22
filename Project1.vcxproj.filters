@@ -15,51 +15,51 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="task.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="project.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="payAccess.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="access.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="resource.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="participant.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="install.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="participant.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="payAccess.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="project.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="task.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="task.cpp">
+    <ClCompile Include="install.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="access.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="participant.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="resource.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="install.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="payAccess.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="project.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="resource.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="task.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="access.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
