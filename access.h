@@ -27,8 +27,8 @@ class access:public task
 {
 public:
 	friend class install;
-	access(string location,int numberOfParticipants, string initDate, string finalDate, string name);
-	access( int numberOfParticipants, string initDate, string finalDate, string name);
+	access(string location, string initDate, string finalDate, string name, int numberOfParticipants=0);
+	access(  string initDate, string finalDate, string name, int numberOfParticipants=0);
 	access(string location, string initDate, string finalDate, string name);
 	access();
 	
@@ -61,10 +61,3 @@ private:
 	string location;
 };
 
-/*friend ostream& operator<<(ostream& out, const access& ain)
-	{
-	
-	out<<cout<< ain.PrintT(cout);
-		
-	}
-	*/

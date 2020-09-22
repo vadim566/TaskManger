@@ -54,7 +54,7 @@ void install::setResourceList(resource * resourceList)
 	resourceList = NULL;
 	resourceList = new resource;
 
-	cout << "Enter Name of Resource: ";
+	cout << "\n\nEnter Name of Resource: ";
 	cin >> tmp;
 	resourceList->setNameOfResource(tmp);
 
@@ -79,9 +79,9 @@ install & install::operator+=(const resource & r)
 	return *this;
 }
 
-void install::PrintT()const 
+void install::PrintT(ostream& out)const
 {
-	cout << "The name of the install:" << this->getName();
+	cout << "\n\nThe name of the install:" << this->getName();
 	cout << "The initial date of access:" << this->getInitDate();
 	cout << "The final date of access:" << this->getFinalDate();
 	cout << "There are " << this->getNumberOfResource() << "in the installation";

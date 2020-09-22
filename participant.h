@@ -9,6 +9,7 @@ using namespace std;
 #endif // !STD_LIB
 
 
+#define _PART_H
 
 class participant
 {

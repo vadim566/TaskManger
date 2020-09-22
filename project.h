@@ -1,5 +1,3 @@
-
-
 #ifndef _ACCESS_H
 #define _ACCESS_H
 #include "access.h"
@@ -25,7 +23,7 @@ using namespace std;
 
 #endif // !STD_LIB
 
-
+#define _PROJECT_H
 class project
 {
 public:

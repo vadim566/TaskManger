@@ -5,14 +5,16 @@ using namespace std;
 
 
 
-access::access(string location, int numberOfParticipants, string initDate, string finalDate, string name):task(initDate,finalDate,name)
+access::access(string location, string initDate, string finalDate, string name, int numberOfParticipants):task(initDate,finalDate,name)
 {
 	
 	if (numberOfParticipants > MAX_PPL)
 	{
 		numberOfParticipants = MAX_PPL;
 		cout << "Max participants in access:" << MAX_PPL <<"the value of participant has changed to max value"<< endl;
+		
 	}
+	setNumberOfParticipants(numberOfParticipants);
 		this->setLocation(location);
 		int i = 0;
 		for (; i < numberOfParticipants; i++)
@@ -21,20 +23,22 @@ access::access(string location, int numberOfParticipants, string initDate, strin
 		}
 }
 
-access::access(int numberOfParticipants, string initDate, string finalDate, string name):task(initDate, finalDate, name)
+access::access(string initDate, string finalDate, string name, int numberOfParticipants):task(initDate, finalDate, name)
 {
 	this->setLocation("virtual:VC/ZOOM/Tel");
-	
+	setNumberOfParticipants(numberOfParticipants);
 	int i = 0;
 	for (; i < numberOfParticipants; i++)
 	{
 		setParticipantList(participantList[i]);
 	}
+	
 }
 
 access::access(string location, string initDate, string finalDate, string name):task(initDate, finalDate, name)
 {
 	int numberOfParticipants = 2;
+	setNumberOfParticipants(numberOfParticipants);
 	this->setLocation(location);
 	int i = 0;
 	for (; i < numberOfParticipants; i++)
@@ -69,7 +73,7 @@ void access::setParticipantList(participant *participantList)
 	string tmp;
 	participantList = NULL;
 	participantList = new participant;//if not working move attach to this. and then make new one
-	cout << "enter the name of the participant: ";
+	cout << "\n\nenter the name of the participant: ";
 	cin >> tmp;
 	participantList->setName(tmp);
 	cout << "enter the name of the last name of participant: ";
@@ -148,10 +152,10 @@ access & access::operator+=(const participant & p)
 
  void access::PrintT(ostream& out)const
 {
-	cout << "The name of the access:" << this->getName();
-	cout << "The initial date of access:" << this->getInitDate();
-	cout << "The final date of access:" << this->getFinalDate();
-	cout << "There are " << this->getNumberOfParticipants() << " in the access";
+	cout << "\n\nThe name of the access:" << this->getName();
+	cout << "\nThe initial date of access:" << this->getInitDate();
+	cout << "\nThe final date of access:" << this->getFinalDate();
+	cout << "\nThere are " << this->getNumberOfParticipants() << " in the access";
 	int i = 0;
 	for (; i < getNumberOfParticipants(); i++)
 	{

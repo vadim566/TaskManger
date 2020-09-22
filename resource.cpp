@@ -34,8 +34,8 @@ void resource::setUnit(string unit)
 
 void resource::printR() const
 {
-	cout << "Name of Resource: " << this->getNameOfResource();
-	cout << "amount: " << this->getAmountOfResource()<<" " <<this->getUnit()<<endl;
+	cout << "\n\nName of Resource: " << this->getNameOfResource();
+	cout << "\n\namount: " << this->getAmountOfResource()<<" " <<this->getUnit()<<endl;
 
 }
 

@@ -44,7 +44,7 @@ public:
 
 	void setResourceList(resource *resourceList);
 	install &operator+=(const resource &r);
-	virtual void PrintT()const;
+	virtual void PrintT(ostream& out)const;
 	friend bool isExpired(string currentDate, string fDate);
 
 

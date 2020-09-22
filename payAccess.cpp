@@ -1,6 +1,6 @@
 #include "payAccess.h"
 
-payAccess::payAccess(string currency, string location, int numberOfParticipants, string initDate, string finalDate, string name, int amountOfCurrency):access( location,  numberOfParticipants,  initDate,  finalDate,  name)
+payAccess::payAccess(string currency, string location, int numberOfParticipants, string initDate, string finalDate, string name, int amountOfCurrency):access( location,   initDate,  finalDate,  name, numberOfParticipants)
 {
 	this->setCurrency(currency);
 	this->setAmountOfCurrency(amountOfCurrency);
