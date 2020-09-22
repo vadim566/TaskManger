@@ -6,6 +6,8 @@
 
 #ifndef STD_LIB
 #define STD_LIB
+#include<fstream>
+#include<istream>
 
 #include <iostream>
 #include <string>
@@ -46,12 +48,7 @@ public:
 	access &operator+=(const participant &p);
 	 void PrintT(ostream& out)const;
 
-	friend ostream& operator<<(ostream& out, const access& ain)
-	{
-		out << ain.PrintT(cout)<<" "<<endl;
-		return out;
-	}
-
+	
 
 	void removeA();
 	~access();
@@ -64,3 +61,10 @@ private:
 	string location;
 };
 
+/*friend ostream& operator<<(ostream& out, const access& ain)
+	{
+	
+	out<<cout<< ain.PrintT(cout);
+		
+	}
+	*/

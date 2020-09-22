@@ -1,12 +1,9 @@
-#ifndef STD_LIB
-#define STD_LIB
 
-#include <iostream>
-#include <string>
-using namespace std;
 
-#endif // !STD_LIB
+#ifndef _ACCESS_H
+#define _ACCESS_H
 #include "access.h"
+#endif // !_ACCESS_H
 #ifndef _INSTALL_H
 #define _INSTALL_H
 #include "install.h"
@@ -17,7 +14,16 @@ using namespace std;
 #include "payAccess.h"
 
 #endif // !_PAYACC_H
+#ifndef STD_LIB
+#define STD_LIB
+#include<fstream>
+#include<istream>
 
+#include <iostream>
+#include <string>
+using namespace std;
+
+#endif // !STD_LIB
 
 
 class project
@@ -39,9 +45,9 @@ public:
 	void operator+=(task& other)
 	{
 		this->setIndexTask();
-		if (this->totalProjectTask > this->setIndexTask)
+		if (this->totalProjectTask > this->indexTask)
 		{
-			this->taskList[this->setIndexTask] = &other;
+			this->taskList[this->setIndexTask] = other;
 		}
 
 	}

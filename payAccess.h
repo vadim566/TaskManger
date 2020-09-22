@@ -2,7 +2,16 @@
 #define _ACCESS_H
 #include "access.h"
 #endif // !_ACCESS_H
+#ifndef STD_LIB
+#define STD_LIB
+#include<fstream>
+#include<istream>
 
+#include <iostream>
+#include <string>
+using namespace std;
+
+#endif // !STD_LIB
 #define _PAYACC_H
 class payAccess:public access
 {

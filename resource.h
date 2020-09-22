@@ -1,5 +1,7 @@
 #ifndef STD_LIB
 #define STD_LIB
+#include<fstream>
+#include<istream>
 
 #include <iostream>
 #include <string>

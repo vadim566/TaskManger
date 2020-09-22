@@ -24,8 +24,8 @@ void payAccess::setCurrency(string currency)
 
 void payAccess::PrintT(ostream & out) const
 {
-	
-	out << getAmountOfCurrency() << " " << getCurrency();
+	access::PrintT(cout);
+	cout << getAmountOfCurrency() << " " << getCurrency();
 	
 }
 

@@ -2,12 +2,15 @@
 
 #ifndef STD_LIB
 #define STD_LIB
+#include<fstream>
+#include<istream>
 
 #include <iostream>
 #include <string>
 using namespace std;
 
 #endif // !STD_LIB
+
 
 
 #define _TASK_H

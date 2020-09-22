@@ -33,7 +33,7 @@ public:
 	install(bool test, string initDate, string finalDate, string name);
 	install(int numberOfResource, string initDate, string finalDate, string name);
 	install();
-	~install();
+	
 
 
 	void setNumberOfResource(int numberOfResource);
