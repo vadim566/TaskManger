@@ -12,7 +12,7 @@
 using namespace std;
 
 #endif // !STD_LIB
-#define _PAYACC_H
+#define _PAYMENT_H
 class payment:public meeting
 {
 public:
