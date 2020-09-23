@@ -28,6 +28,8 @@ class project
 {
 public:
 	project();
+	project(int totalProjectTask,string projectName);
+
 	project(int totalProjectTask);
 
 
@@ -40,10 +42,13 @@ public:
 	void setIndexTask();
 	int getIndexTask()const { return indexTask; };
 
-
+	void setProjectName(string projectName);
+	string getProjectName()const { return projectName; };
 
 	int searchlist(int taskNumber);
 	void printInfo();
+
+	void printInfo(int i);
 
 
 	void operator+=(task& other)
@@ -70,6 +75,7 @@ public:
 ~project();
 
 private:
+	string projectName;
 	int totalProjectTask;
 	task **taskList;
 	int indexTask;

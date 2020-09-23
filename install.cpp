@@ -33,22 +33,23 @@ void install::setNumberOfResource(int numberOfResource=0)
 {
 	string tmp;
 	double tmp1 = 0.0;
+	cout << "For task number: " << this->getNumberOfTask() << "\nenter details about the resources.";
 		this->numberOfResource = numberOfResource;
 		int i = 0;
 		for (; i < numberOfResource; i++)
 		{
 			this->resourceList[i] = new resource;
 
-			cout << "\nEnter details of resource number "<<i+1<<"nEnter Name of Resource: ";
+			cout << "\nEnter details of resource number "<<i+1<<"\nEnter Name of Resource: ";
 			cin >> tmp;
 			this->resourceList[i]->setNameOfResource(tmp);
 
-			cout << "Enter unit of mesure: ";
+			cout << "\nEnter unit of mesure: ";
 			cin >> tmp;
 			this->resourceList[i]->setUnit(tmp);
 
-			cout << "Enter amount of unit of the resource: ";
-			cin >> tmp;
+			cout << "\nEnter amount of unit of the resource: ";
+			cin >> tmp1;
 			this->resourceList[i]->setAmountOfResource(tmp1);
 		}
 
@@ -77,9 +78,9 @@ install & install::operator+=(const resource & r)
 void install::PrintT(ostream& out)const
 {
 	cout << "\n\nThe name of the install:" << this->getName();
-	cout << "The initial date of meeting:" << this->getInitDate();
-	cout << "The final date of meeting:" << this->getFinalDate();
-	cout << "There are " << this->getNumberOfResource() << "in the installation";
+	cout << "\nThe initial date of install:" << this->getInitDate();
+	cout << "\nThe final date of install:" << this->getFinalDate();
+	cout << "\nThere are " << this->getNumberOfResource() << " in the installation";
 	int i = 0;
 	for (; i < getNumberOfResource(); i++)
 	{

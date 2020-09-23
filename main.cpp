@@ -50,23 +50,25 @@ int main()
 	task *process[4];
 
 	process[0] = new meeting("israel", "23 / 09 / 2020", "25 / 09 / 2020", "RFI",2);
-	
-	
 	process[1] = new meeting("israel", "26 / 09 / 2020", "30 / 09 / 2020", "kickoff", 2);
 	process[2] = new payment("NIS", "israel", 2, "12 / 10 / 2020", "14 / 10 / 2020", "pdr", 2000);
 	process[3] = new install(3, true, "15 / 10 / 2020", "30 / 10 / 2020", "installation of the component");
-		process[1]->PrintT(cout);
-	process[2]->PrintT(cout);
-	process[3]->PrintT(cout);
-	
 
-	process[0]->PrintT(cout);
+
+
 
 	project *summerCpp;
 	summerCpp = new project(4);
+	*summerCpp += *process[0];
+	*summerCpp += *process[1];
+	*summerCpp += *process[2];
+	*summerCpp += *process[3];
+	//summerCpp->printInfo();
+	int index = summerCpp->searchlist(1003);
+	summerCpp->printInfo(index);
+	*summerCpp -= 2;
+	 index = summerCpp->searchlist(1003);
+	summerCpp->printInfo(index);
+
 	
-
-
-
-
 }
