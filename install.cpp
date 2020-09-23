@@ -2,8 +2,6 @@
 
 
 
-
-
 install::install(int numberOfResource, bool test, string initDate, string finalDate, string name):task(initDate, finalDate, name)
 {
 	this->setNumberOfResource(numberOfResource);
@@ -77,8 +75,8 @@ install & install::operator+=(const resource & r)
 void install::PrintT(ostream& out)const
 {
 	cout << "\n\nThe name of the install:" << this->getName();
-	cout << "The initial date of access:" << this->getInitDate();
-	cout << "The final date of access:" << this->getFinalDate();
+	cout << "The initial date of meeting:" << this->getInitDate();
+	cout << "The final date of meeting:" << this->getFinalDate();
 	cout << "There are " << this->getNumberOfResource() << "in the installation";
 	int i = 0;
 	for (; i < getNumberOfResource(); i++)

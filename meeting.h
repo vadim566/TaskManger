@@ -22,15 +22,15 @@ using namespace std;
 
 #define MAX_PPL 5
 
-#define _ACCESS_H
-class access:public task
+#define _MEETING_H
+class meeting:public task
 {
 public:
 	friend class install;
-	access(string location, string initDate, string finalDate, string name, int numberOfParticipants=0);
-	access(  string initDate, string finalDate, string name, int numberOfParticipants=0);
-	access(string location, string initDate, string finalDate, string name);
-	access();
+	meeting(string location, string initDate, string finalDate, string name, int numberOfParticipants=0);
+	meeting(  string initDate, string finalDate, string name, int numberOfParticipants=0);
+	meeting(string location, string initDate, string finalDate, string name);
+	meeting();
 	
 	void setLocation(string location);
 	string getLocation()const { return location; };
@@ -50,13 +50,13 @@ public:
 	
 	 friend bool isExpired(string currentDate,string fDate);
 
-	access &operator+=(const participant &p);
+	meeting &operator+=(const participant &p);
 	 void PrintT(ostream& out)const;
 
 	
 
 	void removeA();
-	~access();
+	~meeting();
 	
 
 private:

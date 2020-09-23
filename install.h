@@ -8,10 +8,10 @@
 #include "resource.h"
 #endif // ! _RESOURCE_H
 
-#ifndef _ACCESS_H
-#define _ACCESS_H
-#include "access.h"
-#endif // !_ACCESS_H
+#ifndef _MEETING_H
+#define _MEETING_H
+#include "MEETING.h"
+#endif // !_MEETING_H
 
 
 #ifndef STD_LIB

@@ -1,7 +1,7 @@
-#ifndef _ACCESS_H
-#define _ACCESS_H
-#include "access.h"
-#endif // !_ACCESS_H
+#ifndef _MEETING_H
+#define _MEETING_H
+#include "meeting.h"
+#endif // !_MEETING_H
 #ifndef STD_LIB
 #define STD_LIB
 #include<fstream>
@@ -13,11 +13,11 @@ using namespace std;
 
 #endif // !STD_LIB
 #define _PAYACC_H
-class payAccess:public access
+class payment:public meeting
 {
 public:
-	payAccess( string currency, string location, int numberOfParticipants, string initDate, string finalDate, string name, int amountOfCurrency = 1);
-	payAccess();
+	payment( string currency, string location, int numberOfParticipants, string initDate, string finalDate, string name, int amountOfCurrency = 1);
+	payment();
 	
 
 
@@ -30,7 +30,7 @@ public:
 	virtual void PrintT(ostream& out)const;
 
 	void removePA();
-	~payAccess();
+	~payment();
 
 private:
 	int amountOfCurrency;

@@ -1,17 +1,17 @@
-#include "access.h"
+#include "meeting.h"
 
 using namespace std;
 
 
 
 
-access::access(string location, string initDate, string finalDate, string name, int numberOfParticipants):task(initDate,finalDate,name)
+meeting::meeting(string location, string initDate, string finalDate, string name, int numberOfParticipants):task(initDate,finalDate,name)
 {
 	
 	if (numberOfParticipants > MAX_PPL)
 	{
 		numberOfParticipants = MAX_PPL;
-		cout << "Max participants in access:" << MAX_PPL <<"the value of participant has changed to max value"<< endl;
+		cout << "Max participants in meeting:" << MAX_PPL <<"the value of participant has changed to max value"<< endl;
 		
 	}
 	setNumberOfParticipants(numberOfParticipants);
@@ -20,7 +20,7 @@ access::access(string location, string initDate, string finalDate, string name, 
 	
 }
 
-access::access(string initDate, string finalDate, string name, int numberOfParticipants):task(initDate, finalDate, name)
+meeting::meeting(string initDate, string finalDate, string name, int numberOfParticipants):task(initDate, finalDate, name)
 {
 	this->setLocation("virtual:VC/ZOOM/Tel");
 	setNumberOfParticipants(numberOfParticipants);
@@ -29,7 +29,7 @@ access::access(string initDate, string finalDate, string name, int numberOfParti
 	
 }
 
-access::access(string location, string initDate, string finalDate, string name):task(initDate, finalDate, name)
+meeting::meeting(string location, string initDate, string finalDate, string name):task(initDate, finalDate, name)
 {
 	int numberOfParticipants = 2;
 	setNumberOfParticipants(numberOfParticipants);
@@ -38,18 +38,18 @@ access::access(string location, string initDate, string finalDate, string name):
 
 }
 
-access::access():task()
+meeting::meeting():task()
 {
 	this->setLocation("home");
 	this->setNumberOfParticipants(0);
 }
 
-void access::setLocation(string location)
+void meeting::setLocation(string location)
 {
 	this->location = location;
 }
 
-void access::setNumberOfParticipants(int numberOfParticipants)
+void meeting::setNumberOfParticipants(int numberOfParticipants)
 {
 	string tmp;
 	this->numberOfParticipants = numberOfParticipants;
@@ -75,7 +75,7 @@ void access::setNumberOfParticipants(int numberOfParticipants)
 
 
 
- bool access::isExpiredA(string currentDate)const
+ bool meeting::isExpiredA(string currentDate)const
 {
 	string tmpFinal = this->getFinalDate(), tmpCurrent = currentDate;
 	string delimiter = " \ ", token0, token1;
@@ -127,10 +127,10 @@ void access::setNumberOfParticipants(int numberOfParticipants)
 }
 
 
-access & access::operator+=(const participant & p)
+meeting & meeting::operator+=(const participant & p)
 {
 	if (this->getNumberOfParticipants() + 1 > MAX_PPL)
-		cout << "Too many participants in the access" << endl;
+		cout << "Too many participants in the meeting" << endl;
 	else
 	{
 		this->participantList[getNumberOfParticipants() + 1]->setName(p.getName());
@@ -141,12 +141,12 @@ access & access::operator+=(const participant & p)
 			return *this;
 }
 
- void access::PrintT(ostream& out)const
+ void meeting::PrintT(ostream& out)const
 {
-	cout << "\n\nThe name of the access:" << this->getName();
-	cout << "\nThe initial date of access:" << this->getInitDate();
-	cout << "\nThe final date of access:" << this->getFinalDate();
-	cout << "\nThere are " << this->getNumberOfParticipants() << " in the access\n\nThe details of the particpant:";
+	cout << "\n\nThe name of the meeting:" << this->getName();
+	cout << "\nThe initial date of meeting:" << this->getInitDate();
+	cout << "\nThe final date of meeting:" << this->getFinalDate();
+	cout << "\nThere are " << this->getNumberOfParticipants() << " in the meeting\n\nThe details of the particpant:";
 	int i = 0;
 	for (; i < getNumberOfParticipants(); i++)
 	{
@@ -156,7 +156,7 @@ access & access::operator+=(const participant & p)
 
 }
 
-void access::removeA()
+void meeting::removeA()
 {
 	int i = 0;
 	for (; i < this->getNumberOfParticipants(); i++)
@@ -166,7 +166,7 @@ void access::removeA()
 	task::removeT();
 }
 
-access::~access()
+meeting::~meeting()
 {
 	
 		this->removeA();
@@ -175,9 +175,9 @@ access::~access()
 
 bool isExpired(string currentDate,string finalDate)
 {
-	access *tmp;
+	meeting *tmp;
 	bool expired ;
-	tmp = new access();
+	tmp = new meeting();
 	tmp->setFinalDate (finalDate);
 	expired = tmp->isExpiredA(currentDate);
 	return expired;

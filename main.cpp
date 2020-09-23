@@ -25,10 +25,10 @@ using namespace std;
 #include "install.h"
 #endif // !_INSTALL_H
 
-#ifndef _PAYACC_H
-#define _PAYACC_H
-#include "payAccess.h"
-#endif // !_PAYACC_H
+#ifndef _PAYMENT_H
+#define _PAYMENT_H
+#include "payment.h"
+#endif // !_PAYMENT_H
 
 #ifndef _PART_H
 #define _PART_H
@@ -46,11 +46,11 @@ int main()
 {
 	task *process[4];
 
-	process[0] = new access("israel", "23 / 09 / 2020", "25 / 09 / 2020", "RFI",2);
+	process[0] = new meeting("israel", "23 / 09 / 2020", "25 / 09 / 2020", "RFI",2);
 	
 	
-	process[1] = new access("israel", "26 / 09 / 2020", "30 / 09 / 2020", "kickoff", 2);
-	process[2] = new payAccess("NIS", "israel", 2, "12 / 10 / 2020", "14 / 10 / 2020", "pdr", 2000);
+	process[1] = new meeting("israel", "26 / 09 / 2020", "30 / 09 / 2020", "kickoff", 2);
+	process[2] = new payment("NIS", "israel", 2, "12 / 10 / 2020", "14 / 10 / 2020", "pdr", 2000);
 	process[3] = new install(3, true, "15 / 10 / 2020", "30 / 10 / 2020", "installation of the component");
 		process[1]->PrintT(cout);
 	process[2]->PrintT(cout);

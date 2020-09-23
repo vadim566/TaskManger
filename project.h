@@ -1,17 +1,17 @@
-#ifndef _ACCESS_H
-#define _ACCESS_H
-#include "access.h"
-#endif // !_ACCESS_H
+#ifndef _MEETING_H
+#define _MEETING_H
+#include "meeting.h"
+#endif // !_MEETING_H
 #ifndef _INSTALL_H
 #define _INSTALL_H
 #include "install.h"
 #endif // !_INSTALL_H
 
-#ifndef _PAYACC_H
-#define _PAYACC_H
-#include "payAccess.h"
+#ifndef _PAYMENT_H
+#define _PAYMENT_H
+#include "payment.h"
 
-#endif // !_PAYACC_H
+#endif // !_PAYMENT_H
 #ifndef STD_LIB
 #define STD_LIB
 #include<fstream>
