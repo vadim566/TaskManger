@@ -144,7 +144,8 @@ meeting & meeting::operator+=(const participant & p)
 
  void meeting::PrintT(ostream& out)const
 {
-	cout << "\n\nThe name of the meeting:" << this->getName();
+	 cout << "\nThe id of the meeting:" << this->getNumberOfTask();
+	cout << "\nThe name of the meeting:" << this->getName();
 	cout << "\nThe initial date of meeting:" << this->getInitDate();
 	cout << "\nThe final date of meeting:" << this->getFinalDate();
 	cout << "\nThere are " << this->getNumberOfParticipants() << " in the meeting\n\nThe details of the particpant:";
