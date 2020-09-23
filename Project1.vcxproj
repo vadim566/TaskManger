@@ -19,20 +19,20 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="access.h" />
     <ClInclude Include="install.h" />
+    <ClInclude Include="meeting.h" />
     <ClInclude Include="participant.h" />
-    <ClInclude Include="payAccess.h" />
+    <ClInclude Include="payment.h" />
     <ClInclude Include="project.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="task.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="access.cpp" />
     <ClCompile Include="install.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="meeting.cpp" />
     <ClCompile Include="participant.cpp" />
-    <ClCompile Include="payAccess.cpp" />
+    <ClCompile Include="payment.cpp" />
     <ClCompile Include="project.cpp" />
     <ClCompile Include="resource.cpp" />
     <ClCompile Include="task.cpp" />
