@@ -36,10 +36,13 @@ public:
 	string getLocation()const { return location; };
 
 	void setNumberOfParticipants(int numberOfParticipants);
+
+	void setParticipantList(participant * participantList);
+	
 	int getNumberOfParticipants()const { return numberOfParticipants; };
 
 
-	void setParticipantList(participant *participantList);
+	
 
 	 bool isExpiredA(string currentDate) const;
 	

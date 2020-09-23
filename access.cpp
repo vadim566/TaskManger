@@ -17,10 +17,7 @@ access::access(string location, string initDate, string finalDate, string name, 
 	setNumberOfParticipants(numberOfParticipants);
 		this->setLocation(location);
 		int i = 0;
-		for (; i < numberOfParticipants; i++)
-		{
-			setParticipantList(participantList[i]);
-		}
+	
 }
 
 access::access(string initDate, string finalDate, string name, int numberOfParticipants):task(initDate, finalDate, name)
@@ -28,10 +25,7 @@ access::access(string initDate, string finalDate, string name, int numberOfParti
 	this->setLocation("virtual:VC/ZOOM/Tel");
 	setNumberOfParticipants(numberOfParticipants);
 	int i = 0;
-	for (; i < numberOfParticipants; i++)
-	{
-		setParticipantList(participantList[i]);
-	}
+
 	
 }
 
@@ -41,10 +35,7 @@ access::access(string location, string initDate, string finalDate, string name):
 	setNumberOfParticipants(numberOfParticipants);
 	this->setLocation(location);
 	int i = 0;
-	for (; i < numberOfParticipants; i++)
-	{
-		setParticipantList(this->participantList[i]);
-	}
+
 }
 
 access::access():task()
