@@ -51,10 +51,10 @@ int main()
 	
 	process[1] = new access("israel", "26 / 09 / 2020", "30 / 09 / 2020", "kickoff", 2);
 	process[2] = new payAccess("NIS", "israel", 2, "12 / 10 / 2020", "14 / 10 / 2020", "pdr", 2000);
-	process[3] = new install(3, true, "15 / 10 / 2020", "30 / 10 / 2020", "installation of the component");
-		process[1]->PrintT(cout);
+	//process[3] = new install(3, true, "15 / 10 / 2020", "30 / 10 / 2020", "installation of the component");
+	process[1]->PrintT(cout);
 	process[2]->PrintT(cout);
-	process[3]->PrintT(cout);
+	//process[3]->PrintT(cout);
 	
 
 	process[0]->PrintT(cout);
