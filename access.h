@@ -37,7 +37,9 @@ public:
 
 	void setNumberOfParticipants(int numberOfParticipants);
 
-	void setParticipantList(participant * participantList);
+	
+
+	
 	
 	int getNumberOfParticipants()const { return numberOfParticipants; };
 

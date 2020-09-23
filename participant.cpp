@@ -32,14 +32,14 @@ void participant::setOrganization(string organization)
 	this->organization = organization;
 }
 
-void participant::setPosition(string poistion)
+void participant::setPosition(string position)
 {
 	this->position = position;
 }
 
 void participant::printP()const
 {
-	cout << "\n\nName of particpant: " << this->getName();
+	cout << "\nName of particpant: " << this->getName();
 	cout << "\nLast Name: " << this->getLastName();
 	cout << "\nName of the Organization: " << this->getOrganization();
 	cout << "\nPosition in the organization: " << this->getPosition();

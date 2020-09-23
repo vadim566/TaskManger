@@ -16,7 +16,7 @@ access::access(string location, string initDate, string finalDate, string name, 
 	}
 	setNumberOfParticipants(numberOfParticipants);
 		this->setLocation(location);
-		int i = 0;
+	
 	
 }
 
@@ -51,32 +51,29 @@ void access::setLocation(string location)
 
 void access::setNumberOfParticipants(int numberOfParticipants)
 {
+	string tmp;
 	this->numberOfParticipants = numberOfParticipants;
 	int i = 0;
+	
 	for (; i < numberOfParticipants; i++)
 	{
-		setParticipantList(this->participantList[i]);
+		this->participantList[i] = new participant();
+		cout << "\nEnter info of particpant number "<<i+1 <<"\nnenter the name of the participant: ";
+		cin >> tmp;
+		participantList[i]->setName(tmp);
+		cout << "enter the name of the last name of participant: ";
+		cin >> tmp;
+		participantList[i]->setLastName(tmp);
+		cout << "enter the name of the organization: ";
+		cin >> tmp;
+		participantList[i]->setOrganization(tmp);
+		cout << "enter the position in the organization: ";
+		cin >> tmp;
+		participantList[i]->setPosition(tmp);
 	}
 }
 
-void access::setParticipantList(participant *participantList)
-{
-	string tmp;
-	participantList = NULL;
-	participantList = new participant;//if not working move attach to this. and then make new one
-	cout << "\n\nenter the name of the participant: ";
-	cin >> tmp;
-	participantList->setName(tmp);
-	cout << "enter the name of the last name of participant: ";
-	cin >> tmp;
-	participantList->setLastName(tmp);
-	cout << "enter the name of the organization: ";
-	cin >> tmp;
-	participantList->setOrganization(tmp);
-	cout << "enter the position in the organization: ";
-	cin >> tmp;
-	participantList->setPosition(tmp);
-}
+
 
  bool access::isExpiredA(string currentDate)const
 {
@@ -136,7 +133,10 @@ access & access::operator+=(const participant & p)
 		cout << "Too many participants in the access" << endl;
 	else
 	{
-		this->setParticipantList(this->participantList[getNumberOfParticipants()]);//send to the last ptr of particiant in the array to be set by the set function
+		this->participantList[getNumberOfParticipants() + 1]->setName(p.getName());
+		this->participantList[getNumberOfParticipants() + 1]->setLastName(p.getLastName());
+		this->participantList[getNumberOfParticipants() + 1]->setOrganization(p.getOrganization());
+		this->participantList[getNumberOfParticipants() + 1]->setPosition(p.getPosition());
 	}
 			return *this;
 }
@@ -146,10 +146,11 @@ access & access::operator+=(const participant & p)
 	cout << "\n\nThe name of the access:" << this->getName();
 	cout << "\nThe initial date of access:" << this->getInitDate();
 	cout << "\nThe final date of access:" << this->getFinalDate();
-	cout << "\nThere are " << this->getNumberOfParticipants() << " in the access";
+	cout << "\nThere are " << this->getNumberOfParticipants() << " in the access\n\nThe details of the particpant:";
 	int i = 0;
 	for (; i < getNumberOfParticipants(); i++)
 	{
+		cout << "participant number " << i + 1 ;
 		this->participantList[i]->printP();
 	}
 
