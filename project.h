@@ -48,6 +48,8 @@ public:
 	int searchlist(int taskNumber);
 	void printInfo();
 
+	void printInfo(int i);
+
 
 	void operator+=(task& other)
 	{

@@ -63,6 +63,8 @@ int main()
 	*summerCpp += *process[1];
 	*summerCpp += *process[2];
 	*summerCpp += *process[3];
-	summerCpp->printInfo();
+	//summerCpp->printInfo();
+	int index = summerCpp->searchlist(10000);
+	summerCpp->printInfo(index);
 	
 }

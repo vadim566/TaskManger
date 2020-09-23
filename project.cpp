@@ -75,6 +75,7 @@ int project::searchlist(int taskNumber)
 	{
 		if (this->taskList[i] && taskNumber == this->taskList[i]->getNumberOfTask()) return i;
 	}
+	cout << "\nThere is no such a task!" << endl;
 	return -1;
 	
 }
@@ -92,10 +93,28 @@ void project::printInfo()
 			this->taskList[i]->PrintT(cout);
 			cout << "\n-----------------------------------------------------------------------------\n";
 		}
+		else
+		{
+			cout << "\nThere is no such a task!" << endl;
+		}
 		
 
 	}
 	cout << "\n************************************************************************\n";
+}
+void project::printInfo(int i)
+{
+
+
+		if (this->taskList[i]  && i>=0)
+		{
+			cout << "\n-----------------------------------------------------------------------------\n";
+			cout << "\nTask number: " << i + 1 << ",the id of the task is: " << this->taskList[i]->getNumberOfTask() << endl;
+			this->taskList[i]->PrintT(cout);
+			cout << "\n-----------------------------------------------------------------------------\n";
+		}
+
+
 }
 
 project::~project()
