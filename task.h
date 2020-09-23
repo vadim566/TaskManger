@@ -18,35 +18,27 @@ using namespace std;
 class task
 {
 public:
-	//constructors
+	//Constracturs 
 	task(string initDate,string finalDate,string name);
 	task();
 	
-	//get set name
+	//Set Methods
 	void setName(string name);
-	string getName()const { return name; };
-
-	//get set initDate of a task
 	void setInitDate(string initDate);
-	string getInitDate()const { return initDate; };
-
-	//get set finalDate of a task
 	void setFinalDate(string finalDate);
-	string getFinalDate()const { return finalDate; };
 
-	//get unique number of task
+	//Get Methods
+	string getName()const { return name; };
+	string getInitDate()const { return initDate; };
+	string getFinalDate()const { return finalDate; };
 	int getNumberOfTask()const { return numberTask; };
-	
-	//get total count of task in the system
 	static int getTaskCt(){ return taskCt; };
 
-
-	//pure virtual print
+	//Virtual Methods
 	virtual void PrintT(ostream& out)const  = 0;
 
-	//remover
+	//Distractors
 	void removeT();
-
 	~task();
 
 private:

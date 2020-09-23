@@ -26,35 +26,34 @@ using namespace std;
 class meeting:public task
 {
 public:
+	//Friend function
 	friend class install;
+
+	//Constracturs 
 	meeting(string location, string initDate, string finalDate, string name, int numberOfParticipants=0);
 	meeting(  string initDate, string finalDate, string name, int numberOfParticipants=0);
 	meeting(string location, string initDate, string finalDate, string name);
 	meeting();
-	
-	void setLocation(string location);
-	string getLocation()const { return location; };
 
+	//Set Methods
+	void setLocation(string location);
 	void setNumberOfParticipants(int numberOfParticipants);
 
-	
-
-	
-	
+	//Get Methods
+	string getLocation()const { return location; };
 	int getNumberOfParticipants()const { return numberOfParticipants; };
 
-
-	
-
+	//Bool function return 1 if expired and if not it return 0
 	 bool isExpiredA(string currentDate) const;
-	
 	 friend bool isExpired(string currentDate,string fDate);
 
-	meeting &operator+=(const participant &p);
+	 //Operator +=
+	 meeting &operator+=(const participant &p);
+
+	 //Print function
 	 void PrintT(ostream& out)const;
 
-	
-
+	 //Distractors 
 	void removeA();
 	~meeting();
 	

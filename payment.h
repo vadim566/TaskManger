@@ -16,19 +16,22 @@ using namespace std;
 class payment:public meeting
 {
 public:
+	//Constracturs 
 	payment( string currency, string location, int numberOfParticipants, string initDate, string finalDate, string name, int amountOfCurrency = 1);
 	payment();
 	
-
-
+	//Set Methods
 	void setAmountOfCurrency(int amountOfCurrency );
-	int getAmountOfCurrency()const { return amountOfCurrency; };
-
 	void setCurrency(string currency);
+
+	//Get Methods
+	int getAmountOfCurrency()const { return amountOfCurrency; };
 	string getCurrency()const { return currency; };
 
+	//Virtual Method
 	virtual void PrintT(ostream& out)const;
 
+	//Distractors 
 	void removePA();
 	~payment();
 

@@ -13,20 +13,24 @@ using namespace std;
 class resource
 {
 public:
+	//Constracturs 
 	resource(string nameOfResource,string unit,double amountOfResource);
 	resource();
 
+	//Set Methods
 	void setNameOfResource(string nameOfResource);
-	string getNameOfResource()const {	return nameOfResource;};
-
-	void setAmountOfResource(double amountOfResource);
-	double getAmountOfResource()const { return amountOfResource; };
-
 	void setUnit(string unit);
+	void setAmountOfResource(double amountOfResource);
+
+	//Get Methods
+	string getNameOfResource()const {	return nameOfResource;};
+	double getAmountOfResource()const { return amountOfResource; };
 	string getUnit()const {return unit;};
 
-
+	//Print function
 	void printR()const;
+
+	//Distractors
 	void removeR();
 	~resource();
 

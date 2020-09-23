@@ -29,25 +29,31 @@ using namespace std;
 class install:public task
 {
 public:
+
+	//Constracturs 
 	install(int numberOfResource, bool test, string initDate, string finalDate, string name);
 	install(bool test, string initDate, string finalDate, string name);
 	install(int numberOfResource, string initDate, string finalDate, string name);
 	install();
 	
-
-
+	//Set Methods
 	void setNumberOfResource(int numberOfResource);
+	void setTestInclude(bool testInclude);
+
+	//Get Methods
+	bool getTestInclude() const{ return testInclude; };
 	int getNumberOfResource()const { return numberOfResource; };
 	
-	void setTestInclude(bool testInclude);
-	bool getTestInclude() const{ return testInclude; };
-
-	
+	//Operators
 	install &operator+=(const resource &r);
+
+	//Virtual Methods
 	virtual void PrintT(ostream& out)const;
+
+	//Friend
 	friend bool isExpired(string currentDate, string fDate);
 
-
+	//Distractors 
 	void removeI();
 	~install();
 	

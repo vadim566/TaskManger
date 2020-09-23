@@ -14,21 +14,26 @@ using namespace std;
 class participant
 {
 public:
+	//Constracturs 
 	participant(string nameP,string lastName ,string organization,string position);
 	participant();
+
+	//Set Methods  
 	void setName(string nameP);
-	string getName()const { return nameP; };
-
 	void setLastName(string lastName);
-	string getLastName()const{ return lastName; };
-
 	void setOrganization(string organization);
-	string getOrganization()const { return organization; };
-
 	void setPosition(string poistion);
+
+	//Get Methods  
+	string getName()const { return nameP; };
+	string getLastName()const{ return lastName; };
+	string getOrganization()const { return organization; };
 	string getPosition()const { return position; };
 
+	//Print function
 	void printP()const;
+
+	//Distractors 
 	void removeP();
 	~participant();
 	
