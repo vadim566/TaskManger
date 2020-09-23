@@ -71,7 +71,7 @@ void project::setProjectName(string projectName)
 
 int project::searchlist(int taskNumber)
 {
-	for (int i = 0; i < this->totalProjectTask; i++)
+	for (int i = 0; i < this->getIndexTask()+1; i++)
 	{
 		if (this->taskList[i] && taskNumber == this->taskList[i]->getNumberOfTask()) return i;
 	}

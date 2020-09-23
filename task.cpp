@@ -1,6 +1,6 @@
 #include "task.h"
 
-int task::taskCt = 10000;
+int task::taskCt = 1000;
 
 task::task(string initDate, string finalDate, string name):numberTask(taskCt++)
 {
@@ -38,7 +38,7 @@ void task::removeT()
 
 task::~task()
 {
-	this->removeT();
+
 }
 
 
