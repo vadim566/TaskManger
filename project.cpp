@@ -83,6 +83,7 @@ int project::searchlist(int taskNumber)
 void project::printInfo()
 {
 	cout << "\n************************************************************************\n\nProject " << this->getProjectName() << ", info of the tasks";
+	
 	for (int i = 0; i < this->getTotalProjectTask(); i++)
 	{
 		

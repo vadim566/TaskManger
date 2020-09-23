@@ -25,7 +25,7 @@ void payment::setCurrency(string currency)
 void payment::PrintT(ostream & out) const
 {
 	meeting::PrintT(cout);
-	cout << getAmountOfCurrency() << " " << getCurrency();
+	cout <<"\nThe amount of money that need to pay:"<<getAmountOfCurrency() <<" "<< getCurrency()<<endl;
 	
 }
 

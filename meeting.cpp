@@ -148,11 +148,11 @@ meeting & meeting::operator+=(const participant & p)
 	cout << "\nThe name of the meeting:" << this->getName();
 	cout << "\nThe initial date of meeting:" << this->getInitDate();
 	cout << "\nThe final date of meeting:" << this->getFinalDate();
-	cout << "\nThere are " << this->getNumberOfParticipants() << " in the meeting\n\nThe details of the particpant:";
+	cout << "\nThere are " << this->getNumberOfParticipants() << " in the meeting\n\nThe details of the particpant:"<<endl;
 	int i = 0;
 	for (; i < getNumberOfParticipants(); i++)
 	{
-		cout << "participant number " << i + 1 ;
+		cout << "participant number " << i + 1 <<endl;
 		this->participantList[i]->printP();
 	}
 

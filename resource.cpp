@@ -46,5 +46,5 @@ void resource::removeR()
 
 resource::~resource()
 {
-	this->removeR();
+	
 }

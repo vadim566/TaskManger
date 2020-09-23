@@ -70,5 +70,22 @@ int main()
 	 index = summerCpp->searchlist(1003);
 	summerCpp->printInfo(index);
 
+
+	project *oathCpp, *winterCpp;
+	oathCpp = new project(4);
+	winterCpp = new project(5);
+
+	*oathCpp += *process[2];
+	*oathCpp += *process[4];
+	*oathCpp += *process[1];
+	*oathCpp += *process[3];
+
+
+	
+	*winterCpp += *process[1];
+	*winterCpp += *process[2];
+	*winterCpp += *process[4];
+	*winterCpp += *process[3];
+
 	
 }
