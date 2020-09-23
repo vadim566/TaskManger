@@ -67,7 +67,9 @@ install & install::operator+=(const resource & r)
 
 	else
 	{
-		this->setResourceList(this->resourceList[getNumberOfResource()]);
+		this->resourceList[getNumberOfResource() + 1]->setAmountOfResource(r.getAmountOfResource());
+		this->resourceList[getNumberOfResource() + 1]->setNameOfResource(r.getNameOfResource());
+		this->resourceList[getNumberOfResource() + 1]->setUnit(r.getUnit());
 	}
 	return *this;
 }
