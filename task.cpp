@@ -1,6 +1,6 @@
 #include "task.h"
 
-int task::taskCt = 0;
+int task::taskCt = 1;
 
 task::task(string initDate, string finalDate, string name):numberTask(taskCt++)
 {

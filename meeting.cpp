@@ -51,10 +51,11 @@ void meeting::setLocation(string location)
 
 void meeting::setNumberOfParticipants(int numberOfParticipants)
 {
+
 	string tmp;
 	this->numberOfParticipants = numberOfParticipants;
 	int i = 0;
-	
+	cout << "For task number: " << this->getNumberOfTask() << "\nenter details about the participants.";
 	for (; i < numberOfParticipants; i++)
 	{
 		this->participantList[i] = new participant();
