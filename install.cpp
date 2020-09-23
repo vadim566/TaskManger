@@ -33,11 +33,25 @@ install::install():task()
 
 void install::setNumberOfResource(int numberOfResource=0)
 {
+	string tmp;
+	double tmp1 = 0.0;
 		this->numberOfResource = numberOfResource;
 		int i = 0;
 		for (; i < numberOfResource; i++)
 		{
-			setResourceList(this->resourceList[i]);
+			this->resourceList[i] = new resource;
+
+			cout << "\nEnter details of resource number "<<i+1<<"nEnter Name of Resource: ";
+			cin >> tmp;
+			this->resourceList[i]->setNameOfResource(tmp);
+
+			cout << "Enter unit of mesure: ";
+			cin >> tmp;
+			this->resourceList[i]->setUnit(tmp);
+
+			cout << "Enter amount of unit of the resource: ";
+			cin >> tmp;
+			this->resourceList[i]->setAmountOfResource(tmp1);
 		}
 
 }
@@ -47,26 +61,7 @@ void install::setTestInclude(bool testInclude)
 	this->testInclude = testInclude;
 }
 
-void install::setResourceList(resource * resourceList)
-{
-	string tmp;
-	double tmp1=0.0;
-	resourceList = NULL;
-	resourceList = new resource;
 
-	cout << "\n\nEnter Name of Resource: ";
-	cin >> tmp;
-	resourceList->setNameOfResource(tmp);
-
-	cout << "Enter unit of mesure: ";
-	cin >> tmp;
-	resourceList->setUnit(tmp);
-
-	cout << "Enter amount of unit of the resource: ";
-	cin >> tmp;
-	resourceList->setAmountOfResource(tmp1);
-
-}
 install & install::operator+=(const resource & r)
 {
 	if(this->getNumberOfResource()+1>MAX_AMOUNT_RESOURCE)

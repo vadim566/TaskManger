@@ -42,7 +42,7 @@ public:
 	void setTestInclude(bool testInclude);
 	bool getTestInclude() const{ return testInclude; };
 
-	void setResourceList(resource *resourceList);
+	
 	install &operator+=(const resource &r);
 	virtual void PrintT(ostream& out)const;
 	friend bool isExpired(string currentDate, string fDate);
