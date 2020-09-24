@@ -24,7 +24,18 @@ using namespace std;
 
 #define _MEETING_H
 
+/*
+class task
+info about the class:task{this class contain information about the number of participants in the meetings and the loctions for the meetings}
+abstract class: N
+derived class: Y
+child class of:task
+privet parameters in the class:
+   int numberOfParticipants - number of participants
+   participant* participantList[MAX_PPL] - the list of all the participants in the meeting
+   string location - the loction of the meeting
 
+*/
 
 class meeting:public task
 {
@@ -39,8 +50,8 @@ public:
 	meeting();
 
 	//Set Methods
-	void setLocation(string location)throw(string);
-	void setNumberOfParticipants(int numberOfParticipants)throw(int);
+	void setLocation(string location)throw(string); /*set loction for the meeting*/
+	void setNumberOfParticipants(int numberOfParticipants)throw(int); /*set number of participants that will be in the meeting*/
 
 	//Get Methods
 	string getLocation()const { return location; };
@@ -50,10 +61,10 @@ public:
 	
 	 friend bool isExpired(string currentDate,string fDate);
 
-	 //Operator +=
+	 /*Operator +=*/
 	 meeting &operator+=(const participant &p);
 
-	 //opertaor ==
+	 /*opertaor ==*/
 	 virtual bool operator==(const task& ing) const
 	 {
 		 if (((task*)this)->operator==(ing) == false) {
@@ -78,8 +89,8 @@ public:
 
 private:
 	
-	int numberOfParticipants;
-	participant *participantList[MAX_PPL];
-	string location;
+	int numberOfParticipants;                /*number of participants*/
+	participant *participantList[MAX_PPL];   /*the list of all the participants in the meeting*/
+	string location;                         /*the loction of the meeting*/
 };
 

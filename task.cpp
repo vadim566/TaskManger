@@ -16,38 +16,46 @@ task::task() :numberTask(taskCt++)
 	setName("Pray for Peace");
 }
 
-void task::setName(string name)throw(string)
+/*set the name of the task and checking if the name is ok*/
+void task::setName(string name)throw(string) 
 {
-	if (name == "") throw "Name is Empty String";
-	if (&name == nullptr) throw "Name is Null";
-	if (std::string::npos != name.find_first_of("0123456789"))
-		throw "Name Contains Digit";
-	this->name = name;
+	if (name == "") throw "Name is Empty String";  /*chack if the name is empty*/
+	if (&name == nullptr) throw "Name is Null";  /*check if the name is null*/
+	if (std::string::npos != name.find_first_of("0123456789"))  
+		throw "Name Contains Digit";/*check if there are digit in the name*/
+	this->name = name; 
 
 }
 
-void task::setInitDate(string initDate)//set initate date of a task
+
+/*set initate date of a task and checking if the date is real*/
+void task::setInitDate(string initDate)
 { 
-	if (initDate == "") throw "Date is Empty ";
-	if (&initDate == nullptr) throw "Date is Null";
+	if (initDate == "") throw "Date is Empty "; /*chack if the date is empty*/
+	if (&initDate == nullptr) throw "Date is Null"; /*check if the date is null*/
 	if (std::string::npos != name.find_first_of("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz`!@#$%^&*()_\+="))
-		throw "Date Contains restedricted symbols";
+		throw "Date Contains restedricted symbols";/*check if there are letters or symbols in the date*/
 	this->initDate = initDate;
 }
 
-void task::setFinalDate(string finalDate)//set final date of a task
+/*set final date of a task and chacking if the date is real*/
+void task::setFinalDate(string finalDate)
 {
 	
-		if (finalDate == "") throw "Date is Empty ";
-		if (&finalDate == nullptr) throw "Date is Null";
+		if (finalDate == "") throw "Date is Empty ";/*chack if the date is empty*/
+		if (&finalDate == nullptr) throw "Date is Null";/*check if the date is null*/
 		if (std::string::npos != name.find_first_of("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz`!@#$%^&*()_\+="))
-			throw "Date Contains restedricted symbols";
+			throw "Date Contains restedricted symbols";/*check if there are letters or symbols in the date*/
 		
 	this->finalDate = finalDate;
 	if (this->isExpiredA(initDate)) throw "final date expired";
 		
 }
 
+/*
+reciving a string in format of "DD/MM/YY" end cheking if the object final date is expired,
+return TRUE if expired FALSE id not expired
+*/
 bool task::isExpiredA(string currentDate) const
 {
 	string tmpFinal = this->getFinalDate(), tmpCurrent = currentDate;
@@ -99,7 +107,7 @@ bool task::isExpiredA(string currentDate) const
 	return false;
 	return false;
 }
-
+/*free all allocation*/
 void task::removeT()
 {
 	delete this;
