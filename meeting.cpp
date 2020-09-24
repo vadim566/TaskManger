@@ -115,7 +115,7 @@ id,name,initial date,final date,participants details*/
 
 }
 
- /*free allocation*/
+ /*free  task allocation*/
 void meeting::removeA()
 {
 	int i = 0;
@@ -125,7 +125,7 @@ void meeting::removeA()
 	}
 	task::removeT();
 }
-/*free all alloction*/
+/*free meeting alloction*/
 meeting::~meeting()
 {
 	
