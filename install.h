@@ -26,6 +26,19 @@ using namespace std;
 #define MAX_AMOUNT_RESOURCE 10
 
 #define _INSTALL_H
+
+/*
+class install
+info about the class:install{this class contain information about what needed for instal the object  -  how many and which type of resource needed  }
+abstract class: N
+derived class: Y
+child class of:task
+privet parameters in the class:
+  bool testInclude - test
+int numberOfResource - number of resource
+resource* resourceList[MAX_AMOUNT_RESOURCE] - Resource reference
+
+*/
 class install:public task
 {
 public:
@@ -37,8 +50,8 @@ public:
 	install();
 	
 	//Set Methods
-	void setNumberOfResource(int numberOfResource)throw(int);
-	void setTestInclude(bool testInclude)throw(string);
+	void setNumberOfResource(int numberOfResource)throw(int); /*set number of the resources*/
+	void setTestInclude(bool testInclude)throw(string);       /*if in the installation included also test */
 
 	//Get Methods
 	bool getTestInclude() const{ return testInclude; };
@@ -63,7 +76,7 @@ public:
 
 
 	//Virtual Methods
-	virtual void PrintT(ostream& out)const;
+	virtual void PrintT(ostream& out)const; /*it is a virtual printing function, not working for this class*/
 
 	
 
@@ -73,8 +86,8 @@ public:
 	
 	
 private:
-	bool testInclude;
-	int numberOfResource;
-	resource *resourceList[MAX_AMOUNT_RESOURCE];
+	bool testInclude;                            /*test*/
+	int numberOfResource;                        /*number of resource*/
+	resource *resourceList[MAX_AMOUNT_RESOURCE]; /*Resource reference*/
 };
 

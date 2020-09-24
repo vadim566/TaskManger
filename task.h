@@ -30,14 +30,7 @@ privet parameters in the class:
 
 */
 
-/*class dectionary
-1.name of the class:
-2.description of the class:
-3.function in the class:
- 3.1 input meaning of the input, output , meaning output
- 3.2 virtual void printT - is  a virtual printing function in this class is not doing nothing
- 3.2 bool is expiredA - reciving a string in format of  "DD / MM / YY" and checking if the object final date is expired, out TRUE if expired FALSE if not expired
-*/
+
 class task
 {
 public:
