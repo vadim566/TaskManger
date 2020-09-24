@@ -1,4 +1,18 @@
+#ifndef _MEETING_H
+#define _MEETING_H
+#include "meeting.h"
+#endif // !_MEETING_H
+#ifndef STD_LIB
+#define STD_LIB
+#include<fstream>
+#include<istream>
+
+#include <iostream>
+#include <string>
+using namespace std;
+
 #endif // !STD_LIB
+
 #define _PAYMENT_H
 
 /*
