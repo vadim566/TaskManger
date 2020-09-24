@@ -87,7 +87,7 @@ int project::searchlist(int taskNumber)
 	
 }
 
-void project::printInfo()
+void project::printInfo()throw(string)
 {
 	cout << "\n************************************************************************\n\nProject " << this->getProjectName() << ", info of the tasks";
 	
@@ -98,6 +98,7 @@ void project::printInfo()
 		{
 			cout << "\n-----------------------------------------------------------------------------\n";
 			cout << "\nTask number: " << i + 1 << ",the id of the task is: " << this->taskList[i]->getNumberOfTask() << endl;
+		
 			this->taskList[i]->PrintT(cout);
 			cout << "\n-----------------------------------------------------------------------------\n";
 		}

@@ -46,7 +46,7 @@ public:
 	string getProjectName()const { return projectName; };
 
 	int searchlist(int taskNumber);
-	void printInfo();
+	void printInfo()throw(string);
 
 	void printInfo(int i);
 
