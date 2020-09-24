@@ -44,14 +44,19 @@ meeting::meeting():task()
 	this->setNumberOfParticipants(0);
 }
 
-void meeting::setLocation(string location)
+void meeting::setLocation(string location)throw(string)
 {
+	if (name == "") throw "loction  is Empty String";
+	if (name == nullptr) throw "loction is Null";
+	if (std::string::npos != name.find_first_of("0123456789"))
+		throw "loction name Contains Digit";
 	this->location = location;
 }
 
-void meeting::setNumberOfParticipants(int numberOfParticipants)
+void meeting::setNumberOfParticipants(int numberOfParticipants)throw(int)
 {
-
+	if (numberOfParticipants < 1)
+		throw numberOfParticipants;
 	string tmp;
 	this->numberOfParticipants = numberOfParticipants;
 	int i = 0;

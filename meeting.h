@@ -36,8 +36,8 @@ public:
 	meeting();
 
 	//Set Methods
-	void setLocation(string location);
-	void setNumberOfParticipants(int numberOfParticipants);
+	void setLocation(string location)throw(string);
+	void setNumberOfParticipants(int numberOfParticipants)throw(int);
 
 	//Get Methods
 	string getLocation()const { return location; };

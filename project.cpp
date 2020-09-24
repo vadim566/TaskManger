@@ -24,8 +24,10 @@ project::project(int totalProjectTask)
 	this->setProjectTasks(totalProjectTask);
 }
 
-void project::setTotalProjectTask(int totalProjectTask)
+void project::setTotalProjectTask(int totalProjectTask)throw(int)
 {
+	if (totalProjectTask < 0)
+		throw totalProjectTask;
 	if (totalProjectTask)
 		this->totalProjectTask = totalProjectTask;
 }
@@ -48,7 +50,7 @@ void project::setProjectTasks(int totalProjectTask)
 
 
 
-void project::setIndexTask()
+void project::setIndexTask()throw(int)
 {
 	int i = 0;
 	for (i = 0; i < this->totalProjectTask; i++)
@@ -59,11 +61,16 @@ void project::setIndexTask()
 			this->indexTask = i;
 			return;
 		}
+		if((indexTask<0)||(indexTask>totalProjectTask)throw indexTask;
 	}
 }
 
-void project::setProjectName(string projectName)
+void project::setProjectName(string projectName)throw(string)
 {
+	if (name == "") throw "Name is Empty String";
+	if (name == nullptr) throw "Name is Null";
+	if (std::string::npos != name.find_first_of("0123456789"))
+		throw "Name Contains Digit";
 	this->projectName = projectName;
 }
 

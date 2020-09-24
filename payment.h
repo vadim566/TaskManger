@@ -21,7 +21,7 @@ public:
 	payment();
 	
 	//Set Methods
-	void setAmountOfCurrency(int amountOfCurrency );
+	void setAmountOfCurrency(int amountOfCurrency )throw(int);
 	void setCurrency(string currency);
 
 	//Get Methods

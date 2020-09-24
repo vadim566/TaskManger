@@ -33,16 +33,16 @@ public:
 	project(int totalProjectTask);
 
 
-	void setTotalProjectTask(int totalProjectTask);
+	void setTotalProjectTask(int totalProjectTask)throw(int);
 	int getTotalProjectTask()const { return totalProjectTask; };
 
 	void setProjectTasks(int totalProjectTask);
 	
 	
-	void setIndexTask();
+	void setIndexTask()throw(int);
 	int getIndexTask()const { return indexTask; };
 
-	void setProjectName(string projectName);
+	void setProjectName(string projectName)throw(string);
 	string getProjectName()const { return projectName; };
 
 	int searchlist(int taskNumber);

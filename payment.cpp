@@ -14,6 +14,8 @@ payment::payment():meeting()
 
 void payment::setAmountOfCurrency(int amountOfCurrency)
 {
+	if (amountOfCurrency < 0)
+		throw amountOfCurrency;
 	this->amountOfCurrency = amountOfCurrency;
 }
 

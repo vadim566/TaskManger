@@ -17,23 +17,37 @@ participant::participant()
 	setPosition("Hero");
 }
 
-void participant::setName(string nameP)
+void participant::setName(string nameP)throw(string)
 {
+	if (name == "") throw "Name is Empty String";
+	if (name == nullptr) throw "Name is Null";
+	if (std::string::npos != name.find_first_of("0123456789"))
+		throw "Name Contains Digit";
 	this->nameP = nameP;
 }
 
-void participant::setLastName(string lastName)
+void participant::setLastName(string lastName)throw(string)
 {
+	if (name == "") throw "last Name is Empty String";
+	if (name == nullptr) throw "last Name is Null";
+	if (std::string::npos != name.find_first_of("0123456789"))
+		throw "last Name Contains Digit";
 	this->lastName = lastName;
 }
 
-void participant::setOrganization(string organization)
+void participant::setOrganization(string organization)throw(string)
 {
+	if (name == "") throw "name of the organization is Empty String";
+	if (name == nullptr) throw "Name of the organization is Null";
+	/*if (std::string::npos != name.find_first_of("0123456789"))
+		throw "Name Contains Digit";*/
 	this->organization = organization;
 }
 
-void participant::setPosition(string position)
+void participant::setPosition(string position)throw(string)
 {
+	if (name == "") throw "name of the postion is Empty String";
+	if (name == nullptr) throw "Name of the postion is Null";
 	this->position = position;
 }
 

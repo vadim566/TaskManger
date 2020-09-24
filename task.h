@@ -7,6 +7,7 @@
 
 #include <iostream>
 #include <string>
+#include<ctime>
 using namespace std;
 
 #endif // !STD_LIB
@@ -23,7 +24,7 @@ public:
 	task();
 	
 	//Set Methods
-	void setName(string name);
+	void setName(string name)throw(string);
 	void setInitDate(string initDate);
 	void setFinalDate(string finalDate);
 
@@ -40,14 +41,15 @@ public:
 	//Distractors
 	void removeT();
 	~task();
+	
 
 private:
 	
-	string initDate;
-	string finalDate;
-	string name;
-	const int numberTask;
-	static int taskCt;
+	string initDate;            /*start of the task*/
+	string finalDate;           /*end of the task*/
+	string name;                /*the name of the task*/
+	const int numberTask;       /*the number of the tasks*/
+	static int taskCt;          /*how many tasks*/
 };
 
 

@@ -19,10 +19,10 @@ public:
 	participant();
 
 	//Set Methods  
-	void setName(string nameP);
-	void setLastName(string lastName);
-	void setOrganization(string organization);
-	void setPosition(string poistion);
+	void setName(string nameP)throw(string);
+	void setLastName(string lastName)throw(string);
+	void setOrganization(string organization)throw(string);
+	void setPosition(string poistion)throw(string);
 
 	//Get Methods  
 	string getName()const { return nameP; };

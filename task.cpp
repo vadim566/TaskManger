@@ -16,13 +16,18 @@ task::task() :numberTask(taskCt++)
 	setName("Pray for Peace");
 }
 
-void task::setName(string name)
+void task::setName(string name)throw(string)
 {
+	if (name == "") throw "Name is Empty String";
+	if (name == nullptr) throw "Name is Null";
+	if (std::string::npos != name.find_first_of("0123456789"))
+		throw "Name Contains Digit";*/
 	this->name = name;
 }
 
 void task::setInitDate(string initDate)//set initate date of a task
-{
+{ 
+	
 	this->initDate = initDate;
 }
 
