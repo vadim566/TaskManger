@@ -16,6 +16,13 @@ using namespace std;
 
 #define _TASK_H
 
+/*calass dectionary
+1.name of the class:
+2.description of the class:
+3.function in the class:
+ 3.1 input meaning of the input, output , meaning output
+ 3.2 virtual void printT - is  a virtual 
+*/
 class task
 {
 public:
