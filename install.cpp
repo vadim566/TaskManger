@@ -57,9 +57,9 @@ void install::setNumberOfResource(int numberOfResource=0)throw(int)
 
 }
 
-void install::setTestInclude(bool testInclude)throw(int)
+void install::setTestInclude(bool testInclude)throw(string)
 {
-	
+	if (testInclude != 0 && testInclude != 1)throw("Bad bool value");
 	this->testInclude = testInclude;
 }
 

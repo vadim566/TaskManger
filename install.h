@@ -38,7 +38,7 @@ public:
 	
 	//Set Methods
 	void setNumberOfResource(int numberOfResource)throw(int);
-	void setTestInclude(bool testInclude);
+	void setTestInclude(bool testInclude)throw(string);
 
 	//Get Methods
 	bool getTestInclude() const{ return testInclude; };

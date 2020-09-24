@@ -25,8 +25,8 @@ public:
 	
 	//Set Methods
 	void setName(string name)throw(string);
-	void setInitDate(string initDate);
-	void setFinalDate(string finalDate);
+	void setInitDate(string initDate)throw(string);
+	void setFinalDate(string finalDate)throw(string);
 
 	//Get Methods
 	string getName()const { return name; };

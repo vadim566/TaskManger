@@ -56,7 +56,6 @@ int main()
 
 
 
-
 	project *summerCpp;
 	summerCpp = new project(4);
 	*summerCpp += *process[0];

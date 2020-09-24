@@ -27,12 +27,21 @@ void task::setName(string name)throw(string)
 
 void task::setInitDate(string initDate)//set initate date of a task
 { 
-	
+	if (initDate == "") throw "Date is Empty ";
+	if (&initDate == nullptr) throw "Date is Null";
+	if (std::string::npos != name.find_first_of("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz`!@#$%^&*()_\+="))
+		throw "Date Contains restedricted symbols";
 	this->initDate = initDate;
 }
 
 void task::setFinalDate(string finalDate)//set final date of a task
 {
+	
+		if (finalDate == "") throw "Date is Empty ";
+		if (&finalDate == nullptr) throw "Date is Null";
+		if (std::string::npos != name.find_first_of("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz`!@#$%^&*()_\+="))
+			throw "Date Contains restedricted symbols";
+		
 	this->finalDate = finalDate;
 }
 
