@@ -48,6 +48,8 @@ void task::setFinalDate(string finalDate)//set final date of a task
 		
 }
 
+
+
 bool task::isExpiredA(string currentDate) const
 {
 	string tmpFinal = this->getFinalDate(), tmpCurrent = currentDate;
@@ -98,7 +100,7 @@ bool task::isExpiredA(string currentDate) const
 
 	return false;
 	return false;
-}
+}//bool is expiredA - reciving a string in format of  "DD / MM / YY" and checking if the object final date is expired, out TRUE if expired FALSE if not expired
 
 void task::removeT()
 {
