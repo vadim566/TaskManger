@@ -91,7 +91,7 @@ void project::printInfo()throw(string)
 {
 	cout << "\n************************************************************************\n\nProject " << this->getProjectName() << ", info of the tasks";
 	
-	for (int i = 0; i < this->getTotalProjectTask(); i++)
+	for (int i = 0; i < this->getIndexTask(); i++)
 	{
 		
 		if (this->taskList[i])

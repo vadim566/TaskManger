@@ -70,6 +70,7 @@ int main()
 
 	project *summerCpp;
 	summerCpp = new project(4);
+	summerCpp->setProjectName("Summer quest");
 	*summerCpp += *process[0];
 	*summerCpp += *process[1];
 	*summerCpp += *process[2];
@@ -85,14 +86,14 @@ int main()
 	project *oathCpp, *winterCpp;
 	oathCpp = new project(4);
 	winterCpp = new project(5);
-
+	oathCpp->setProjectName("Oath Tasks");
 	*oathCpp += *tasks[1];
 	*oathCpp += *tasks[2];
 	*oathCpp += *tasks[3];
 	*oathCpp += *tasks[4];
 
 
-	
+	winterCpp->setProjectName("Winter quest");
 	*winterCpp += *quest[1];
 	*winterCpp += *quest[2];
 	*winterCpp += *quest[3];
