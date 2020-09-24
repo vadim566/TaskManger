@@ -49,8 +49,111 @@ int main()
 {
 
 	try {
+		bool demo;
+		cout << "Welcome to Project Mangment software" << endl;
+		cout << "as a start the the Project can demo 3 projects if you want a demo.\nfor demo enter 1, for skip enter 0"<<endl;
+		cin >> demo;
 
-	
+		if(demo)
+		{
+			cout << "copy and paste in the following requests:\ndavid 
+				musaev 
+				MOD
+				leader
+				yakir
+				maymon
+				intel
+				chiefT
+				shaked
+				spector
+				lbit
+				chiefT
+				david
+				musaev
+				mod
+				leader
+				yakir
+				maymon
+				intel
+				chiefT
+				alex
+				luzakin
+				intel
+				Hchief
+				tech
+				hour
+				20
+				computers
+				piece
+				20
+				meat
+				kg
+				5
+				elon
+				mask
+				tesla
+				leader
+				nicola
+				tesla
+				crazyInvention
+				inventor
+				wat
+				wat
+				wat company
+				elon
+				mask
+				tesla
+				leader
+				nicola
+				tesla
+				crazyInvention
+				inventor
+				wat
+				wat
+				wat company
+				tech
+				hour
+				20
+				computers
+				piece
+				20
+				meat
+				kg
+				5
+				orc
+				maskush
+				teslagrimar
+				leader
+				elf
+				teslaviosh
+				crazyInventionestin
+				leader
+				elemntal
+				water
+				water
+				orc
+				maskush
+				teslagrimar
+				leader
+				elf
+				teslaviosh
+				crazyInventionestin
+				leader
+				elemntal
+				water
+				water
+				crazyInventionestin
+				leader
+				tech
+				hour
+				20
+				computers
+				piece
+				20
+				meat
+				kg
+				5
+				";
 	task *process[4],*tasks[4],*quest[4];
 
 	process[0] = new meeting("israel", "23 / 09 / 2020", "25 / 09 / 2020", "RFI",2);
@@ -103,7 +206,7 @@ int main()
 	summerCpp->printInfo();
 	oathCpp->printInfo();
 	winterCpp->printInfo();
-
+		}
 
 	}
 	catch(string error)
