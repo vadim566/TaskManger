@@ -40,8 +40,7 @@ privet parameters in the class:
 class meeting:public task
 {
 public:
-	//Friend function
-	friend class install;
+	
 
 	//Constracturs 
 	meeting(string location, string initDate, string finalDate, string name, int numberOfParticipants=0);

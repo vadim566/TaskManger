@@ -49,8 +49,14 @@ int main()
 {
 
 	try {
+		bool demo;
+		cout << "Welcome to Project Mangment software" << endl;
+		cout << "as a start the the Project can demo 3 projects if you want a demo.\nfor demo enter 1, for skip enter 0"<<endl;
+		cin >> demo;
 
-	
+		if(demo)
+		{
+		
 	task *process[4],*tasks[4],*quest[4];
 
 	process[0] = new meeting("israel", "23 / 09 / 2020", "25 / 09 / 2020", "RFI",2);
@@ -103,6 +109,20 @@ int main()
 	summerCpp->printInfo();
 	oathCpp->printInfo();
 	winterCpp->printInfo();
+		}//end of demo
+
+
+		//start of a menu
+		//use of switch and case
+		//1.build a project -project constructor , empty project? // project with some tasks
+		//2.set a name
+		//3.add meeting - meeting constructor
+		//4.add install -install constructor
+		//5. add payment meeting -payment constructor
+		//6. remove the last task from the project - operator -= lifo
+		//7.find a task in the project - find a task by a task number and return the place in the project array making enable for print a task from the list, input task number output number in the array projectlist
+		//8.show information of a one task from the project- enter int and get the task in the array of project list
+		//9.show the whole project info- printinfo
 
 
 	}
