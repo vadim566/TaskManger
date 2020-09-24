@@ -5,6 +5,7 @@ using namespace std;
 
 
 
+
 meeting::meeting(string location, string initDate, string finalDate, string name, int numberOfParticipants):task(initDate,finalDate,name)
 {
 	

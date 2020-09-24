@@ -23,6 +23,9 @@ using namespace std;
 #define MAX_PPL 5
 
 #define _MEETING_H
+
+
+
 class meeting:public task
 {
 public:
@@ -49,6 +52,21 @@ public:
 
 	 //Operator +=
 	 meeting &operator+=(const participant &p);
+
+	 //opertaor ==
+	 virtual bool operator==(const task& ing) const
+	 {
+		 if (((task*)this)->operator==(ing) == false) {
+			 return false;
+		 }
+		 const meeting *meet = dynamic_cast<const meeting*>(&ing);
+		 if (meet->getLocation() == this->getLocation() && meet->getNumberOfParticipants() == this->getNumberOfParticipants())
+		 {
+			 return true;
+		 }
+		 else return false;
+	 }
+
 
 	 //Print function
 	 void PrintT(ostream& out)const;

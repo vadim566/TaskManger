@@ -44,7 +44,7 @@ using namespace std;
 #define _PAYMENT_H
 #include "payment.h"
 #endif
-
+string intDateToStringDate(int day, int month, int year);
 int main()
 {
 	task *process[4];
@@ -88,4 +88,24 @@ int main()
 	*winterCpp += *process[3];
 
 	
+}
+
+string intDateToStringDate(int day, int month, int year)
+{
+	if (day > 31 || day<1)day = 31;
+	if (month > 12 || month <1)month = 12;
+	if (year < 1900 || year>2100)year = 2020;
+
+
+	string dayS = to_string(day);
+	string monthS = to_string(month);
+	string yearS = to_string(year);
+	string brk = " / ";
+	string dateS = dayS + brk + monthS + brk + yearS;
+
+	return dateS;
+	
+
+
+
 }

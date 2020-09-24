@@ -38,6 +38,24 @@ public:
 	//Virtual Methods
 	virtual void PrintT(ostream& out)const  = 0;
 
+	//operators
+	//print operator
+	friend ostream& operator<<(ostream& out, const task& ain)
+	{
+		out << "\nName of Task: "<<ain.getName();
+		return out;
+	}
+	/*==*/
+	virtual bool operator==(const task& ain)
+	{
+		if (getInitDate() == ain.getInitDate() && getFinalDate() == ain.getFinalDate() && getName() == ain.getName())
+			return true;
+		else
+			false;
+
+	
+
+	}
 	//Distractors
 	void removeT();
 	~task();
