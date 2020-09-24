@@ -19,9 +19,9 @@ task::task() :numberTask(taskCt++)
 void task::setName(string name)throw(string)
 {
 	if (name == "") throw "Name is Empty String";
-	if (name == nullptr) throw "Name is Null";
+	if (&name == nullptr) throw "Name is Null";
 	if (std::string::npos != name.find_first_of("0123456789"))
-		throw "Name Contains Digit";*/
+		throw "Name Contains Digit";
 	this->name = name;
 }
 

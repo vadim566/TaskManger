@@ -19,26 +19,26 @@ participant::participant()
 
 void participant::setName(string nameP)throw(string)
 {
-	if (name == "") throw "Name is Empty String";
-	if (name == nullptr) throw "Name is Null";
-	if (std::string::npos != name.find_first_of("0123456789"))
+	if (nameP == "") throw "Name is Empty String";
+	if (&nameP == nullptr) throw "Name is Null";
+	if (std::string::npos != nameP.find_first_of("0123456789"))
 		throw "Name Contains Digit";
 	this->nameP = nameP;
 }
 
 void participant::setLastName(string lastName)throw(string)
 {
-	if (name == "") throw "last Name is Empty String";
-	if (name == nullptr) throw "last Name is Null";
-	if (std::string::npos != name.find_first_of("0123456789"))
+	if (lastName == "") throw "last Name is Empty String";
+	if (&lastName == nullptr) throw "last Name is Null";
+	if (std::string::npos != lastName.find_first_of("0123456789"))
 		throw "last Name Contains Digit";
 	this->lastName = lastName;
 }
 
 void participant::setOrganization(string organization)throw(string)
 {
-	if (name == "") throw "name of the organization is Empty String";
-	if (name == nullptr) throw "Name of the organization is Null";
+	if (organization == "") throw "name of the organization is Empty String";
+	if (&organization == nullptr) throw "Name of the organization is Null";
 	/*if (std::string::npos != name.find_first_of("0123456789"))
 		throw "Name Contains Digit";*/
 	this->organization = organization;
@@ -46,8 +46,8 @@ void participant::setOrganization(string organization)throw(string)
 
 void participant::setPosition(string position)throw(string)
 {
-	if (name == "") throw "name of the postion is Empty String";
-	if (name == nullptr) throw "Name of the postion is Null";
+	if (position == "") throw "name of the postion is Empty String";
+	if (&position == nullptr) throw "Name of the postion is Null";
 	this->position = position;
 }
 

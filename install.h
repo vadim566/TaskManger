@@ -37,7 +37,7 @@ public:
 	install();
 	
 	//Set Methods
-	void setNumberOfResource(int numberOfResource)throw(int;
+	void setNumberOfResource(int numberOfResource)throw(int);
 	void setTestInclude(bool testInclude);
 
 	//Get Methods

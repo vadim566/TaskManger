@@ -61,15 +61,15 @@ void project::setIndexTask()throw(int)
 			this->indexTask = i;
 			return;
 		}
-		if((indexTask<0)||(indexTask>totalProjectTask)throw indexTask;
+		if((indexTask<0)||(indexTask>totalProjectTask))throw(indexTask);
 	}
 }
 
 void project::setProjectName(string projectName)throw(string)
 {
-	if (name == "") throw "Name is Empty String";
-	if (name == nullptr) throw "Name is Null";
-	if (std::string::npos != name.find_first_of("0123456789"))
+	if (projectName == "") throw "Name is Empty String";
+	if (&projectName == nullptr) throw "Name is Null";
+	if (std::string::npos != projectName.find_first_of("0123456789"))
 		throw "Name Contains Digit";
 	this->projectName = projectName;
 }

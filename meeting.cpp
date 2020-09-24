@@ -46,9 +46,9 @@ meeting::meeting():task()
 
 void meeting::setLocation(string location)throw(string)
 {
-	if (name == "") throw "loction  is Empty String";
-	if (name == nullptr) throw "loction is Null";
-	if (std::string::npos != name.find_first_of("0123456789"))
+	if (location == "") throw "loction  is Empty String";
+	if (&location == nullptr) throw "loction is Null";
+	if (std::string::npos != location.find_first_of("0123456789"))
 		throw "loction name Contains Digit";
 	this->location = location;
 }
