@@ -28,25 +28,28 @@ install::install():task()
 	
 }
 
-
+/*
+set number of the resources 
+and check if th number of resources is logic
+*/
 void install::setNumberOfResource(int numberOfResource=0)throw(int)
 {
 	if (numberOfResource < 1)
 		throw numberOfResource;
 	string tmp;
 	double tmp1 = 0.0;
-	cout << "For task number: " << this->getNumberOfTask() << "\nenter details about the resources.";
+	cout << "For task number: " << this->getNumberOfTask() << "\nenter details about the resources.";  /*enter details about the resources*/
 		this->numberOfResource = numberOfResource;
 		int i = 0;
 		for (; i < numberOfResource; i++)
 		{
 			this->resourceList[i] = new resource;
 
-			cout << "\nEnter details of resource number "<<i+1<<"\nEnter Name of Resource: ";
+			cout << "\nEnter details of resource number "<<i+1<<"\nEnter Name of Resource: ";  /*enter name of resources*/
 			cin >> tmp;
 			this->resourceList[i]->setNameOfResource(tmp);
 
-			cout << "\nEnter unit of mesure: ";
+			cout << "\nEnter unit of mesure: ";  
 			cin >> tmp;
 			this->resourceList[i]->setUnit(tmp);
 
@@ -57,13 +60,14 @@ void install::setNumberOfResource(int numberOfResource=0)throw(int)
 
 }
 
+/*if in the installation included also test */
 void install::setTestInclude(bool testInclude)throw(string)
 {
-	if (testInclude != 0 && testInclude != 1)throw("Bad bool value");
+	if (testInclude != 0 && testInclude != 1)throw("Bad bool value"); /*check if the value is correct*/
 	this->testInclude = testInclude;
 }
 
-
+/*?????*/
 install & install::operator+=(const resource & r)
 {
 	if(this->getNumberOfResource()+1>MAX_AMOUNT_RESOURCE)
@@ -78,6 +82,8 @@ install & install::operator+=(const resource & r)
 	return *this;
 }
 
+/*print the information of the install -
+name of the install,initial date,final date,number of resources*/
 void install::PrintT(ostream& out)const
 {
 	cout << "\n\nThe name of the install:" << this->getName();
@@ -92,7 +98,7 @@ void install::PrintT(ostream& out)const
 }
 
 
-
+/*free alloction*/
 void install::removeI()
 {
 	int i = 0;

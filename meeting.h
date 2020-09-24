@@ -25,8 +25,8 @@ using namespace std;
 #define _MEETING_H
 
 /*
-class task
-info about the class:task{this class contain information about the number of participants in the meetings and the loctions for the meetings}
+class meeting
+info about the class:meeting{this class contain information about the participants of the meeting and have the meeting loction }
 abstract class: N
 derived class: Y
 child class of:task
@@ -49,7 +49,7 @@ public:
 	meeting();
 
 	//Set Methods
-	void setLocation(string location)throw(string); /*set loction for the meeting*/
+	void setLocation(string location)throw(string);                   /*set loction for the meeting*/
 	void setNumberOfParticipants(int numberOfParticipants)throw(int); /*set number of participants that will be in the meeting*/
 
 	//Get Methods
@@ -57,7 +57,6 @@ public:
 	int getNumberOfParticipants()const { return numberOfParticipants; };
 
 	//Bool function return 1 if expired and if not it return 0
-	
 	 friend bool isExpired(string currentDate,string fDate);
 
 	 /*Operator +=*/
