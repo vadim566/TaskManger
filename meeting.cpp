@@ -45,36 +45,37 @@ meeting::meeting():task()
 	this->setNumberOfParticipants(0);
 }
 
+/*set loction for the meeting and checking if the location name is not empty and not contain digits*/
 void meeting::setLocation(string location)throw(string)
 {
-	if (location == "") throw "loction  is Empty String";
-	if (&location == nullptr) throw "loction is Null";
-	if (std::string::npos != location.find_first_of("0123456789"))
-		throw "loction name Contains Digit";
+	if (location == "") throw "loction  is Empty String";           /*check is the location is not empty string*/
+	if (&location == nullptr) throw "loction is Null";              /*check if th location name is not null*/
+	if (std::string::npos != location.find_first_of("0123456789"))  /*check if th location name does not contain digits*/
+		throw "loction name Contains Digit";                        /*check if th location name does not contain digits*/ 
 	this->location = location;
 }
-
+/*set number of oarticipants in the meeting and check if the numbers is logical */
 void meeting::setNumberOfParticipants(int numberOfParticipants)throw(int)
 {
-	if (numberOfParticipants < 1)
-		throw numberOfParticipants;
+	if (numberOfParticipants < 1) 
+		throw numberOfParticipants;  /*check if the number of participant is logical */
 	string tmp;
 	this->numberOfParticipants = numberOfParticipants;
 	int i = 0;
 	cout << "For task number: " << this->getNumberOfTask() << "\nenter details about the participants.";
 	for (; i < numberOfParticipants; i++)
 	{
-		this->participantList[i] = new participant();
-		cout << "\nEnter info of particpant number "<<i+1 <<"\nnenter the name of the participant: ";
+		this->participantList[i] = new participant();   /*alloction for participant*/
+		cout << "\nEnter info of particpant number "<<i+1 <<"\nnenter the name of the participant: "; /*enter participant first name*/
 		cin >> tmp;
 		participantList[i]->setName(tmp);
-		cout << "enter the name of the last name of participant: ";
+		cout << "enter the name of the last name of participant: ";      /*enter participant last name*/
 		cin >> tmp;
 		participantList[i]->setLastName(tmp);
-		cout << "enter the name of the organization: ";
+		cout << "enter the name of the organization: ";                  /*enter  name of the organization*/
 		cin >> tmp;
 		participantList[i]->setOrganization(tmp);
-		cout << "enter the position in the organization: ";
+		cout << "enter the position in the organization: ";              /*enter  name of the  position in the organization*/
 		cin >> tmp;
 		participantList[i]->setPosition(tmp);
 	}
@@ -82,7 +83,7 @@ void meeting::setNumberOfParticipants(int numberOfParticipants)throw(int)
 
 
 
-
+/*?????*/
 meeting & meeting::operator+=(const participant & p)
 {
 	if (this->getNumberOfParticipants() + 1 > MAX_PPL)
@@ -96,14 +97,15 @@ meeting & meeting::operator+=(const participant & p)
 	}
 			return *this;
 }
-
+/*print the information of the meeting - 
+id,name,initial date,final date,participants details*/
  void meeting::PrintT(ostream& out)const
 {
-	 cout << "\nThe id of the meeting:" << this->getNumberOfTask();
-	cout << "\nThe name of the meeting:" << this->getName();
-	cout << "\nThe initial date of meeting:" << this->getInitDate();
-	cout << "\nThe final date of meeting:" << this->getFinalDate();
-	cout << "\nThere are " << this->getNumberOfParticipants() << " in the meeting\n\nThe details of the particpant:"<<endl;
+	 cout << "\nThe id of the meeting:" << this->getNumberOfTask();  /*id of the meeting*/
+	cout << "\nThe name of the meeting:" << this->getName();  /*na,e of the meeting*/
+	cout << "\nThe initial date of meeting:" << this->getInitDate();  /*initial date of the meeting*/
+	cout << "\nThe final date of meeting:" << this->getFinalDate(); /*final date of the meeting*/
+	cout << "\nThere are " << this->getNumberOfParticipants() << " in the meeting\n\nThe details of the particpant:"<<endl;  /*the participants  details*/
 	int i = 0;
 	for (; i < getNumberOfParticipants(); i++)
 	{
@@ -113,6 +115,7 @@ meeting & meeting::operator+=(const participant & p)
 
 }
 
+ /*free allocation*/
 void meeting::removeA()
 {
 	int i = 0;
@@ -122,14 +125,14 @@ void meeting::removeA()
 	}
 	task::removeT();
 }
-
+/*free all alloction*/
 meeting::~meeting()
 {
 	
 		this->removeA();
 	
 }
-
+/*checking if the date is expired -  if current date  == to final date tham the date int expired*/
 bool isExpired(string currentDate,string finalDate)
 {
 	meeting *tmp;
