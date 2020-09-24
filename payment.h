@@ -12,7 +12,6 @@
 using namespace std;
 
 #endif // !STD_LIB
-
 #define _PAYMENT_H
 
 /*
@@ -26,18 +25,16 @@ privet parameters in the class:
    string currency - the type of the currency
 
 */
-
-class payment :public meeting
+class payment:public meeting
 {
 public:
-@ - 21, 22 + 34, 22 @@ public:
+	//Constracturs 
+	payment( string currency, string location, int numberOfParticipants, string initDate, string finalDate, string name, int amountOfCurrency = 1);
 	payment();
-
+	
 	//Set Methods
-	void setAmountOfCurrency(int amountOfCurrency)throw(int);
+	void setAmountOfCurrency(int amountOfCurrency )throw(int);
 	void setCurrency(string currency);
-	void setAmountOfCurrency(int amountOfCurrency)throw(int); /*set how much money needed*/
-	void setCurrency(string currency);                        /*set the type of the currency*/
 
 	//Get Methods
 	int getAmountOfCurrency()const { return amountOfCurrency; };
@@ -45,7 +42,6 @@ public:
 
 	//Virtual Method
 	virtual void PrintT(ostream& out)const;
-	virtual void PrintT(ostream& out)const; /*it is a virtual printing function, not working for this class*/
 
 	//Distractors 
 	void removePA();
@@ -54,7 +50,5 @@ public:
 private:
 	int amountOfCurrency;
 	string currency;
-	int amountOfCurrency; /*how much money needed*/
-	string currency; /*the type of the currency*/
 
 };
