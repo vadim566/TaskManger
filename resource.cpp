@@ -1,7 +1,6 @@
 #include "resource.h"
 
 
-
 resource::resource(string nameOfResource, string unit, double amountOfResource)
 {
 	setNameOfResource(nameOfResource);
