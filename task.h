@@ -35,6 +35,9 @@ public:
 	int getNumberOfTask()const { return numberTask; };
 	static int getTaskCt(){ return taskCt; };
 
+
+	bool isExpiredA(string currentDate) const;
+
 	//Virtual Methods
 	virtual void PrintT(ostream& out)const  = 0;
 

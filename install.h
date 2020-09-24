@@ -65,8 +65,7 @@ public:
 	//Virtual Methods
 	virtual void PrintT(ostream& out)const;
 
-	//Friend
-	friend bool isExpired(string currentDate, string fDate);
+	
 
 	//Distractors 
 	void removeI();
