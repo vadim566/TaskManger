@@ -16,7 +16,7 @@ using namespace std;
 
 #define _TASK_H
 
-/*calass dectionary
+/*class dectionary
 1.name of the class:
 2.description of the class:
 3.function in the class:
