@@ -11,6 +11,20 @@ using namespace std;
 
 #define _PART_H
 
+/*
+class parti
+info about the class:task{this class contain information about the start of the task ,the end of the task and the name of the task}
+abstract class: Y
+derived class: N
+child class of:
+privet parameters in the class:
+   string initDate - start of the task
+   string finalDate - end of the task
+   string name - name of the task
+   const int numberTask - the number of the task
+   static int taskCt - how many tasks
+
+*/
 class participant
 {
 public:
