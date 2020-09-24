@@ -47,7 +47,7 @@ public:
 	int getNumberOfParticipants()const { return numberOfParticipants; };
 
 	//Bool function return 1 if expired and if not it return 0
-	
+	 bool isExpiredA(string currentDate) const;
 	 friend bool isExpired(string currentDate,string fDate);
 
 	 //Operator +=

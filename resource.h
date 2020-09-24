@@ -18,9 +18,9 @@ public:
 	resource();
 
 	//Set Methods
-	void setNameOfResource(string nameOfResource);
-	void setUnit(string unit);
-	void setAmountOfResource(double amountOfResource);
+	void setNameOfResource(string nameOfResource)throw(string);
+	void setUnit(string unit)throw(string);
+	void setAmountOfResource(double amountOfResource)throw(int);
 
 	//Get Methods
 	string getNameOfResource()const {	return nameOfResource;};

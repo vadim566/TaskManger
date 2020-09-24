@@ -9,25 +9,31 @@ using namespace std;
 #endif // !STD_LIB
 
 
+#define _PART_H
 
 class participant
 {
 public:
+	//Constracturs 
 	participant(string nameP,string lastName ,string organization,string position);
 	participant();
-	void setName(string nameP);
+
+	//Set Methods  
+	void setName(string nameP)throw(string);
+	void setLastName(string lastName)throw(string);
+	void setOrganization(string organization)throw(string);
+	void setPosition(string poistion)throw(string);
+
+	//Get Methods  
 	string getName()const { return nameP; };
-
-	void setLastName(string lastName);
 	string getLastName()const{ return lastName; };
-
-	void setOrganization(string organization);
 	string getOrganization()const { return organization; };
-
-	void setPosition(string poistion);
 	string getPosition()const { return position; };
 
+	//Print function
 	void printP()const;
+
+	//Distractors 
 	void removeP();
 	~participant();
 	

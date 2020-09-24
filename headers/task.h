@@ -7,6 +7,7 @@
 
 #include <iostream>
 #include <string>
+#include<ctime>
 using namespace std;
 
 #endif // !STD_LIB
@@ -18,44 +19,55 @@ using namespace std;
 class task
 {
 public:
-	//constructors
+	//Constracturs 
 	task(string initDate,string finalDate,string name);
 	task();
 	
-	//get set name
-	void setName(string name);
+	//Set Methods
+	void setName(string name)throw(string);
+	void setInitDate(string initDate)throw(string);
+	void setFinalDate(string finalDate)throw(string);
+
+	//Get Methods
 	string getName()const { return name; };
-
-	//get set initDate of a task
-	void setInitDate(string initDate);
 	string getInitDate()const { return initDate; };
-
-	//get set finalDate of a task
-	void setFinalDate(string finalDate);
 	string getFinalDate()const { return finalDate; };
-
-	//get unique number of task
 	int getNumberOfTask()const { return numberTask; };
-	
-	//get total count of task in the system
 	static int getTaskCt(){ return taskCt; };
 
-
-	//pure virtual print
+	//Virtual Methods
 	virtual void PrintT(ostream& out)const  = 0;
 
-	//remover
-	void removeT();
+	//operators
+	//print operator
+	friend ostream& operator<<(ostream& out, const task& ain)
+	{
+		out << "\nName of Task: "<<ain.getName();
+		return out;
+	}
+	/*==*/
+	virtual bool operator==(const task& ain)
+	{
+		if (getInitDate() == ain.getInitDate() && getFinalDate() == ain.getFinalDate() && getName() == ain.getName())
+			return true;
+		else
+			false;
 
+	
+
+	}
+	//Distractors
+	void removeT();
 	~task();
+	
 
 private:
 	
-	string initDate;
-	string finalDate;
-	string name;
-	const int numberTask;
-	static int taskCt;
+	string initDate;            /*start of the task*/
+	string finalDate;           /*end of the task*/
+	string name;                /*the name of the task*/
+	const int numberTask;       /*the number of the tasks*/
+	static int taskCt;          /*how many tasks*/
 };
 
 

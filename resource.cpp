@@ -16,18 +16,28 @@ resource::resource()
 
 }
 
-void resource::setNameOfResource(string nameOfResource)
+void resource::setNameOfResource(string nameOfResource)throw(string)
 {
+	if (nameOfResource == "") throw "Name is Empty String";
+	if (&nameOfResource == nullptr) throw "Name is Null";
+		if (std::string::npos != nameOfResource.find_first_of("0123456789"))
+			throw "Name Contains Digit"; 
 	this->nameOfResource = nameOfResource;
 }
 
-void resource::setAmountOfResource(double amountOfResource)
+void resource::setAmountOfResource(double amountOfResource)throw(int)
 {
+	if (amountOfResource < 0)
+		throw amountOfResource;
 	this->amountOfResource = amountOfResource;
 }
 
-void resource::setUnit(string unit)
+void resource::setUnit(string unit)throw(string)
 {
+	if (unit == "") throw "Name is Empty String";
+	if (&unit == nullptr) throw "Name is Null";
+		if (std::string::npos != unit.find_first_of("0123456789"))    /*i think it can contain dhghts*/
+			throw "Name Contains Digit";
 	this->unit = unit;
 }
 
@@ -45,5 +55,5 @@ void resource::removeR()
 
 resource::~resource()
 {
-	this->removeR();
+	
 }

@@ -29,8 +29,10 @@ install::install():task()
 }
 
 
-void install::setNumberOfResource(int numberOfResource=0)
+void install::setNumberOfResource(int numberOfResource=0)throw(int)
 {
+	if (numberOfResource < 1)
+		throw numberOfResource;
 	string tmp;
 	double tmp1 = 0.0;
 	cout << "For task number: " << this->getNumberOfTask() << "\nenter details about the resources.";
@@ -55,8 +57,9 @@ void install::setNumberOfResource(int numberOfResource=0)
 
 }
 
-void install::setTestInclude(bool testInclude)
+void install::setTestInclude(bool testInclude)throw(string)
 {
+	if (testInclude != 0 && testInclude != 1)throw("Bad bool value");
 	this->testInclude = testInclude;
 }
 

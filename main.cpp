@@ -44,31 +44,201 @@ using namespace std;
 #define _PAYMENT_H
 #include "payment.h"
 #endif
-
+string intDateToStringDate(int day, int month, int year);
 int main()
 {
-	task *process[4];
+
+	try {
+		bool demo;
+		cout << "Welcome to Project Mangment software" << endl;
+		cout << "as a start the the Project can demo 3 projects if you want a demo.\nfor demo enter 1, for skip enter 0"<<endl;
+		cin >> demo;
+
+		if(demo)
+		{
+			cout << "copy and paste in the following requests:\ndavid 
+				musaev 
+				MOD
+				leader
+				yakir
+				maymon
+				intel
+				chiefT
+				shaked
+				spector
+				lbit
+				chiefT
+				david
+				musaev
+				mod
+				leader
+				yakir
+				maymon
+				intel
+				chiefT
+				alex
+				luzakin
+				intel
+				Hchief
+				tech
+				hour
+				20
+				computers
+				piece
+				20
+				meat
+				kg
+				5
+				elon
+				mask
+				tesla
+				leader
+				nicola
+				tesla
+				crazyInvention
+				inventor
+				wat
+				wat
+				wat company
+				elon
+				mask
+				tesla
+				leader
+				nicola
+				tesla
+				crazyInvention
+				inventor
+				wat
+				wat
+				wat company
+				tech
+				hour
+				20
+				computers
+				piece
+				20
+				meat
+				kg
+				5
+				orc
+				maskush
+				teslagrimar
+				leader
+				elf
+				teslaviosh
+				crazyInventionestin
+				leader
+				elemntal
+				water
+				water
+				orc
+				maskush
+				teslagrimar
+				leader
+				elf
+				teslaviosh
+				crazyInventionestin
+				leader
+				elemntal
+				water
+				water
+				crazyInventionestin
+				leader
+				tech
+				hour
+				20
+				computers
+				piece
+				20
+				meat
+				kg
+				5
+				";
+	task *process[4],*tasks[4],*quest[4];
 
 	process[0] = new meeting("israel", "23 / 09 / 2020", "25 / 09 / 2020", "RFI",2);
 	process[1] = new meeting("israel", "26 / 09 / 2020", "30 / 09 / 2020", "kickoff", 2);
 	process[2] = new payment("NIS", "israel", 2, "12 / 10 / 2020", "14 / 10 / 2020", "pdr", 2000);
 	process[3] = new install(3, true, "15 / 10 / 2020", "30 / 10 / 2020", "installation of the component");
 
+	tasks[0] = new meeting("usa", "13 / 09 / 2020", "16 / 09 / 2020", "searching land", 2);
+	tasks[1] = new meeting("italy", "26 / 09 / 2020", "30 / 09 / 2020", "choosing land", 2);
+	tasks[2] = new payment("dolar", "israel", 2, "12 / 10 / 2020", "30/ 10 / 2020", "buying land", 2000);
+	tasks[3] = new install(3, true, "15 / 11 / 2021", "30 / 10 / 2020", "building a house");
 
-
+	quest[0] = new meeting("israel", "23 / 09 / 2020", "25 / 09 / 2020", "brain strom of an idea", 2);
+	quest[1] = new meeting("israel", "26 / 09 / 2020", "30 / 09 / 2020", "choosing an idea", 2);
+	quest[2] = new payment("NIS", "israel", 2, "12 / 10 / 2020", "14 / 10 / 2020", "buying all the materials", 2000);
+	quest[3] = new install(3, true, "15 / 10 / 2020", "30 / 10 / 2020", "building and creating the idea");
 
 	project *summerCpp;
 	summerCpp = new project(4);
+	summerCpp->setProjectName("Summer quest");
 	*summerCpp += *process[0];
 	*summerCpp += *process[1];
 	*summerCpp += *process[2];
 	*summerCpp += *process[3];
-	//summerCpp->printInfo();
+	summerCpp->printInfo();
 	int index = summerCpp->searchlist(1003);
 	summerCpp->printInfo(index);
 	*summerCpp -= 2;
 	 index = summerCpp->searchlist(1003);
 	summerCpp->printInfo(index);
 
+
+	project *oathCpp, *winterCpp;
+	oathCpp = new project(4);
+	winterCpp = new project(5);
+	oathCpp->setProjectName("Oath Tasks");
+	*oathCpp += *tasks[1];
+	*oathCpp += *tasks[2];
+	*oathCpp += *tasks[3];
+	*oathCpp += *tasks[4];
+
+
+	winterCpp->setProjectName("Winter quest");
+	*winterCpp += *quest[1];
+	*winterCpp += *quest[2];
+	*winterCpp += *quest[3];
+	*winterCpp += *quest[4];
+
+
+	summerCpp->printInfo();
+	oathCpp->printInfo();
+	winterCpp->printInfo();
+		}
+
+	}
+	catch(string error)
+	{
+		cout << error;
+	}
+	catch (int error)
+	{
+		cout <<"the value has set to:" <<error;
+	}
+	catch (...)
+	{
+		cout << "***fatal error***";
+	}
+}
+
+string intDateToStringDate(int day, int month, int year)
+{
+	if (day > 31 || day<1)day = 31;
+	if (month > 12 || month <1)month = 12;
+	if (year < 1900 || year>2100)year = 2020;
+
+
+	string dayS = to_string(day);
+	string monthS = to_string(month);
+	string yearS = to_string(year);
+	string brk = " / ";
+	string dateS = dayS + brk + monthS + brk + yearS;
+
+	return dateS;
 	
+
+
+
 }

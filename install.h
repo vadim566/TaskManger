@@ -37,21 +37,35 @@ public:
 	install();
 	
 	//Set Methods
-	void setNumberOfResource(int numberOfResource);
-	void setTestInclude(bool testInclude);
+	void setNumberOfResource(int numberOfResource)throw(int);
+	void setTestInclude(bool testInclude)throw(string);
 
 	//Get Methods
 	bool getTestInclude() const{ return testInclude; };
 	int getNumberOfResource()const { return numberOfResource; };
 	
-	//Operators
+	//Operators +=
 	install &operator+=(const resource &r);
+
+	//Opertator ==
+	virtual bool operator==(const task& ing) const
+	{
+		if (((task*)this)->operator==(ing) == false) {
+			return false;
+		}
+		const install *meet = dynamic_cast<const install*>(&ing);
+		if (meet->getTestInclude()==this->getTestInclude() && meet->getNumberOfResource()==this->getNumberOfResource())
+		{
+			return true;
+		}
+		else return false;
+	}
+
 
 	//Virtual Methods
 	virtual void PrintT(ostream& out)const;
 
-	//Friend
-	friend bool isExpired(string currentDate, string fDate);
+	
 
 	//Distractors 
 	void removeI();
