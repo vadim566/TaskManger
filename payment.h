@@ -30,7 +30,7 @@ class payment:public meeting
 public:
 	//Constracturs 
 
-	payment(string currency, string location, int numberOfParticipants, string initDate, string finalDate, string name, int amountOfCurrency = 1);
+	payment( string initDate, string finalDate, string name, string currency, string location, int numberOfParticipants, int amountOfCurrency = 1);
 	payment();
 
 	//Set Methods

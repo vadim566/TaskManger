@@ -45,13 +45,15 @@ using namespace std;
 #include "payment.h"
 #endif
 #define MAX_PROJ 10
-
-int emptyIndex(project *proj);//find the empty index in projectList
-bool isProject(project proj);//return false if the project is empty true if the project not empty
-string intDateToStringDate(int day, int month, int year);//convert date of int to string date 
+#define MAX_TOTAL_TASK 100
+task* globalTaskList[MAX_TOTAL_TASK]{NULL};//global task list for use
+int globalInt{ 0 };
+void projectMenu(project proj);
+string intDateToStringDate(int day, int month, int year);//convert date of int to string date
+void setVarsOftasks(int globalIndex);//set variables for tasks
 int main()
 {
-
+	
 	try {
 		bool demo;
 		cout << "Welcome to Project Mangment software" << endl;
@@ -115,11 +117,13 @@ int main()
 			winterCpp->printInfo();
 		}//end of demo
 
-		int choice, choice1, choice2;
+		int choice, choice1;
 		project *proj[MAX_PROJ];//list of projects that the program can contain
-		bool flag = 0, index=0;//flag and index
-		proj[index] = NULL;
-		int numberOfTasks;
+		bool flag = 0;//flag
+		int index = 0; // index
+		int i = 0;//index counter
+		proj[index] = NULL;//set the first project as NULL
+		int numberOfTasks=0;
 		string projectName;
 		cout << "Do you want to start a new project ? (if yes press 1, if no press 0)" << endl;
 		cin >> choice;
@@ -142,12 +146,14 @@ int main()
 						if(proj[index]==NULL)
 						{ 
 							proj[index] = new project();
+							if (index == MAX_PROJ - 1)break;
 							proj[index + 1] = NULL;
 							index++;
 							break;
 						}
 						index++;
 					}
+					if(index==MAX_PROJ-1)
 					cout << "\nThe project list is FULL!" << endl;
 					break;
 					
@@ -158,17 +164,19 @@ int main()
 					{
 						if (proj[index] == NULL)
 						{
-							cout << "enter number of task:" << endl;
+							cout << "Please enter number of tasks:" << endl;
+							cin >> numberOfTasks;
 							proj[index] = new project(numberOfTasks);
-							break;
+							if (index == MAX_PROJ - 1)break;
 							proj[index + 1] = NULL;
 							index++;
 							break;
 						}
 						index++;
 					}
-					
-
+					if (index == MAX_PROJ-1)
+						cout << "\nThe project list is FULL!" << endl;
+					break;
 					
 					
 				
@@ -183,73 +191,37 @@ int main()
 							cout << "Please enter number of tasks:" << endl;
 							cin >> numberOfTasks;
 							proj[index] = new project(numberOfTasks, projectName);
-							
+							if (index == MAX_PROJ - 1)break;
 							proj[index + 1] = NULL;
 							index++;
 							break;
 						}
 						index++;
 					}
-
-					
-
-
-				
-				
+					if (index == MAX_PROJ-1)
+						cout << "\nThe project list is FULL!" << endl;
 				case 4:
+					projectName = "default";
+					
+					cout << "enter the name of the project" << endl;
+						cin >> projectName;
+						if(!index==0)//if project list is empty
+						for (; i < index; i++)//find project by its name
+						{
+							if (proj[i]->getProjectName() == projectName)
+								projectMenu(*proj[i]);
+							}
+						
+					break;
+
+
+				case 5:
 					//exit
 					flag = true;
 					break;
 				}
 				
-				cout << "Please enter your choice :\n1.Set\Change project name\n2.Add meeting\n3.Add install\n4. Payment for the meeting\n5. Remove the last task from the project\n6.Find a task in project\n7.Show information of task from specific project\n8.Show all the project data\n9.sum of all the payments\n0.Exit" << endl;
-				cin >> choice2;
-				while (choice2 != 0)// choice2  - which option do you want to chose
-				{
-					switch (choice2)
-					{
-					case 1:
-					{
-
-					};
-					case 2:
-					{
-					};
-					case 3:
-					{
-
-					};
-					case 4:
-					{
-
-					};
-					case 5:
-					{
-
-					};
-					case 6:
-					{
-
-					};
-					case 7:
-					{
-
-					};
-					case 8:
-					{
-
-					};
-					case 9:
-					{
-					};
-
-					default: cout << "Please try again\n";
-						break;
-					}
-					cout << "Do you want to choose another option ?";
-					cout << "Please enter your choice :\n1.Set\Change project name\n2.Add meeting\n3.Add install\n4. Payment for the meeting\n5. Remove the last task from the project\n6.Find a task in project\n7.Show information of task from specific project\n8.Show all the project data\n9.sum of all the payments\n0.Exit" << endl;
-					cin >> choice2;
-				}
+				
 			};
 		}
 	}
@@ -301,27 +273,131 @@ string intDateToStringDate(int day, int month, int year)
 	return dateS;
 
 
-
-
 }
 
-bool isProject(project proj)
+void projectMenu(project proj)
 {
-	if (&proj == nullptr)
-		return false;//if this project empty
-	else 
-		return true;//if this project NOT empty
-}
-
-int emptyIndex(project *proj)
-{
-	int i = 0;
-	if (proj == nullptr)return i;
-	else
-	for (; i < MAX_PROJ; i++)//find the empty projectList index
+	int choice2 = 0, day=0, month=0, year=0;
+	string pTmpSt = "default";//project tempory string for tempory use
+	
+	int numberOfparticipants = 0;
+	cout << "Please enter your choice :\n1.Set\Change project name\n2.Add meeting\n3.Add install\n4. Payment for the meeting\n5. Remove the last task from the project\n6.Find a task in project\n7.Show information of task from specific project\n8.Show all the project data\n9.sum of all the payments\n0.Exit" << endl;
+	cin >> choice2;
+	while (choice2 != 0)// choice2  - which option do you want to chose
 	{
-		if(isProject(*proj))return i;
-	}
+		switch (choice2)
+		{
+		case 1://set project name
+		
+			cout << "\nenter the name of the project:" << endl;
+			cin >> pTmpSt;
+			proj.setProjectName(pTmpSt);
 
-	 return -1;//if project list is full return negtive value
+			break;
+
+		case 2://add meeting
+			while(globalInt<MAX_TOTAL_TASK)
+			{
+			if (globalTaskList[globalInt] == NULL)
+			{
+
+				//create a meeting
+				globalTaskList[globalInt] = new meeting();
+				setVarsOftasks(globalInt);//set name , init date, final date
+				
+				//set name
+					
+				if (index == MAX_PROJ - 1)break;
+				proj[index + 1] = NULL;
+				index++;
+				break;
+			}
+			}
+			cout << "\nenter a meeting:" << endl;
+			
+				break;
+		
+		case 3:
+			break;
+		case 4:
+			break;
+		case 5:
+			break;
+		case 6:
+			break;
+		case 7:
+			break;
+		case 8:
+			break;
+		case 9:
+			break;
+
+		default: cout << "Please try again\n";
+			break;
+		}
+		cout << "Do you want to choose another option ?";
+		cout << "Please enter your choice :\n1.Set\Change project name\n2.Add meeting\n3.Add install\n4. Payment for the meeting\n5. Remove the last task from the project\n6.Find a task in project\n7.Show information of task from specific project\n8.Show all the project data\n9.sum of all the payments\n0.Exit" << endl;
+		cin >> choice2;
+	}
+}
+
+void setVarsOftasks(int globalIndex)
+{
+	string location, iniDate, finalDate, taskName,currency;
+	int choice = 0, numberOfparticipants=0,amountOfMoney=0,resources=0;
+	bool tests = 0;
+	string pTmpSt = "default";
+	int day, month, year;
+	cout << "\nenter the name of the meeting" << endl;
+	cin >> taskName;
+	
+	//set initial date
+	
+	cout << "\nenter the inital date of the meeting" << endl;
+	cout << "\nenter the day "; cin >> day;
+	cout << "\nenter the month "; cin >> month;
+	cout << "\nenter the year "; cin >> year;
+	iniDate = intDateToStringDate(day, month, year);
+	
+	//set final date
+	cout << "\nenter the final date of the meeting" << endl;
+	cout << "\nenter the day "; cin >> day;
+	cout << "\nenter the month "; cin >> month;
+	cout << "\nenter the year "; cin >> year;
+	finalDate = intDateToStringDate(day, month, year);
+
+	
+	cout << "\n if its a meeting enter 1\nif its a install enter 2\nif its a payment meeting enter 3" << endl;
+	cin >> choice;
+		switch (choice)
+		{
+			case 1:
+				cout << "\nenter the location place" << endl;
+				cin >> location;
+				cout << "\nenter the number of participants" << endl;
+				cin >> numberOfparticipants;
+				globalTaskList[globalIndex] = new meeting(iniDate, finalDate, location, numberOfparticipants);
+				break;
+			case 2:
+				cout << "\nenter 1 if tests included" << endl;
+				cin >> tests;
+				cout << "\nenter the number of resources" << endl;
+				cin >> resources;
+			
+				break;
+			case 3:
+				cout << "\nenter the location place" << endl;
+				cin >> location;
+				cout << "\nenter the number of participants" << endl;
+				cin >> numberOfparticipants;
+				cout << "\nenter the amount of money that needed to pay" << endl;
+				cin >> amountOfMoney;
+				cout << "\nenter the currency of the money that needed to pay" << endl;
+				cin >> currency;
+				globalTaskList[globalIndex] = new payment(location, numberOfparticipants, iniDate, finalDate, amountOfMoney);
+				break;
+				break;
+			default:
+				break;
+		}
 }

@@ -43,9 +43,9 @@ public:
 	
 
 	//Constracturs 
-	meeting(string location, string initDate, string finalDate, string name, int numberOfParticipants=0);
-	meeting(  string initDate, string finalDate, string name, int numberOfParticipants=0);
-	meeting(string location, string initDate, string finalDate, string name);
+	meeting(string initDate, string finalDate, string name, string location, int numberOfParticipants=0);
+	meeting(string initDate, string finalDate, string name, int numberOfParticipants=0);
+	meeting( string initDate, string finalDate, string name, string location);
 	meeting();
 
 	//Set Methods
