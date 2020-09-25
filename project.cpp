@@ -6,7 +6,7 @@ project::project():numberProject(projCt++)
 	this->setIndexTask();
 	this->setTotalProjectTask(10);
 	this->setProjectTasks(10);
-	cout << "\nproject " << getProjectName() << " was created" << endl;
+	cout << "\n****project " << getProjectName() << " was created****\n" << endl;
 }
 
 project::project(int totalProjectTask,string projectName) :numberProject(projCt++)
@@ -15,7 +15,7 @@ project::project(int totalProjectTask,string projectName) :numberProject(projCt+
 	this->setIndexTask();
 	this->setTotalProjectTask(totalProjectTask);
 	this->setProjectTasks(totalProjectTask);
-	cout << "\nproject " << getProjectName() << " was created" << endl;
+	cout << "\n****project " << getProjectName() << " was created****\n" << endl;
 }
  
 project::project(int totalProjectTask) :numberProject(projCt++)
@@ -24,7 +24,7 @@ project::project(int totalProjectTask) :numberProject(projCt++)
 	this->setIndexTask();
 	this->setTotalProjectTask(totalProjectTask);
 	this->setProjectTasks(totalProjectTask);
-	cout << "\nproject " << getProjectName() << " was created" << endl;
+	cout << "\n****project " << getProjectName() << " was created****\n" << endl;
 }
 /*set the project total tasks,check if the total check is logic*/
 void project::setTotalProjectTask(int totalProjectTask)throw(int)
