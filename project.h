@@ -73,44 +73,21 @@ public:
 			this->taskList[this->getIndexTask()] = &other;
 		}
 		
-	}
-	void operator+=(payment& other)
-	{
-		this->totalProjectTask++;
-		if (this->totalProjectTask > this->getIndexTask())
-		{
-			this->taskList[this->getIndexTask()] = &other;
-		}
-		this->setIndexTask();
-	}
-	void operator+=(meeting& other)
-	{
-		this->totalProjectTask++;
-		if (this->totalProjectTask > this->getIndexTask())
-		{
-			this->taskList[this->getIndexTask()] = &other;
-		}
-		this->setIndexTask();
-	}
-	void operator+=(install& other)
-	{
-		this->totalProjectTask++;
 		
-		if (this->totalProjectTask > this->getIndexTask())
-		{
-			this->taskList[this->getIndexTask()] = &other;
-		}
-		this->setIndexTask();
-
 	}
+
+
+	
 	/*operator -=*/
 	void operator-=(int other)
 	{
 		if (this->taskList[other])
 		{
-			delete this->taskList[other];
+			
+			this->taskList[other]->removeT();
 			this->taskList[other] = NULL;
 			setIndexTask();
+			this->totalProjectTask--;
 		}
 
 	}

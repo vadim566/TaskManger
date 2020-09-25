@@ -318,7 +318,7 @@ int projectMenu(project *proj)
 		case 3://remove the last task from the project
 			cout << "\nremoving the last task in the project" << endl;
 			if (proj->getIndexTask() >= 0)
-				proj -= 1;
+				proj -= proj->getIndexTask();
 			break;
 		case 4:
 			break;
