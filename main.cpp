@@ -136,7 +136,7 @@ int main()
 				switch (choice1)
 				{
 				case 1:	
-					index = emptyIndex(*proj);
+					index = emptyIndex((*proj));
 					if (index == -1)
 					{
 						cout << "\nThe project list is FULL!" << endl;
