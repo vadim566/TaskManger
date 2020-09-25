@@ -135,7 +135,7 @@ int main()
 			}
 			if (choice == 1) // choice1 - what do you want to do in this project
 			{
-				cout << "Please choose which project type do you want :\n1.Empty project\n2.Project with tasks\n3.Project with name and tasks\n4.exit" << endl;
+				cout << "Please choose which project type do you want :\n1.Empty project\n2.Project with tasks\n3.Project with name and tasks\n4.manage the project by its name\n5.exit" << endl;
 				cin >> choice1;
 
 				switch (choice1)
@@ -277,7 +277,7 @@ string intDateToStringDate(int day, int month, int year)
 
 int projectMenu(project proj)
 {
-	int choice2 = 0, day=0, month=0, year=0;
+	int choice2 , day=0, month=0, year=0;
 	string pTmpSt = "default";//project tempory string for tempory use
 	
 	int numberOfparticipants = 0;
