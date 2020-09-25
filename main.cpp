@@ -229,7 +229,7 @@ int main()
 					break;
 				}
 				cin.clear();
-				
+				getc(stdin);
 				
 			};
 		}
