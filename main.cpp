@@ -118,6 +118,7 @@ int main()
 		project *proj1, *proj2, *proj3;
 		cout << "Do you want to open a project ? (if yes press 1, if no press 0)" << endl;
 		cin >> choice;
+		while(!flag){
 		while ((choice != 0)&(choice != 1)) // choice  - if you want to open a project or not
 		{
 			cout << "Please try again\n";
@@ -125,13 +126,13 @@ int main()
 		}
 		if (choice == 1) // choice1 - what do you want to do in this project
 		{
-			cout << "Please choose which project type do you want :\n1.Empty project\n2.Project with tasks\n3.Project with name and tasks" << endl;
+			cout << "Please choose which project type do you want :\n1.Empty project\n2.Project with tasks\n3.Project with name and tasks\n4.exit" << endl;
 			cin >> choice1;
 			switch (choice1)
 			{
 			case 1:
 			{
-				proj1=new project;
+				proj1 = new project;
 				break;
 			}
 			case 2:
@@ -153,7 +154,7 @@ int main()
 				project p1(numberOfTasks, projectName);
 				break;
 			}
-
+			}
 			cout << "Please enter your choice :\n1.Set\Change project name\n2.Add meeting\n3.Add install\n4. Payment for the meeting\n5. Remove the last task from the project\n6.Find a task in project\n7.Show information of task from specific project\n8.Show all the project data\n9.sum of all the payments\n0.Exit" << endl;
 			cin >> choice2;
 			while (choice2 != 0)// choice2  - which option do you want to chose
