@@ -2,20 +2,21 @@
 
 
 
-install::install(int numberOfResource, bool test, string initDate, string finalDate, string name):task(initDate, finalDate, name)
+
+install::install(string initDate, string finalDate, string name, int numberOfResource, bool test):task(initDate, finalDate, name)
 {
 	this->setNumberOfResource(numberOfResource);
 	this->setTestInclude(test);
 }
 
-install::install(bool test, string initDate, string finalDate, string name) :task(initDate, finalDate, name)
+install::install(string initDate, string finalDate, string name, bool test) :task(initDate, finalDate, name)
 {
 	this->setNumberOfResource(0);
 	this->setTestInclude(test);
 	
 }
 
-install::install(int numberOfResource, string initDate, string finalDate, string name) :task(initDate, finalDate, name)
+install::install(string initDate, string finalDate, string name, int numberOfResource) :task(initDate, finalDate, name)
 {
 	this->setNumberOfResource(numberOfResource);
 	this->setTestInclude(0);

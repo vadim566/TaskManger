@@ -44,9 +44,9 @@ class install :public task
 public:
 
 	//Constracturs 
-	install(int numberOfResource, bool test, string initDate, string finalDate, string name);
-	install(bool test, string initDate, string finalDate, string name);
-	install(int numberOfResource, string initDate, string finalDate, string name);
+	install( string initDate, string finalDate, string name, int numberOfResource, bool test);
+	install( string initDate, string finalDate, string name, bool test);
+	install( string initDate, string finalDate, string name, int numberOfResource);
 	install();
 
 	//Set Methods

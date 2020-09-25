@@ -59,7 +59,7 @@ int main()
 		cout << "Welcome to Project Mangment software" << endl;
 		cout << "as a start the the Project can demo 3 projects if you want a demo.\nfor demo enter 1, for skip enter 0" << endl;
 		cin >> demo;
-
+		/*
 		if (demo)
 		{
 
@@ -116,7 +116,7 @@ int main()
 			oathCpp->printInfo();
 			winterCpp->printInfo();
 		}//end of demo
-
+		*/
 		int choice, choice1;
 		project *proj[MAX_PROJ];//list of projects that the program can contain
 		bool flag = 0;//flag
@@ -394,7 +394,7 @@ void setVarsOftasks(int globalIndex)
 				cin >> amountOfMoney;
 				cout << "\nenter the currency of the money that needed to pay" << endl;
 				cin >> currency;
-				globalTaskList[globalIndex] = new payment(location, numberOfparticipants, iniDate, finalDate, amountOfMoney);
+				globalTaskList[globalIndex] = new payment(iniDate, finalDate, taskName, currency, location, numberOfparticipants, amountOfMoney);
 				break;
 				break;
 			default:
