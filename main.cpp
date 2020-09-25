@@ -277,50 +277,58 @@ string intDateToStringDate(int day, int month, int year)
 
 int projectMenu(project *proj)
 {
-	int choice2 , day=0, month=0, year=0;
+	bool flag = 1;
+
+	int choice2 , day=0, month=0, year=0,taskN;
 	string pTmpSt = "default";//project tempory string for tempory use
 	
 	int numberOfparticipants = 0;
-	cout << "Please enter your choice :\n1.Set\Change project name\n2.Add and initlize a task\n3. Remove the last task from the project\n6.Find a task in project\n7.Show information of task from specific project\n8.Show all the project data\n9.sum of all the payments\n0.Exit" << endl;
+	
+	cout << "Please enter your choice :\n1.Set\Change project name\n2.Add meeting\n3.Remove the last task from the project\n4.Find a task in project and show its information\n5.Show all the project data\n6.sum of all the payments\n0.Exit" << endl;
 	cin >> choice2;
 	while (choice2 != 0)// choice2  - which option do you want to chose
 	{
 		switch (choice2)
 		{
 		case 1://set project name
-		
+
 			cout << "\nenter the name of the project:" << endl;
 			cin >> pTmpSt;
 			proj->setProjectName(pTmpSt);
 			break;
 
 		case 2://add meeting
-			while(globalInt<MAX_TOTAL_TASK)
+			while (globalInt < MAX_TOTAL_TASK)
 			{
-			if (globalTaskList[globalInt] == NULL)
-			{
+				if (globalTaskList[globalInt] == NULL)
+				{
 
-				//create a meeting
-				setVarsOftasks(globalInt);
-				proj->operator+=(*globalTaskList[globalInt]);//add the task into the task list
-				
+					//create a meeting
+					setVarsOftasks(globalInt);
 					
-				if (globalInt == MAX_TOTAL_TASK - 1)break;
-				globalTaskList[globalInt + 1] = NULL;
-				globalInt++;
-				break;
+					proj->operator+=(*globalTaskList[globalInt]);//add the task into the task list
+
+
+					if (globalInt == MAX_TOTAL_TASK - 1)break;
+					globalTaskList[globalInt + 1] = NULL;
+					globalInt++;
+					break;
+				}
 			}
-			}
-			cout << "\nenter a meeting:" << endl;
 			
-				break;
-		
+
+			break;
+
 		case 3://remove the last task from the project
 			cout << "\nremoving the last task in the project" << endl;
 			if (proj->getIndexTask() >= 0)
 				proj -= proj->getIndexTask();
 			break;
 		case 4:
+			cout << "\nenter the number of the task:" << endl;
+			cin >> taskN;
+
+			proj->printInfo(proj->searchlist(taskN));//print info of one task
 			break;
 		case 5:
 			break;
@@ -334,13 +342,14 @@ int projectMenu(project *proj)
 			return 0;
 			break;
 
-		default: cout << "Please try again\n";
+		default: cout << "Please try again\n"<<endl;
 			break;
-		}
-		cout << "Do you want to choose another option ?";
-		cout << "Please enter your choice :\n1.Set\Change project name\n2.Add meeting\n3.Add install\n4. Payment for the meeting\n5. Remove the last task from the project\n6.Find a task in project\n7.Show information of task from specific project\n8.Show all the project data\n9.sum of all the payments\n0.Exit" << endl;
+		};
+		cin.clear();
+		cout << "Please enter your choice :\n1.Set\Change project name\n2.Add meeting\n3.Remove the last task from the project\n4.Find a task in project and show its information\n5.Show all the project data\n6.sum of all the payments\n0.Exit" << endl;
 		cin >> choice2;
 	}
+	
 }
 
 void setVarsOftasks(int globalIndex)//initilize task into a project
@@ -399,7 +408,7 @@ void setVarsOftasks(int globalIndex)//initilize task into a project
 				cin >> currency;
 				globalTaskList[globalIndex] = new payment(iniDate, finalDate, taskName, currency, location, numberOfparticipants, amountOfMoney);
 				break;
-				break;
+				
 			default:
 				break;
 		}

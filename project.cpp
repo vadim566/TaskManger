@@ -4,8 +4,8 @@ project::project()
 {
 	this->setProjectName("default");
 	this->setIndexTask();
-	this->setTotalProjectTask(0);
-	this->setProjectTasks(1);
+	this->setTotalProjectTask(10);
+	this->setProjectTasks(10);
 }
 
 project::project(int totalProjectTask,string projectName)
@@ -81,6 +81,7 @@ void project::setProjectName(string projectName)throw(string)
 /*search if the task is at the task list*/
 int project::searchlist(int taskNumber)
 {
+	setIndexTask();
 	for (int i = 0; i < this->getIndexTask()+1; i++)
 	{
 		if (this->taskList[i] && taskNumber == this->taskList[i]->getNumberOfTask()) return i;
