@@ -48,7 +48,7 @@ using namespace std;
 #define MAX_TOTAL_TASK 100
 task* globalTaskList[MAX_TOTAL_TASK]{NULL};//global task list for use
 int globalInt{ 0 };
-int projectMenu(project *proj);
+project *projectMenu(project &proj);
 string intDateToStringDate(int day, int month, int year);//convert date of int to string date
 void setVarsOftasks(int globalIndex);//set variables for tasks
 int main()
@@ -206,11 +206,15 @@ int main()
 					cout << "enter the name of the project" << endl;
 						cin >> projectName;
 						if(!index==0)//if project list is empty
-						for (; i < index; i++)//find project by its name
-						{
-							if (proj[i]->getProjectName() == projectName)
-								projectMenu(proj[i]);
+							for (i = 0; i < index; i++)//find project by its name
+							{
+								if (proj[i]->getProjectName() == projectName)
+									proj[i] = projectMenu(*proj[i]);
 							}
+						else
+						{
+							cout << "There is no such Project!" << endl;
+						}
 						
 					break;
 
@@ -219,7 +223,12 @@ int main()
 					//exit
 					flag = true;
 					break;
+					
+				 default:
+					cin.clear();
+					break;
 				}
+				cin.clear();
 				
 				
 			};
@@ -275,7 +284,7 @@ string intDateToStringDate(int day, int month, int year)
 
 }
 
-int projectMenu(project *proj)
+project* projectMenu(project &proj)
 {
 	bool flag = 1;
 
@@ -294,7 +303,8 @@ int projectMenu(project *proj)
 
 			cout << "\nenter the name of the project:" << endl;
 			cin >> pTmpSt;
-			proj->setProjectName(pTmpSt);
+			proj.setProjectName(pTmpSt);
+			
 			break;
 
 		case 2://add meeting
@@ -306,7 +316,7 @@ int projectMenu(project *proj)
 					//create a meeting
 					setVarsOftasks(globalInt);
 					
-					proj->operator+=(*globalTaskList[globalInt]);//add the task into the task list
+					proj.operator+=(*globalTaskList[globalInt]);//add the task into the task list
 
 
 					if (globalInt == MAX_TOTAL_TASK - 1)break;
@@ -321,16 +331,18 @@ int projectMenu(project *proj)
 
 		case 3://remove the last task from the project
 			cout << "\nremoving the last task in the project" << endl;
-			if (proj->getIndexTask() >= 0)
-				proj -= proj->getIndexTask();
+			if (proj.getIndexTask() >= 0)
+				proj -= proj.getIndexTask();
 			break;
 		case 4:
 			cout << "\nenter the number of the task:" << endl;
 			cin >> taskN;
 
-			proj->printInfo(proj->searchlist(taskN));//print info of one task
+			proj.printInfo(proj.searchlist(taskN));//print info of one task
 			break;
 		case 5:
+			cout << "\nthe info of all task:" << endl;
+			proj.printInfo();//print info of one task
 			break;
 		case 6:
 			break;
@@ -349,7 +361,7 @@ int projectMenu(project *proj)
 		cout << "Please enter your choice :\n1.Set\Change project name\n2.Add meeting\n3.Remove the last task from the project\n4.Find a task in project and show its information\n5.Show all the project data\n6.sum of all the payments\n0.Exit" << endl;
 		cin >> choice2;
 	}
-	
+	return &proj;
 }
 
 void setVarsOftasks(int globalIndex)//initilize task into a project

@@ -67,11 +67,11 @@ public:
 	void operator+=(task& other)
 	{
 		
-		setIndexTask();
+		this->setIndexTask();
 
 		if (this->totalProjectTask > this->getIndexTask())
 		{
-				this->taskList[this->getIndexTask()+1] = &other;
+				this->taskList[this->getIndexTask()] = &other;
 		}
 		
 		
@@ -82,13 +82,13 @@ public:
 	/*operator -=*/
 	void operator-=(int other)
 	{
-		if (this->taskList[other+1])
+		if (this->taskList[other-1])
 		{
 			
-			this->taskList[other+1]->removeT();
-			this->taskList[other+1] = NULL;
+			this->taskList[other-1]->removeT();
+			this->taskList[other-1] = NULL;
 			setIndexTask();
-			this->totalProjectTask--;
+			
 		}
 
 	}
@@ -100,5 +100,7 @@ private:
 	int totalProjectTask; /*total tasks in the project*/
 	task **taskList; /*task list*/
 	int indexTask; /*index of each task*/
+	const int numberProject;       /* the number of the project*/
+	static int projCt;          /*how many project*/
 };
 

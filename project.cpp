@@ -1,28 +1,30 @@
 #include "project.h"
-
-project::project()
+int project::projCt = 0;
+project::project():numberProject(projCt++)
 {
-	this->setProjectName("default");
+	this->setProjectName("default"+to_string(numberProject));
 	this->setIndexTask();
 	this->setTotalProjectTask(10);
 	this->setProjectTasks(10);
+	cout << "\nproject " << getProjectName() << " was created" << endl;
 }
 
-project::project(int totalProjectTask,string projectName)
+project::project(int totalProjectTask,string projectName) :numberProject(projCt++)
 {
 	this->setProjectName(projectName);
 	this->setIndexTask();
 	this->setTotalProjectTask(totalProjectTask);
 	this->setProjectTasks(totalProjectTask);
+	cout << "\nproject " << getProjectName() << " was created" << endl;
 }
  
-project::project(int totalProjectTask)
+project::project(int totalProjectTask) :numberProject(projCt++)
 {
-	this->setProjectName("default");
-	this->setProjectName(projectName);
+	this->setProjectName("default"+ to_string(numberProject));
 	this->setIndexTask();
 	this->setTotalProjectTask(totalProjectTask);
 	this->setProjectTasks(totalProjectTask);
+	cout << "\nproject " << getProjectName() << " was created" << endl;
 }
 /*set the project total tasks,check if the total check is logic*/
 void project::setTotalProjectTask(int totalProjectTask)throw(int)
@@ -95,7 +97,7 @@ int project::searchlist(int taskNumber)
 void project::printInfo()throw(string)
 {
 	cout << "\n************************************************************************\n\nProject " << this->getProjectName() << ", info of the tasks";
-	
+	this->setIndexTask();
 	for (int i = 0; i < this->getIndexTask(); i++)
 	{
 		
