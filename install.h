@@ -35,11 +35,11 @@ derived class: Y
 child class of:task
 privet parameters in the class:
   bool testInclude - test
-int numberOfResource - number of resource
-resource* resourceList[MAX_AMOUNT_RESOURCE] - Resource reference
+  int numberOfResource - number of resource
+  resource* resourceList[MAX_AMOUNT_RESOURCE] - Resource reference
 
 */
-class install:public task
+class install :public task
 {
 public:
 
@@ -48,17 +48,17 @@ public:
 	install(bool test, string initDate, string finalDate, string name);
 	install(int numberOfResource, string initDate, string finalDate, string name);
 	install();
-	
+
 	//Set Methods
 	void setNumberOfResource(int numberOfResource)throw(int); /*set number of the resources*/
 	void setTestInclude(bool testInclude)throw(string);       /*if in the installation included also test */
 
 	//Get Methods
-	bool getTestInclude() const{ return testInclude; };
+	bool getTestInclude() const { return testInclude; };
 	int getNumberOfResource()const { return numberOfResource; };
-	
+
 	//Operators +=
-	install &operator+=(const resource &r);
+	install& operator+=(const resource& r);
 
 	//Opertator ==
 	virtual bool operator==(const task& ing) const
@@ -66,8 +66,8 @@ public:
 		if (((task*)this)->operator==(ing) == false) {
 			return false;
 		}
-		const install *meet = dynamic_cast<const install*>(&ing);
-		if (meet->getTestInclude()==this->getTestInclude() && meet->getNumberOfResource()==this->getNumberOfResource())
+		const install* meet = dynamic_cast<const install*>(&ing);
+		if (meet->getTestInclude() == this->getTestInclude() && meet->getNumberOfResource() == this->getNumberOfResource())
 		{
 			return true;
 		}
@@ -78,16 +78,16 @@ public:
 	//Virtual Methods
 	virtual void PrintT(ostream& out)const; /*it is a virtual printing function, not working for this class*/
 
-	
+
 
 	//Distractors 
 	void removeI();
 	~install();
-	
-	
+
+
 private:
 	bool testInclude;                            /*test*/
 	int numberOfResource;                        /*number of resource*/
-	resource *resourceList[MAX_AMOUNT_RESOURCE]; /*Resource reference*/
+	resource* resourceList[MAX_AMOUNT_RESOURCE]; /*Resource reference*/
 };
 

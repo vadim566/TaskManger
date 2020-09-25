@@ -12,18 +12,15 @@ using namespace std;
 #define _PART_H
 
 /*
-class parti
-info about the class:task{this class contain information about the start of the task ,the end of the task and the name of the task}
-abstract class: Y
-derived class: N
-child class of:
+class participant
+info about the class:participant{this class contain information about the participant in the meetings}
+abstract class: N
+derived class: Y
 privet parameters in the class:
-   string initDate - start of the task
-   string finalDate - end of the task
-   string name - name of the task
-   const int numberTask - the number of the task
-   static int taskCt - how many tasks
-
+   string nameP - name of the participant
+   string lastName - last name of the participant
+   string organization - name of the organization
+   string position - the participant position int the organization
 */
 class participant
 {
@@ -33,10 +30,10 @@ public:
 	participant();
 
 	//Set Methods  
-	void setName(string nameP)throw(string);
-	void setLastName(string lastName)throw(string);
-	void setOrganization(string organization)throw(string);
-	void setPosition(string poistion)throw(string);
+	void setName(string nameP)throw(string); /*set the name of the participant */
+	void setLastName(string lastName)throw(string);/* set the last name of the participant*/
+	void setOrganization(string organization)throw(string); /* set the name of the organization*/
+	void setPosition(string poistion)throw(string); /* set the participant position int the organization*/
 
 	//Get Methods  
 	string getName()const { return nameP; };
@@ -54,10 +51,10 @@ public:
 	
 
 private:
-	string nameP;
-	string lastName;
-	string organization;
-	string position;
+	string nameP; /*name of the participant*/
+	string lastName; /*last name of the participant*/
+	string organization;/*name of the organization*/
+	string position;/*the participant position int the organization*/
 
 };
 

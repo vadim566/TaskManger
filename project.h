@@ -24,43 +24,56 @@ using namespace std;
 #endif // !STD_LIB
 
 #define _PROJECT_H
+/*
+class project
+info about the class:project
+{this class can Bind into it a set of tasks according to the participant's input
+and actually allow the user access to functions that give an overall view of the project.}
+abstract class: N
+derived class: N
+privet parameters in the class:
+  string projectName - the name of the project
+int totalProjectTask - total tasks in the project
+task** taskList - task list
+int indexTask - index of each task
+*/
 class project
 {
 public:
 	project();
-	project(int totalProjectTask);
 	project(int totalProjectTask,string projectName);
 
+	project(int totalProjectTask);
 
 
-	void setTotalProjectTask(int totalProjectTask)throw(int);
-	int getTotalProjectTask()const { return totalProjectTask; };
+	void setTotalProjectTask(int totalProjectTask)throw(int); /*set the project total tasks*/
+	int getTotalProjectTask()const { return totalProjectTask; }; 
 
-	void setProjectTasks(int totalProjectTask);
+	void setProjectTasks(int totalProjectTask); /*set the project tasks*/
 	
 	
-	void setIndexTask()throw(int);
+	void setIndexTask()throw(int); /*set the index of each task*/
 	int getIndexTask()const { return indexTask; };
 
-	void setProjectName(string projectName)throw(string);
+	void setProjectName(string projectName)throw(string); /*set the project name*/
 	string getProjectName()const { return projectName; };
 
-	int searchlist(int taskNumber);
-	void printInfo()throw(string);
+	int searchlist(int taskNumber); /*search if the task is at the task list*/
+	void printInfo()throw(string); /*this function print the information of the project*/
 
-	void printInfo(int i);
+	void printInfo(int i); /*print the index of each task*/
 
-
+	/*operator +=*/
 	void operator+=(task& other)
 	{
-		this->setIndexTask();
+		this->setIndexTask();  
 		if (this->totalProjectTask > this->getIndexTask())
 		{
 			this->taskList[this->getIndexTask()] = &other;
 		}
 
 	}
-	
+	/*operator -=*/
 	void operator-=(int other)
 	{
 		if (this->taskList[other])
@@ -71,13 +84,13 @@ public:
 		}
 
 	}
-
-~project();
+	//Distractor
+    ~project();
 
 private:
-	string projectName;
-	int totalProjectTask;
-	task **taskList;
-	int indexTask;
+	string projectName;/*the name of the project*/
+	int totalProjectTask; /*total tasks in the project*/
+	task **taskList; /*task list*/
+	int indexTask; /*index of each task*/
 };
 

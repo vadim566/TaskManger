@@ -29,26 +29,27 @@ class payment:public meeting
 {
 public:
 	//Constracturs 
-	payment( string currency, string location, int numberOfParticipants, string initDate, string finalDate, string name, int amountOfCurrency = 1);
+
+	payment(string currency, string location, int numberOfParticipants, string initDate, string finalDate, string name, int amountOfCurrency = 1);
 	payment();
-	
+
 	//Set Methods
-	void setAmountOfCurrency(int amountOfCurrency )throw(int);
-	void setCurrency(string currency);
+	void setAmountOfCurrency(int amountOfCurrency )throw(int);/*set how much money needed*/
+	void setCurrency(string currency); /*set the type of the currency*/
 
 	//Get Methods
 	int getAmountOfCurrency()const { return amountOfCurrency; };
 	string getCurrency()const { return currency; };
 
 	//Virtual Method
-	virtual void PrintT(ostream& out)const;
+	virtual void PrintT(ostream& out)const; /*it is a virtual printing function, not working for this class*/
 
 	//Distractors 
 	void removePA();
 	~payment();
 
 private:
-	int amountOfCurrency;
-	string currency;
+	int amountOfCurrency; /*how much money needed*/
+	string currency;/*the type of the currency*/
 
 };

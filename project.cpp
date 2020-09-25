@@ -11,10 +11,11 @@ project::project()
 project::project(int totalProjectTask,string projectName)
 {
 	this->setProjectName(projectName);
-	this->setProjectTasks(totalProjectTask);
-	this->setTotalProjectTask(totalProjectTask);
 	this->setIndexTask();
+	this->setTotalProjectTask(totalProjectTask);
+	this->setProjectTasks(totalProjectTask);
 }
+
 project::project(int totalProjectTask)
 {
 	this->setProjectName("default");
@@ -23,15 +24,18 @@ project::project(int totalProjectTask)
 	this->setTotalProjectTask(totalProjectTask);
 	this->setProjectTasks(totalProjectTask);
 }
+ 
 
+/*set the project total tasks,check if the total check is logic*/
 void project::setTotalProjectTask(int totalProjectTask)throw(int)
 {
 	if (totalProjectTask < 0)
-		throw totalProjectTask;
+		throw totalProjectTask;/*check if the total check is logic*/
 	if (totalProjectTask)
 		this->totalProjectTask = totalProjectTask;
 }
 
+/*set the project tasks*/
 void project::setProjectTasks(int totalProjectTask)
 {
 	if (totalProjectTask)
@@ -49,7 +53,7 @@ void project::setProjectTasks(int totalProjectTask)
 }
 
 
-
+/*set the index of each task*/
 void project::setIndexTask()throw(int)
 {
 	int i = 0;
@@ -65,26 +69,29 @@ void project::setIndexTask()throw(int)
 	}
 }
 
+/*set the project name, check if the name of the project is logic*/
 void project::setProjectName(string projectName)throw(string)
 {
-	if (projectName == "") throw "Name is Empty String";
-	if (&projectName == nullptr) throw "Name is Null";
+	if (projectName == "") throw "Name of the project is Empty String"; /*check if the name is empty*/
+	if (&projectName == nullptr) throw "Name of the project is Null"; /*check if the name is null*/
+	
 	this->projectName = projectName;
 }
 
 
-
+/*search if the task is at the task list*/
 int project::searchlist(int taskNumber)
 {
 	for (int i = 0; i < this->getIndexTask()+1; i++)
 	{
 		if (this->taskList[i] && taskNumber == this->taskList[i]->getNumberOfTask()) return i;
 	}
-	cout << "\nThere is no such a task!" << endl;
+	cout << "\nThere is no such a task!" << endl;  /*if there is no task like the user insert */
 	return -1;
 	
 }
 
+/*this function print the information of the project*/
 void project::printInfo()throw(string)
 {
 	cout << "\n************************************************************************\n\nProject " << this->getProjectName() << ", info of the tasks";
@@ -109,6 +116,8 @@ void project::printInfo()throw(string)
 	}
 	cout << "\n************************************************************************\n";
 }
+
+/*print the index of each task*/
 void project::printInfo(int i)
 {
 
@@ -124,6 +133,7 @@ void project::printInfo(int i)
 
 }
 
+/*Distractor and free alloction*/
 project::~project()
 {
 	for (int i = 0; i < this->getTotalProjectTask(); i++)
