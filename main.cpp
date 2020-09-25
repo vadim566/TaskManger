@@ -116,7 +116,7 @@ int main()
 		}//end of demo
 
 		int choice, choice1, choice2;
-		project *proj[MAX_PROJ];
+		project *proj[MAX_PROJ];//list of projects that the program can contain
 		bool flag = 0, index=0;//flag and index
 		int numberOfTasks;
 		string projectName;
