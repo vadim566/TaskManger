@@ -117,7 +117,7 @@ int main()
 
 		int choice, choice1, choice2;
 		project *proj[MAX_PROJ];
-		bool flag = 0, index=0;//flag and index
+		bool flag = 0, index=0;
 		int numberOfTasks;
 		string projectName;
 		cout << "Do you want to open a project ? (if yes press 1, if no press 0)" << endl;
