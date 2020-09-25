@@ -46,8 +46,8 @@ using namespace std;
 #endif
 #define MAX_PROJ 10
 
-int emptyIndex(project* project);//find the empty index in projectList
-bool isProject(project project);//return false if the project is empty true if the project not empty
+int emptyIndex(project *proj);//find the empty index in projectList
+bool isProject(project proj);//return false if the project is empty true if the project not empty
 string intDateToStringDate(int day, int month, int year);//convert date of int to string date 
 int main()
 {
@@ -118,9 +118,10 @@ int main()
 		int choice, choice1, choice2;
 		project *proj[MAX_PROJ];//list of projects that the program can contain
 		bool flag = 0, index=0;//flag and index
+		proj[index] = NULL;
 		int numberOfTasks;
 		string projectName;
-		cout << "Do you want to open a project ? (if yes press 1, if no press 0)" << endl;
+		cout << "Do you want to start a new project ? (if yes press 1, if no press 0)" << endl;
 		cin >> choice;
 		while (!flag) {
 			while ((choice != 0) & (choice != 1)) // choice  - if you want to open a project or not
@@ -136,53 +137,62 @@ int main()
 				switch (choice1)
 				{
 				case 1:	
-					index = emptyIndex((*proj));
-					if (index == -1)
+					while (index < MAX_PROJ)
 					{
-						cout << "\nThe project list is FULL!" << endl;
-						flag == 1;
-						break;
+						if(proj[index]==NULL)
+						{ 
+							proj[index] = new project();
+							proj[index + 1] = NULL;
+							index++;
+							break;
+						}
+						index++;
 					}
-					else{
-					proj[index] = new project();
+					cout << "\nThe project list is FULL!" << endl;
 					break;
-					}
+					
 				
 				case 2:		
-					//constructor with 
-					index = emptyIndex(*proj);
-					if (index == -1)
+					//constructor with number of task
+					while (index < MAX_PROJ)
 					{
-						cout << "\nThe project list is FULL!" << endl;
-						flag == 1;
-						break;
+						if (proj[index] == NULL)
+						{
+							cout << "enter number of task:" << endl;
+							proj[index] = new project(numberOfTasks);
+							break;
+							proj[index + 1] = NULL;
+							index++;
+							break;
+						}
+						index++;
 					}
-					else {
-						cout << "Please enter project's name:" << endl;
-						cin >> numberOfTasks;
-						proj[index] = new project(numberOfTasks);
-						break;
-					}
+					
+
+					
 					
 				
 				case 3:
-
-					index = emptyIndex(*proj);
-					if (index == -1)
+					while (index < MAX_PROJ)
 					{
-						cout << "\nThe project list is FULL!" << endl;
-						flag == 1;
-						break;
+						if (proj[index] == NULL)
+						{
+							//constructor with name and number of task
+							cout << "Please enter project's name:" << endl;
+							cin >> projectName;
+							cout << "Please enter number of tasks:" << endl;
+							cin >> numberOfTasks;
+							proj[index] = new project(numberOfTasks, projectName);
+							
+							proj[index + 1] = NULL;
+							index++;
+							break;
+						}
+						index++;
 					}
-					else {
-						//constructor with name and number of task
-						cout << "Please enter project's name:" << endl;
-						cin >> projectName;
-						cout << "Please enter number of tasks:" << endl;
-						cin >> numberOfTasks;
-						proj[0] = new project(numberOfTasks, projectName);
-						break;
-					}
+
+					
+
 
 				
 				
@@ -295,21 +305,22 @@ string intDateToStringDate(int day, int month, int year)
 
 }
 
-bool isProject(project project)
+bool isProject(project proj)
 {
-	if (&project == nullptr)
+	if (&proj == nullptr)
 		return false;//if this project empty
 	else 
 		return true;//if this project NOT empty
 }
 
-int emptyIndex(project* project)
+int emptyIndex(project *proj)
 {
 	int i = 0;
-
+	if (proj == nullptr)return i;
+	else
 	for (; i < MAX_PROJ; i++)//find the empty projectList index
 	{
-		if(!isProject(project[i]))return i;
+		if(isProject(*proj))return i;
 	}
 
 	 return -1;//if project list is full return negtive value
