@@ -15,16 +15,10 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="access.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="install.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="participant.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="payAccess.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="project.h">
@@ -34,6 +28,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="task.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="meeting.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="payment.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -47,9 +47,6 @@
     <ClCompile Include="participant.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="payAccess.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="project.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -59,7 +56,10 @@
     <ClCompile Include="task.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="access.cpp">
+    <ClCompile Include="meeting.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="payment.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
