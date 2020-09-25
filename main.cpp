@@ -162,6 +162,7 @@ int main()
 					flag = true;
 					break;
 				}
+				
 				cout << "Please enter your choice :\n1.Set\Change project name\n2.Add meeting\n3.Add install\n4. Payment for the meeting\n5. Remove the last task from the project\n6.Find a task in project\n7.Show information of task from specific project\n8.Show all the project data\n9.sum of all the payments\n0.Exit" << endl;
 				cin >> choice2;
 				while (choice2 != 0)// choice2  - which option do you want to chose
