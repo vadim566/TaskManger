@@ -1,6 +1,6 @@
 #include "payment.h"
 
-payment::payment(string initDate, string finalDate, string name, string currency, string location, int numberOfParticipants, int amountOfCurrency = 1):meeting( location,   initDate,  finalDate,  name, numberOfParticipants)
+payment::payment(string initDate, string finalDate, string name, string currency, string location, int numberOfParticipants, int amountOfCurrency ):meeting( location,   initDate,  finalDate,  name, numberOfParticipants)
 {
 	this->setCurrency(currency);
 	this->setAmountOfCurrency(amountOfCurrency);

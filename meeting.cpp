@@ -8,7 +8,7 @@ using namespace std;
 
 
 
-meeting::meeting(string initDate, string finalDate, string name, string location, int numberOfParticipants = 0) :task(initDate,finalDate,name)
+meeting::meeting(string initDate, string finalDate, string name, string location, int numberOfParticipants ) :task(initDate,finalDate,name)
 {
 	
 	if (numberOfParticipants > MAX_PPL)
@@ -23,7 +23,7 @@ meeting::meeting(string initDate, string finalDate, string name, string location
 	
 }
 
-meeting::meeting(string initDate, string finalDate, string name, int numberOfParticipants = 0):task(initDate, finalDate, name)
+meeting::meeting(string initDate, string finalDate, string name, int numberOfParticipants ):task(initDate, finalDate, name)
 {
 	this->setLocation("virtual:VC/ZOOM/Tel");
 	setNumberOfParticipants(numberOfParticipants);

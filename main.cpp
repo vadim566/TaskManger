@@ -48,7 +48,7 @@ using namespace std;
 #define MAX_TOTAL_TASK 100
 task* globalTaskList[MAX_TOTAL_TASK]{NULL};//global task list for use
 int globalInt{ 0 };
-void projectMenu(project proj);
+int projectMenu(project proj);
 string intDateToStringDate(int day, int month, int year);//convert date of int to string date
 void setVarsOftasks(int globalIndex);//set variables for tasks
 int main()
@@ -275,13 +275,13 @@ string intDateToStringDate(int day, int month, int year)
 
 }
 
-void projectMenu(project proj)
+int projectMenu(project proj)
 {
 	int choice2 = 0, day=0, month=0, year=0;
 	string pTmpSt = "default";//project tempory string for tempory use
 	
 	int numberOfparticipants = 0;
-	cout << "Please enter your choice :\n1.Set\Change project name\n2.Add meeting\n3.Add install\n4. Payment for the meeting\n5. Remove the last task from the project\n6.Find a task in project\n7.Show information of task from specific project\n8.Show all the project data\n9.sum of all the payments\n0.Exit" << endl;
+	cout << "Please enter your choice :\n1.Set\Change project name\n2.Add task\\n5. Remove the last task from the project\n6.Find a task in project\n7.Show information of task from specific project\n8.Show all the project data\n9.sum of all the payments\n0.Exit" << endl;
 	cin >> choice2;
 	while (choice2 != 0)// choice2  - which option do you want to chose
 	{
@@ -302,14 +302,14 @@ void projectMenu(project proj)
 			{
 
 				//create a meeting
-				globalTaskList[globalInt] = new meeting();
-				setVarsOftasks(globalInt);//set name , init date, final date
+				setVarsOftasks(globalInt);
+				proj += *globalTaskList[globalInt];
 				
-				//set name
+				
 					
-				if (index == MAX_PROJ - 1)break;
-				proj[index + 1] = NULL;
-				index++;
+				if (globalInt == MAX_TOTAL_TASK - 1)break;
+				globalTaskList[globalInt + 1] = NULL;
+				globalInt++;
 				break;
 			}
 			}
@@ -329,7 +329,8 @@ void projectMenu(project proj)
 			break;
 		case 8:
 			break;
-		case 9:
+		case 0:
+			return 0;
 			break;
 
 		default: cout << "Please try again\n";
@@ -383,6 +384,7 @@ void setVarsOftasks(int globalIndex)
 				cin >> tests;
 				cout << "\nenter the number of resources" << endl;
 				cin >> resources;
+				globalTaskList[globalIndex] = new install(iniDate, finalDate, taskName, resources);
 			
 				break;
 			case 3:
