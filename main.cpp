@@ -60,7 +60,7 @@ int main()
 		if (demo)
 		{
 
-			task* process[4], * tasks[4], * quest[4];
+			task *process[4], *tasks[4], *quest[4];
 
 			process[0] = new meeting("israel", "23 / 09 / 2020", "25 / 09 / 2020", "RFI", 2);
 			process[1] = new meeting("israel", "26 / 09 / 2020", "30 / 09 / 2020", "kickoff", 2);
@@ -77,7 +77,7 @@ int main()
 			quest[2] = new payment("NIS", "israel", 2, "12 / 10 / 2020", "14 / 10 / 2020", "buying all the materials", 2000);
 			quest[3] = new install(3, true, "15 / 10 / 2020", "30 / 10 / 2020", "building and creating the idea");
 
-			project* summerCpp;
+			project *summerCpp;
 			summerCpp = new project(4);
 			summerCpp->setProjectName("Summer quest");
 			*summerCpp += *process[0];
@@ -92,7 +92,7 @@ int main()
 			summerCpp->printInfo(index);
 
 
-			project* oathCpp, * winterCpp;
+			project *oathCpp, *winterCpp;
 			oathCpp = new project(4);
 			winterCpp = new project(5);
 			oathCpp->setProjectName("Oath Tasks");
@@ -115,103 +115,96 @@ int main()
 		}//end of demo
 
 		int choice, choice1, choice2;
-		project* proj1, * proj2, * proj3;
+		project *proj1, *proj2, *proj3;
 		cout << "Do you want to open a project ? (if yes press 1, if no press 0)" << endl;
 		cin >> choice;
-		while (!flag) {
-			while ((choice != 0) & (choice != 1)) // choice  - if you want to open a project or not
+		while ((choice != 0)&(choice != 1)) // choice  - if you want to open a project or not
+		{
+			cout << "Please try again\n";
+			cin >> choice;
+		}
+		if (choice == 1) // choice1 - what do you want to do in this project
+		{
+			cout << "Please choose which project type do you want :\n1.Empty project\n2.Project with tasks\n3.Project with name and tasks" << endl;
+			cin >> choice1;
+			switch (choice1)
 			{
-				cout << "Please try again\n";
-				cin >> choice;
+			case 1:
+			{
+				proj1=new project;
+				break;
 			}
-			if (choice == 1) // choice1 - what do you want to do in this project
+			case 2:
 			{
-				cout << "Please choose which project type do you want :\n1.Empty project\n2.Project with tasks\n3.Project with name and tasks\n4.exit" << endl;
-				cin >> choice1;
-				switch (choice1)
+				int numberOfTasks;
+				cout << "Please enter project's name:" << endl;
+				cin >> numberOfTasks;
+				project p1(numberOfTasks);
+				break;
+			}
+			case 3:
+			{
+				string projectName;
+				int numberOfTasks;
+				cout << "Please enter project's name:" << endl;
+				cin >> projectName;
+				cout << "Please enter number of tasks:" << endl;
+				cin >> numberOfTasks;
+				project p1(numberOfTasks, projectName);
+				break;
+			}
+
+			cout << "Please enter your choice :\n1.Set\Change project name\n2.Add meeting\n3.Add install\n4. Payment for the meeting\n5. Remove the last task from the project\n6.Find a task in project\n7.Show information of task from specific project\n8.Show all the project data\n9.sum of all the payments\n0.Exit" << endl;
+			cin >> choice2;
+			while (choice2 != 0)// choice2  - which option do you want to chose
+			{
+				switch (choice2)
 				{
 				case 1:
 				{
-					proj1 = new project;
-					break;
-				}
+
+				};
 				case 2:
 				{
-					int numberOfTasks;
-					cout << "Please enter project's name:" << endl;
-					cin >> numberOfTasks;
-					proj1 = new project(numberOfTasks);
-					break;
-				}
+				};
 				case 3:
 				{
-					string projectName;
-					int numberOfTasks;
-					cout << "Please enter project's name:" << endl;
-					cin >> projectName;
-					cout << "Please enter number of tasks:" << endl;
-					cin >> numberOfTasks;
-					proj1 = new project(numberOfTasks, projectName);
-					break;
-				}
+
+				};
 				case 4:
 				{
-					~proj1;
 
+				};
+				case 5:
+				{
+
+				};
+				case 6:
+				{
+
+				};
+				case 7:
+				{
+
+				};
+				case 8:
+				{
+
+				};
+				case 9:
+				{
+				};
+
+				default: cout << "Please try again\n";
+					break;
 				}
-				}
+				cout << "Do you want to choose another option ?";
 				cout << "Please enter your choice :\n1.Set\Change project name\n2.Add meeting\n3.Add install\n4. Payment for the meeting\n5. Remove the last task from the project\n6.Find a task in project\n7.Show information of task from specific project\n8.Show all the project data\n9.sum of all the payments\n0.Exit" << endl;
 				cin >> choice2;
-				while (choice2 != 0)// choice2  - which option do you want to chose
-				{
-					switch (choice2)
-					{
-					case 1:
-					{
-
-					};
-					case 2:
-					{
-					};
-					case 3:
-					{
-
-					};
-					case 4:
-					{
-
-					};
-					case 5:
-					{
-
-					};
-					case 6:
-					{
-
-					};
-					case 7:
-					{
-
-					};
-					case 8:
-					{
-
-					};
-					case 9:
-					{
-					};
-
-					default: cout << "Please try again\n";
-						break;
-					}
-					cout << "Do you want to choose another option ?";
-					cout << "Please enter your choice :\n1.Set\Change project name\n2.Add meeting\n3.Add install\n4. Payment for the meeting\n5. Remove the last task from the project\n6.Find a task in project\n7.Show information of task from specific project\n8.Show all the project data\n9.sum of all the payments\n0.Exit" << endl;
-					cin >> choice2;
-				}
+			}
 			};
 		}
-		}
-	
+
 		//start of a menu
 		//use of switch and case
 		//1.build a project -project constructor , empty project? // project with some tasks
