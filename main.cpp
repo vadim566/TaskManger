@@ -48,7 +48,7 @@ using namespace std;
 #define MAX_TOTAL_TASK 100
 task* globalTaskList[MAX_TOTAL_TASK]{NULL};//global task list for use
 int globalInt{ 0 };
-int projectMenu(project proj);
+int projectMenu(project &proj);
 string intDateToStringDate(int day, int month, int year);//convert date of int to string date
 void setVarsOftasks(int globalIndex);//set variables for tasks
 int main()
@@ -275,13 +275,13 @@ string intDateToStringDate(int day, int month, int year)
 
 }
 
-int projectMenu(project proj)
+int projectMenu(project &proj)
 {
 	int choice2 , day=0, month=0, year=0;
 	string pTmpSt = "default";//project tempory string for tempory use
 	
 	int numberOfparticipants = 0;
-	cout << "Please enter your choice :\n1.Set\Change project name\n2.Add task\\n5. Remove the last task from the project\n6.Find a task in project\n7.Show information of task from specific project\n8.Show all the project data\n9.sum of all the payments\n0.Exit" << endl;
+	cout << "Please enter your choice :\n1.Set\Change project name\n2.Add task\n3. Remove the last task from the project\n6.Find a task in project\n7.Show information of task from specific project\n8.Show all the project data\n9.sum of all the payments\n0.Exit" << endl;
 	cin >> choice2;
 	while (choice2 != 0)// choice2  - which option do you want to chose
 	{
