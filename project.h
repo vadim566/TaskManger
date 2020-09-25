@@ -28,9 +28,9 @@ class project
 {
 public:
 	project();
+	project(int totalProjectTask);
 	project(int totalProjectTask,string projectName);
 
-	project(int totalProjectTask);
 
 
 	void setTotalProjectTask(int totalProjectTask)throw(int);

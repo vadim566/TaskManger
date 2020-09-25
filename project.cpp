@@ -11,9 +11,9 @@ project::project()
 project::project(int totalProjectTask,string projectName)
 {
 	this->setProjectName(projectName);
-	this->setIndexTask();
-	this->setTotalProjectTask(totalProjectTask);
 	this->setProjectTasks(totalProjectTask);
+	this->setTotalProjectTask(totalProjectTask);
+	this->setIndexTask();
 }
 project::project(int totalProjectTask)
 {
@@ -69,8 +69,6 @@ void project::setProjectName(string projectName)throw(string)
 {
 	if (projectName == "") throw "Name is Empty String";
 	if (&projectName == nullptr) throw "Name is Null";
-	if (std::string::npos != projectName.find_first_of("0123456789"))
-		throw "Name Contains Digit";
 	this->projectName = projectName;
 }
 

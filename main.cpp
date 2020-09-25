@@ -111,7 +111,92 @@ int main()
 	winterCpp->printInfo();
 		}//end of demo
 
+		int choise, choise1, choise2;
+		cout << "Do you want to open a project ? (if yes press 1, if no press 0)" << endl;
+		cin >> choise;
+		while ((choise!=0)&(choise != 1)) // choise  - if you want to open a project or not
+		{
+			cout << "Please try again\n";
+			cin >> choise;
+		}
+		if(choise == 1) // choise1 - what do you want to do in this project
+		{
+			cout << "Please choose which project type do you want :\n1.Empty project\n2.Project with tasks\n3.Project with name and tasks" << endl;
+			cin >> choise1;
+			switch (choise1)
+			{
+				case 1:
+				{
+					project p1;
+				}
+				case 2:
+				{
+					int numberOfTasks;
+					cout << "Please enter project's name:" << endl;
+					cin >> numberOfTasks;
+					project p1(numberOfTasks);
+				}
+				case 3:
+				{
+					string projectName;
+					int numberOfTasks;
+					cout << "Please enter project's name:" << endl;
+					cin >> projectName;
+					cout << "Please enter number of tasks:" << endl;
+					cin >> numberOfTasks;
+					project p1(numberOfTasks, projectName);
+				}
+				cout << "Please enter your choise :\n1.Set\Change project name\n2.Add meeting\n3.Add install\n4. Payment for the meeting\n5. Remove the last task from the project\n6.Find a task in project\n7.Show information of task from specific project\n8.Show all the project data\n9.sum of all the payments\n0.Exit" << endl;
+				cin >> choise2;
+				while (choise2 != 0)// choise2  - which option do you want to chose
+				{
+					switch (choise2)
+					{
+					case 1:
+					{
 
+					};
+					case 2:
+					{
+					};
+					case 3:
+					{
+
+					};
+					case 4:
+					{
+
+					};
+					case 5:
+					{
+
+					};
+					case 6:
+					{
+
+					};
+					case 7:
+					{
+
+					};
+					case 8:
+					{
+
+					};
+					case 9:
+					{
+					};
+
+					default: cout << "Please try again\n";
+						break;
+					}
+					cout << "Do you want to choose another option ?";
+					cout << "Please enter your choise :\n1.Set\Change project name\n2.Add meeting\n3.Add install\n4. Payment for the meeting\n5. Remove the last task from the project\n6.Find a task in project\n7.Show information of task from specific project\n8.Show all the project data\n9.sum of all the payments\n0.Exit" << endl;
+					cin >> choise2;
+				}
+			};
+		}
+		
 		//start of a menu
 		//use of switch and case
 		//1.build a project -project constructor , empty project? // project with some tasks
@@ -123,6 +208,8 @@ int main()
 		//7.find a task in the project - find a task by a task number and return the place in the project array making enable for print a task from the list, input task number output number in the array projectlist
 		//8.show information of a one task from the project- enter int and get the task in the array of project list
 		//9.show the whole project info- printinfo
+		//10.sum of all the payments
+
 
 
 	}
