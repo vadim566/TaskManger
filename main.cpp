@@ -131,7 +131,8 @@ int main()
 			{
 			case 1:
 			{
-				proj1 = new project;
+				proj1=new project;
+				break;
 			}
 			case 2:
 			{
@@ -139,6 +140,7 @@ int main()
 				cout << "Please enter project's name:" << endl;
 				cin >> numberOfTasks;
 				project p1(numberOfTasks);
+				break;
 			}
 			case 3:
 			{
@@ -149,7 +151,7 @@ int main()
 				cout << "Please enter number of tasks:" << endl;
 				cin >> numberOfTasks;
 				project p1(numberOfTasks, projectName);
-
+				break;
 			}
 
 			cout << "Please enter your choice :\n1.Set\Change project name\n2.Add meeting\n3.Add install\n4. Payment for the meeting\n5. Remove the last task from the project\n6.Find a task in project\n7.Show information of task from specific project\n8.Show all the project data\n9.sum of all the payments\n0.Exit" << endl;
