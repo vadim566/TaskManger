@@ -75,8 +75,8 @@ public:
 		 }
 		 else return false;
 	 }
-
-
+	 meeting& operator=(const meeting & other);
+	
 	 //Print function
 	 void PrintT(ostream& out)const;
 
@@ -84,11 +84,11 @@ public:
 	void removeA();
 	~meeting();
 	
-
-private:
 	
+private:
+	participant *participantList[MAX_PPL];
 	int numberOfParticipants;                /*number of participants*/
-	participant *participantList[MAX_PPL];   /*the list of all the participants in the meeting*/
+	   /*the list of all the participants in the meeting*/
 	string location;                         /*the loction of the meeting*/
 };
 

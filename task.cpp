@@ -107,6 +107,14 @@ bool task::isExpiredA(string currentDate) const
 	return false;
 	return false;
 }
+task & task::operator=(const task & other)
+{
+	this->setName = other.getName();
+	this->setInitDate = other.getInitDate();
+	this->finalDate = other.getFinalDate();
+	// TODO: insert return statement here
+	return *this;
+}
 /*free all allocation*/
 void task::removeT()
 {

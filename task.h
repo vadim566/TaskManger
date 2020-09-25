@@ -75,6 +75,8 @@ public:
 	
 
 	}
+
+	virtual task & operator=(const task & other);
 	//Distractors
 	void removeT();
 	~task();

@@ -30,6 +30,14 @@ void payment::PrintT(ostream & out) const
 	cout <<"\nThe amount of money that need to pay:"<<getAmountOfCurrency() <<" "<< getCurrency()<<endl;
 	
 }
+payment& payment::operator=(const payment & other)
+{
+	this->operator=&other;
+	this->setAmountOfCurrency(other.getAmountOfCurrency());
+	this->setCurrency(other.getCurrency());
+
+	return *this;
+}
 /*free meeting allocation*/
 void payment::removePA()
 {

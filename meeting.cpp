@@ -85,7 +85,7 @@ void meeting::setNumberOfParticipants(int numberOfParticipants)throw(int)
 
 
 
-/*?????*/
+//operators +=
 meeting & meeting::operator+=(const participant & p)
 {
 	if (this->getNumberOfParticipants() + 1 > MAX_PPL)
@@ -101,7 +101,21 @@ meeting & meeting::operator+=(const participant & p)
 }
 /*print the information of the meeting - 
 id,name,initial date,final date,participants details*/
- void meeting::PrintT(ostream& out)const
+meeting& meeting::operator=(const meeting & other)
+{
+	this->operator=&other;
+	this->numberOfParticipants=(other.getNumberOfParticipants());
+	this->setLocation(other.getLocation());
+	for (int i = 0; i < this->numberOfParticipants;i++)
+	{
+		this->participantList[i] = new participant(other.participantList[i]->getName(), other.participantList[i]->getLastName(), other.participantList[i]->getOrganization(), other.participantList[i]->getPosition());
+		this->participantList[i]->setName(other.participantList[i]->getName());
+		
+	}
+
+	return *this;
+}
+void meeting::PrintT(ostream& out)const
 {
 	 cout << "\nThe id of the meeting:" << this->getNumberOfTask();  /*id of the meeting*/
 	cout << "\nThe name of the meeting:" << this->getName();  /*na,e of the meeting*/

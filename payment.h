@@ -44,6 +44,7 @@ public:
 	//Virtual Method
 	virtual void PrintT(ostream& out)const; /*it is a virtual printing function, not working for this class*/
 
+	payment& operator=(const payment & other);
 	//Distractors 
 	void removePA();
 	~payment();

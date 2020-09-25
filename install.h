@@ -59,7 +59,8 @@ public:
 
 	//Operators +=
 	install& operator+=(const resource& r);
-
+	//Operator =
+	install& operator=(const install & other);
 	//Opertator ==
 	virtual bool operator==(const task& ing) const
 	{

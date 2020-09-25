@@ -68,7 +68,7 @@ void install::setTestInclude(bool testInclude)throw(string)
 	this->testInclude = testInclude;
 }
 
-/*?????*/
+//operators
 install & install::operator+=(const resource & r)
 {
 	if(this->getNumberOfResource()+1>MAX_AMOUNT_RESOURCE)
@@ -81,6 +81,20 @@ install & install::operator+=(const resource & r)
 		this->resourceList[getNumberOfResource() + 1]->setUnit(r.getUnit());
 	}
 	return *this;
+}
+
+install & install::operator=(const install & other)
+{
+	this->operator=&other;
+	this->numberOfResource = (other.getNumberOfResource());
+	
+	for (int i = 0; i < this->numberOfResource; i++)
+	{
+		this->resourceList[i] = new resource(other.resourceList[i]->getNameOfResource(), other.resourceList[i]->getUnit(), other.resourceList[i]->getAmountOfResource());
+		
+
+	}
+	// TODO: insert return statement here
 }
 
 /*print the information of the install -
