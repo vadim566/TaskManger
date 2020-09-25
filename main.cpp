@@ -160,9 +160,9 @@ int main()
 				
 				case 2:		
 					//constructor with number of task
-					while (index < MAX_PROJ)
+					while (index < MAX_PROJ)//if less then max number project allowed
 					{
-						if (proj[index] == NULL)
+						if (proj[index] == NULL)//if its initlized for use as NULL
 						{
 							cout << "Please enter number of tasks:" << endl;
 							cin >> numberOfTasks;
@@ -181,9 +181,9 @@ int main()
 					
 				
 				case 3:
-					while (index < MAX_PROJ)
+					while (index < MAX_PROJ)//if less then max number project allowed
 					{
-						if (proj[index] == NULL)
+						if (proj[index] == NULL)//if its initlized for use as NULL
 						{
 							//constructor with name and number of task
 							cout << "Please enter project's name:" << endl;
@@ -281,7 +281,7 @@ int projectMenu(project *proj)
 	string pTmpSt = "default";//project tempory string for tempory use
 	
 	int numberOfparticipants = 0;
-	cout << "Please enter your choice :\n1.Set\Change project name\n2.Add task\n3. Remove the last task from the project\n6.Find a task in project\n7.Show information of task from specific project\n8.Show all the project data\n9.sum of all the payments\n0.Exit" << endl;
+	cout << "Please enter your choice :\n1.Set\Change project name\n2.Add and initlize a task\n3. Remove the last task from the project\n6.Find a task in project\n7.Show information of task from specific project\n8.Show all the project data\n9.sum of all the payments\n0.Exit" << endl;
 	cin >> choice2;
 	while (choice2 != 0)// choice2  - which option do you want to chose
 	{
@@ -302,7 +302,7 @@ int projectMenu(project *proj)
 
 				//create a meeting
 				setVarsOftasks(globalInt);
-				proj->operator+=(*globalTaskList[globalInt]);
+				proj->operator+=(*globalTaskList[globalInt]);//add the task into the task list
 				
 					
 				if (globalInt == MAX_TOTAL_TASK - 1)break;
@@ -315,7 +315,10 @@ int projectMenu(project *proj)
 			
 				break;
 		
-		case 3:
+		case 3://remove the last task from the project
+			cout << "\nremoving the last task in the project" << endl;
+			if (proj->getIndexTask() >= 0)
+				proj -= 1;
 			break;
 		case 4:
 			break;
@@ -340,7 +343,7 @@ int projectMenu(project *proj)
 	}
 }
 
-void setVarsOftasks(int globalIndex)
+void setVarsOftasks(int globalIndex)//initilize task into a project
 {
 	string location, iniDate, finalDate, taskName,currency;
 	int choice = 0, numberOfparticipants=0,amountOfMoney=0,resources=0;
@@ -359,7 +362,7 @@ void setVarsOftasks(int globalIndex)
 	iniDate = intDateToStringDate(day, month, year);
 	
 	//set final date
-	cout << "\nenter the final date of the meeting" << endl;
+	cout << "\nenter the final date of the task" << endl;
 	cout << "\nenter the day "; cin >> day;
 	cout << "\nenter the month "; cin >> month;
 	cout << "\nenter the year "; cin >> year;
