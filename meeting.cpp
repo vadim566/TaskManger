@@ -103,7 +103,7 @@ meeting & meeting::operator+=(const participant & p)
 id,name,initial date,final date,participants details*/
 meeting& meeting::operator=(const meeting & other)
 {
-	this->operator=&other;
+	((task*)this)->operator=(other);
 	this->numberOfParticipants=(other.getNumberOfParticipants());
 	this->setLocation(other.getLocation());
 	for (int i = 0; i < this->numberOfParticipants;i++)

@@ -32,7 +32,7 @@ void payment::PrintT(ostream & out) const
 }
 payment& payment::operator=(const payment & other)
 {
-	this->operator=&other;
+	((meeting*)this)->operator=(other);
 	this->setAmountOfCurrency(other.getAmountOfCurrency());
 	this->setCurrency(other.getCurrency());
 

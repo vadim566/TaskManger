@@ -48,7 +48,7 @@ using namespace std;
 #define MAX_TOTAL_TASK 100
 task* globalTaskList[MAX_TOTAL_TASK]{NULL};//global task list for use
 int globalInt{ 0 };
-int projectMenu(project &proj);
+int projectMenu(project *proj);
 string intDateToStringDate(int day, int month, int year);//convert date of int to string date
 void setVarsOftasks(int globalIndex);//set variables for tasks
 int main()
@@ -209,7 +209,7 @@ int main()
 						for (; i < index; i++)//find project by its name
 						{
 							if (proj[i]->getProjectName() == projectName)
-								projectMenu(*proj[i]);
+								projectMenu(proj[i]);
 							}
 						
 					break;
@@ -275,7 +275,7 @@ string intDateToStringDate(int day, int month, int year)
 
 }
 
-int projectMenu(project &proj)
+int projectMenu(project *proj)
 {
 	int choice2 , day=0, month=0, year=0;
 	string pTmpSt = "default";//project tempory string for tempory use
@@ -291,8 +291,7 @@ int projectMenu(project &proj)
 		
 			cout << "\nenter the name of the project:" << endl;
 			cin >> pTmpSt;
-			proj.setProjectName(pTmpSt);
-
+			proj->setProjectName(pTmpSt);
 			break;
 
 		case 2://add meeting
@@ -303,8 +302,7 @@ int projectMenu(project &proj)
 
 				//create a meeting
 				setVarsOftasks(globalInt);
-				proj += *globalTaskList[globalInt];
-				
+				proj->operator+=(*globalTaskList[globalInt]);
 				
 					
 				if (globalInt == MAX_TOTAL_TASK - 1)break;

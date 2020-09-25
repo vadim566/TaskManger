@@ -85,7 +85,9 @@ install & install::operator+=(const resource & r)
 
 install & install::operator=(const install & other)
 {
-	this->operator=&other;
+
+	((task*)this)->operator=(other);
+	
 	this->numberOfResource = (other.getNumberOfResource());
 	
 	for (int i = 0; i < this->numberOfResource; i++)
@@ -94,6 +96,7 @@ install & install::operator=(const install & other)
 		
 
 	}
+	return *this;
 	// TODO: insert return statement here
 }
 

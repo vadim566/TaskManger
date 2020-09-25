@@ -5,7 +5,7 @@ project::project()
 	this->setProjectName("default");
 	this->setIndexTask();
 	this->setTotalProjectTask(0);
-	this->setProjectTasks(0);
+	this->setProjectTasks(1);
 }
 
 project::project(int totalProjectTask,string projectName)
@@ -65,6 +65,7 @@ void project::setIndexTask()throw(int)
 		}
 		if((indexTask<0)||(indexTask>totalProjectTask))throw(indexTask);
 	}
+	
 }
 
 /*set the project name, check if the name of the project is logic*/

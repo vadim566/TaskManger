@@ -66,11 +66,41 @@ public:
 	/*operator +=*/
 	void operator+=(task& other)
 	{
-		this->setIndexTask();  
+		this->setIndexTask();
+		this->totalProjectTask++;
 		if (this->totalProjectTask > this->getIndexTask())
 		{
 			this->taskList[this->getIndexTask()] = &other;
 		}
+		
+	}
+	void operator+=(payment& other)
+	{
+		this->totalProjectTask++;
+		if (this->totalProjectTask > this->getIndexTask())
+		{
+			this->taskList[this->getIndexTask()] = &other;
+		}
+		this->setIndexTask();
+	}
+	void operator+=(meeting& other)
+	{
+		this->totalProjectTask++;
+		if (this->totalProjectTask > this->getIndexTask())
+		{
+			this->taskList[this->getIndexTask()] = &other;
+		}
+		this->setIndexTask();
+	}
+	void operator+=(install& other)
+	{
+		this->totalProjectTask++;
+		
+		if (this->totalProjectTask > this->getIndexTask())
+		{
+			this->taskList[this->getIndexTask()] = &other;
+		}
+		this->setIndexTask();
 
 	}
 	/*operator -=*/
