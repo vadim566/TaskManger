@@ -9,7 +9,7 @@ project::project():numberProject(projCt++)
 	cout << "\n****project " << getProjectName() << " was created****\n" << endl;
 }
 
-project::project(int totalProjectTask,string projectName) :numberProject(projCt++)
+project::project(int totalProjectTask,string projectName):numberProject(projCt++)
 {
 	this->setProjectName(projectName);
 	this->setIndexTask();

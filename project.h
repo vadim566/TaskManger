@@ -53,10 +53,12 @@ public:
 	
 	
 	void setIndexTask()throw(int); /*set the index of each task*/
-	int getIndexTask()const { return indexTask; };
+	int getIndexTask()const { return indexTask; };//get project name
 
 	void setProjectName(string projectName)throw(string); /*set the project name*/
-	string getProjectName()const { return projectName; };
+	string getProjectName()const { return projectName; };//get project name
+
+	int getProjectNumber() const{ return numberProject; };//return the unique number of project
 
 	int searchlist(int taskNumber); /*search if the task is at the task list*/
 	void printInfo()throw(string); /*this function print the information of the project*/

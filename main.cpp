@@ -123,7 +123,7 @@ int main()
 		int index = 0; // genric index project that saving the last position of the task of t
 		int i = 0;//index counter
 		proj[index] = NULL;//set the first project as NULL
-		int numberOfTasks=0;
+		int numberOfTasks = 0, taskNumber = 9000;//numer of task index for cases 1,2,3 and tasknumber unique number for case 5
 		string projectName;
 		cout << "Do you want to start a new project ? (if yes press 1, if no press 0)" << endl;
 		cin >> choice;
@@ -135,7 +135,7 @@ int main()
 			}
 			if (choice == 1) // choice1 - what do you want to do in this project
 			{
-				cout << "Please choose which project type do you want :\n1.Empty project\n2.Project with tasks\n3.Project with name and tasks\n4.manage the project by its name\n5.exit" << endl;
+				cout << "Please choose which project type do you want :\n1.Empty project\n2.Project with tasks\n3.Project with name and tasks\n4.manage a project by its name\n5.manage a project by its unique number\n6.exit" << endl;
 				cin >> choice1;
 
 				switch (choice1)
@@ -219,6 +219,19 @@ int main()
 					break;
 				case 5://find a project by its unique project number
 
+					cout << "enter the unique number of the project" << endl;
+					cin >> taskNumber;
+					if (!index == 0)//if project list is empty
+						for (i = 0; i < index; i++)//find project by its name
+						{
+							if (proj[i]->getProjectNumber() == taskNumber)
+								proj[i] = projectMenu(*proj[i]);
+						}
+					else
+					{
+						cout << "There is no such Project!" << endl;
+					}
+
 					break;
 
 				case 6:
@@ -289,13 +302,13 @@ string intDateToStringDate(int day, int month, int year)
 project* projectMenu(project &proj)
 {
 	bool flag = 1;
-
+	bool choice = 0;
 	int choice2 , day=0, month=0, year=0,taskN;
 	string pTmpSt = "default";//project tempory string for tempory use
 	
 	int numberOfparticipants = 0;
 	
-	cout << "Please enter your choice :\n1.Set\Change project name\n2.Add meeting\n3.Remove the last task from the project\n4.Find a task in project and show its information\n5.Show all the project data\n6.sum of all the payments\n0.Exit" << endl;
+	cout << "Please enter your choice :\n1.Set\Change project name\n2.Add meeting\n3.Remove the last task from the project\n4.Find a task in project and show its information\n5.Show all the project data\n6.delete the project\n0.save and Exit" << endl;
 	cin >> choice2;
 	while (choice2 != 0)// choice2  - which option do you want to chose
 	{
@@ -343,21 +356,28 @@ project* projectMenu(project &proj)
 			cout << "\nthe info of all task:" << endl;
 			proj.printInfo();//print info of one task
 			break;
-		case 6:
+		case 6://delete the project
+			cout << "Are you sure you want to delete this project? press 1 to delete" << endl;
+				cin >> choice;
+				if (choice==1)
+				{
+			cout << "\nremoving project" << endl;
+			 proj.~project();
+			 cout << "\project removed" << endl;
+			 return NULL;
+				}
 			break;
 		case 7:
 			break;
 		case 8:
 			break;
-		case 0:
-			return 0;
-			break;
+		
 
 		default: cout << "Please try again\n"<<endl;
 			break;
 		};
 		cin.clear();
-		cout << "Please enter your choice :\n1.Set\Change project name\n2.Add meeting\n3.Remove the last task from the project\n4.Find a task in project and show its information\n5.Show all the project data\n6.sum of all the payments\n0.Exit" << endl;
+		cout << "Please enter your choice :\n1.Set\Change project name\n2.Add meeting\n3.Remove the last task from the project\n4.Find a task in project and show its information\n5.Show all the project data\n6.delete the project\n0.save and Exit" << endl;
 		cin >> choice2;
 	}
 	return &proj;
