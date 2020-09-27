@@ -131,7 +131,10 @@ void project::printInfo(int i)
 			this->taskList[i]->PrintT(cout);
 			cout << "\n-----------------------------------------------------------------------------\n";
 		}
-
+		else
+		{
+			cout << "There is no such task in the list!" << endl;
+		}
 
 }
 

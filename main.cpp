@@ -1,4 +1,15 @@
 
+
+/*
+MANGEMENT PROJECT 
+authors:
+David Musaev
+Yakir Maymon
+Shaked Spector
+to compile this project you MUST HAVE the following sdk installed on Visual Studio:
+Windows 10 SDK (10.0.17763.0)
+Windows 10 SDK (10.0.18362.0)
+*/
 #ifndef  _PROJECT_H
 #define _PROJECT_H
 #include "project.h"
@@ -44,11 +55,14 @@ using namespace std;
 #define _PAYMENT_H
 #include "payment.h"
 #endif
-#define MAX_PROJ 10
-#define MAX_TOTAL_TASK 100
+#define MAX_PROJ 10//max number of projects the program can hold the same time
+#define MAX_TOTAL_TASK 100//max tasks that the project can hold the same time
 task* globalTaskList[MAX_TOTAL_TASK]{NULL};//global task list for use
-int globalInt{ 0 };
-project *projectMenu(project &proj);
+int globalInt{ 0 };//global index for the global tasks
+
+
+
+project *projectMenu(project &proj);//second menu for project mangemnt
 string intDateToStringDate(int day, int month, int year);//convert date of int to string date
 void setVarsOftasks(int globalIndex);//set variables for tasks
 int main()
@@ -64,20 +78,22 @@ int main()
 		{
 
 			task* process[4], * tasks[4], * quest[4];
+			//participants constructors
 			participant* id1 = new participant("David", "Musaev", "Ruppin", "student");
 			participant* id2 = new participant("Yakir", "Maymon", "Ruppin", "student");
-			participant* id3 = new participant("Yakir", "Maymon", "Ruppin", "student");
+			participant* id3 = new participant("Shaked", "Spector", "Ruppin", "student");
 			participant* id4 = new participant();
-
+			//resources constructor
 			resource* res1 = new resource("notebook", "piece", 3);
 			resource* res2 = new resource("wood", "kg", 3);
 			resource* res3 = new resource();
 
-
+			//meeting and payment constructor
 			process[0] = new meeting( "23 / 09 / 2020", "25 / 09 / 2020",  "RFI", "israel", 0);
 			process[1] = new meeting("24 / 09 / 2020", "25 / 09 / 2020", "RPI", "usa", 0);
 			process[2] = new payment("12 / 10 / 2020", "14 / 10 / 2020", "pdr",  "NIS", "israel", 0, 2000 );
 
+			//meeting downcast for adding += operator
 			meeting* meetingProceess = dynamic_cast<meeting*>(process[0]);
 			*meetingProceess += *id1;
 			*meetingProceess += *id2;
@@ -87,61 +103,41 @@ int main()
 			meeting* meetingProceess2 = dynamic_cast<meeting*>(process[2]);
 			*meetingProceess2 += *id3;
 			*meetingProceess2 += *id4;
-
+			//install constructor
 			process[3] = new install( "15 / 10 / 2020", "30 / 10 / 2020", "installation of the component", 0, true);
-			install* installProceess1 = dynamic_cast<install*>(process[1]);
+			//install downcast for += operator
+			install* installProceess1 = dynamic_cast<install*>(process[3]);
 			*installProceess1 += *res1;
 			*installProceess1 += *res2;
-			/*
-			process[1] = new meeting("israel", "26 / 09 / 2020", "30 / 09 / 2020", "kickoff", 2);
-			process[2] = new payment("NIS", "israel", 2, "12 / 10 / 2020", "14 / 10 / 2020", "pdr", 2000);
-			process[3] = new install(3, true, "15 / 10 / 2020", "30 / 10 / 2020", "installation of the component");
-
-			tasks[0] = new meeting("usa", "13 / 09 / 2020", "16 / 09 / 2020", "searching land", 2);
-			tasks[1] = new meeting("italy", "26 / 09 / 2020", "30 / 09 / 2020", "choosing land", 2);
-			tasks[2] = new payment("dolar", "israel", 2, "12 / 10 / 2020", "30/ 10 / 2020", "buying land", 2000);
-			tasks[3] = new install(3, true, "15 / 11 / 2021", "30 / 10 / 2020", "building a house");
-
-			quest[0] = new meeting("israel", "23 / 09 / 2020", "25 / 09 / 2020", "brain strom of an idea", 2);
-			quest[1] = new meeting("israel", "26 / 09 / 2020", "30 / 09 / 2020", "choosing an idea", 2);
-			quest[2] = new payment("NIS", "israel", 2, "12 / 10 / 2020", "14 / 10 / 2020", "buying all the materials", 2000);
-			quest[3] = new install(3, true, "15 / 10 / 2020", "30 / 10 / 2020", "building and creating the idea");
-
+			
+			
+			//project number 1
 			project* summerCpp;
 			summerCpp = new project(4);
 			summerCpp->setProjectName("Summer quest");
-			*summerCpp += *process[0];
-			*summerCpp += *process[1];
-			*summerCpp += *process[2];
-			*summerCpp += *process[3];
-			summerCpp->printInfo();
-			int index = summerCpp->searchlist(1003);
-			summerCpp->printInfo(index);
-			*summerCpp -= 2;
-			index = summerCpp->searchlist(1003);
-			summerCpp->printInfo(index);
-
-
-			project* oathCpp, * winterCpp;
-			oathCpp = new project(4);
-			winterCpp = new project(5);
-			oathCpp->setProjectName("Oath Tasks");
-			*oathCpp += *tasks[1];
-			*oathCpp += *tasks[2];
-			*oathCpp += *tasks[3];
+			for (int j = 0; j < 4; j++)*summerCpp += *process[j];//add 4 tasks into the project
 			
-
-
-			winterCpp->setProjectName("Winter quest");
-			*winterCpp += *quest[1];
-			*winterCpp += *quest[2];
-			*winterCpp += *quest[3];
 			
+			summerCpp->printInfo();//print information about the summer project
+					
+			summerCpp->printInfo(summerCpp->searchlist(process[3]->getNumberOfTask()));//find and print by unique id
+			int indexToPrint= summerCpp->searchlist(process[3]->getNumberOfTask());//get index to print
+			*summerCpp -= indexToPrint;//remove index to print
+			summerCpp->printInfo(summerCpp->searchlist(process[3]->getNumberOfTask()));//try to print the index that had removed
+			summerCpp->printInfo();//print the whole project.
 
+			//project number 2
+			project* oath = new project(4,"Oath project");
+			for(int j=0;j<4;j++)*oath += *process[j];//add 4 tasks into the project
+			 
+			//project number 3
+			project* winter = new project(4, "Winter project");
+			for (int j = 0; j < 4; j++)*winter += *process[j];
 
-			summerCpp->printInfo();
-			oathCpp->printInfo();
-			winterCpp->printInfo();*/
+			winter->printInfo();
+			oath->printInfo();
+
+			
 		}//end of demo
 		
 		int choice, choice1;//choices of the switch case
@@ -154,46 +150,47 @@ int main()
 		string projectName;
 		cout << "Do you want to start a new project ? (if yes press 1, if no press 0)" << endl;
 		cin >> choice;
-		while (!flag) {
+		while (!flag) {//while flag 1 the main menu will keep runing
 			while ((choice != 0) & (choice != 1)) // choice  - if you want to open a project or not
 			{
+				cin.clear();//to prevent a loop and flash the input
+				getc(stdin);
 				cout << "Please try again\n";
 				cin >> choice;
 			}
 			if (choice == 1) // choice1 - what do you want to do in this project
 			{
 				cout << "Please choose which project type do you want :\n1.Empty project\n2.Project with tasks\n3.Project with name and tasks\n4.manage a project by its name\n5.manage a project by its unique number\n6.exit" << endl;
-				cin >> choice1;
+				cin >> choice1;//get choice for main menu
 
 				switch (choice1)
 				{
-				case 1:	
-					while (index < MAX_PROJ)
+				case 1:	//create an empty project
+					while (index < MAX_PROJ)//if not in the limitation of max project number
 					{
-						if(proj[index]==NULL)
+						if(proj[index]==NULL)//if its initlized for use as NULL and its ready to use
 						{ 
 							proj[index] = new project();
-							if (index == MAX_PROJ - 1)break;
-							proj[index + 1] = NULL;
-							index++;
+							if (index == MAX_PROJ - 1)break;//if its the last one stop here 
+							proj[index + 1] = NULL;//continue and put the next index at null value
+							index++;//move the index foward
 							break;
 						}
 						index++;
 					}
-					if(index==MAX_PROJ-1)
+					if(index==MAX_PROJ-1)//if the project list is full show massage to user
 					cout << "\nThe project list is FULL!" << endl;
 					break;
 					
 				
-				case 2:		
-					//constructor with number of task
+				case 2:	//constructor with number of task	
 					while (index < MAX_PROJ)//if less then max number project allowed
 					{
-						if (proj[index] == NULL)//if its initlized for use as NULL
+						if (proj[index] == NULL)//if its initlized for use as NULL and its ready to use
 						{
-							cout << "Please enter number of tasks:" << endl;
+							cout << "Please enter number of tasks:" << endl;//set number of tasks
 							cin >> numberOfTasks;
-							proj[index] = new project(numberOfTasks);
+							proj[index] = new project(numberOfTasks);//the rest of here the same as case 1
 							if (index == MAX_PROJ - 1)break;
 							proj[index + 1] = NULL;
 							index++;
@@ -217,7 +214,7 @@ int main()
 							cin >> projectName;
 							cout << "Please enter number of tasks:" << endl;
 							cin >> numberOfTasks;
-							proj[index] = new project(numberOfTasks, projectName);
+							proj[index] = new project(numberOfTasks, projectName);//the same as case 1 and 2
 							if (index == MAX_PROJ - 1)break;
 							proj[index + 1] = NULL;
 							index++;
@@ -227,27 +224,27 @@ int main()
 					}
 					if (index == MAX_PROJ-1)
 						cout << "\nThe project list is FULL!" << endl;
-				case 4://find a project by its name
+
+				case 4://find a project by its name and mange it
 					projectName = "default";
 					
 					cout << "enter the name of the project" << endl;
 						cin >> projectName;
-						if(!index==0)//if project list is empty
-							for (i = 0; i < index; i++)//find project by its name
+						if(!index==0)//if project list is empty index is a pivot of the last used index of project array
+							for (i = 0; i < index; i++)//find project by its name, go threw all availble projects
 							{
 								if (proj[i]->getProjectName() == projectName)
 									proj[i] = projectMenu(*proj[i]);
 								if (proj[i] == NULL)index--;
 							}
-						else
+						else//if not found
 						{
 							cout << "There is no such Project!" << endl;
 						}
-						
 					break;
 				case 5://find a project by its unique project number
 
-					cout << "enter the unique number of the project" << endl;
+					cout << "enter the unique number of the project" << endl;//same as case 4 but here its using the unique id of the project
 					cin >> taskNumber;
 					if (!index == 0)//if project list is empty
 						for (i = 0; i < index; i++)//find project by its name
@@ -282,37 +279,19 @@ int main()
 					cin.clear();
 					break;
 				}
-				cin.clear();
+				cin.clear();//prevent a loop in the menu
 				getc(stdin);
 				
 			};
 		}
 	}
-
-		//start of a menu
-		//use of switch and case
-		//1.build a project -project constructor , empty project? // project with some tasks
-		//2.set a name
-		//3.add meeting - meeting constructor
-		//4.add install -install constructor
-		//5. add payment meeting -payment constructor
-		//6. remove the last task from the project - operator -= lifo
-		//7.find a task in the project - find a task by a task number and return the place in the project array making enable for print a task from the list, input task number output number in the array projectlist
-		//8.show information of a one task from the project- enter int and get the task in the array of project list
-		//9.show the whole project info- printinfo
-		//10.sum of all the payments
-
-
-
-	
-	
 	catch (string error)
 	{
-		cout << error<<endl;
+		cout << error<<endl;//show the error massage
 	}
 	catch (int error)
 	{
-		cout << "the value has set to BAD value, the value that havebeen set:" << error<<endl;
+		cout << "the value has set to BAD value, the value that havebeen set:" << error<<endl;//show the bad value
 	}
 	catch (...)
 	{
@@ -320,25 +299,26 @@ int main()
 	}
 }
 
-string intDateToStringDate(int day, int month, int year)
+string intDateToStringDate(int day, int month, int year)//int date to string date format DD / MM / YY
 {
+	//some modification to prevent bad values
 	if (day > 31 || day < 1)day = 31;
 	if (month > 12 || month < 1)month = 12;
 	if (year < 1900 || year>2100)year = 2020;
 
-
+	//int to string
 	string dayS = to_string(day);
 	string monthS = to_string(month);
 	string yearS = to_string(year);
-	string brk = " / ";
-	string dateS = dayS + brk + monthS + brk + yearS;
+	string brk = " / ";//space  / space its the format of the brake between the values
+	string dateS = dayS + brk + monthS + brk + yearS;//create the string for use
 
-	return dateS;
+	return dateS;//return the date
 
 
 }
 
-project* projectMenu(project &proj)
+project* projectMenu(project &proj)//second menu for project mangemnt
 {
 	bool flag = 1;
 	bool choice = 0;
@@ -406,25 +386,21 @@ project* projectMenu(project &proj)
 			 choice2 = 0;//exit
 			 return NULL;
 				}
-			break;
-		case 7:
-			break;
-		case 8:
-			break;
-		
-
+				break;
 		default: cout << "Please try again\n"<<endl;
 			break;
 		};
-		cin.clear();
+		cin.clear();//prevent loop
 		cout << "Please enter your choice :\n1.Set\Change project name\n2.Add meeting\n3.Remove the last task from the project\n4.Find a task in project and show its information\n5.Show all the project data\n6.delete the project\n0.save and Exit" << endl;
 		cin >> choice2;
 	}
-	return &proj;
+	return &proj;//return this project after stoped working on it
 }
 
 void setVarsOftasks(int globalIndex)//initilize task into a project
 {
+
+	///variables that will be in use in the function
 	string location, iniDate, finalDate, taskName,currency;
 	int choice = 0, numberOfparticipants=0,amountOfMoney=0,resources=0;
 	bool tests = 0;
@@ -433,23 +409,22 @@ void setVarsOftasks(int globalIndex)//initilize task into a project
 	cout << "\nenter the name of the meeting" << endl;
 	cin >> taskName;
 	
-	//set initial date
-	
+	//get from the user and set initial date
 	cout << "\nenter the inital date of the meeting" << endl;
 	cout << "\nenter the day "; cin >> day;
 	cout << "\nenter the month "; cin >> month;
 	cout << "\nenter the year "; cin >> year;
 	iniDate = intDateToStringDate(day, month, year);
 	
-	//set final date
+	//get from the user and set final date
 	cout << "\nenter the final date of the task" << endl;
 	cout << "\nenter the day "; cin >> day;
 	cout << "\nenter the month "; cin >> month;
 	cout << "\nenter the year "; cin >> year;
 	finalDate = intDateToStringDate(day, month, year);
 
-	//choose if this task is a meeting /install/payment
-	cout << "\n if its a meeting enter 1\nif its a install enter 2\nif its a payment meeting enter 3" << endl;
+	//choose if this task is a meeting /install/payment 
+	cout << "\nIf its a meeting task enter 1\nIf its a install task enter 2\nIf its a payment task meeting enter 3" << endl;
 	cin >> choice;
 		switch (choice)
 		{
@@ -458,6 +433,7 @@ void setVarsOftasks(int globalIndex)//initilize task into a project
 				cin >> location;
 				cout << "\nenter the number of participants" << endl;
 				cin >> numberOfparticipants;
+				//construct a task and keep it in the global task list
 				globalTaskList[globalIndex] = new meeting(iniDate, finalDate, location, numberOfparticipants);
 				break;
 			case 2://install choice
@@ -465,6 +441,7 @@ void setVarsOftasks(int globalIndex)//initilize task into a project
 				cin >> tests;
 				cout << "\nenter the number of resources" << endl;
 				cin >> resources;
+				//construct a task and keep it in the global task list
 				globalTaskList[globalIndex] = new install(iniDate, finalDate, taskName, resources);
 			
 				break;
@@ -477,6 +454,7 @@ void setVarsOftasks(int globalIndex)//initilize task into a project
 				cin >> amountOfMoney;
 				cout << "\nenter the currency of the money that needed to pay" << endl;
 				cin >> currency;
+				//construct a task and keep it in the global task list
 				globalTaskList[globalIndex] = new payment(iniDate, finalDate, taskName, currency, location, numberOfparticipants, amountOfMoney);
 				break;
 				
