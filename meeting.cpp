@@ -88,14 +88,12 @@ void meeting::setNumberOfParticipants(int numberOfParticipants)throw(int)
 //operators +=
 meeting & meeting::operator+=(const participant & p)
 {
-	if (this->getNumberOfParticipants() + 1 > MAX_PPL)
+	if (this->getNumberOfParticipants()  >= MAX_PPL)
 		cout << "Too many participants in the meeting" << endl;
 	else
 	{
-		this->participantList[getNumberOfParticipants() + 1]->setName(p.getName());
-		this->participantList[getNumberOfParticipants() + 1]->setLastName(p.getLastName());
-		this->participantList[getNumberOfParticipants() + 1]->setOrganization(p.getOrganization());
-		this->participantList[getNumberOfParticipants() + 1]->setPosition(p.getPosition());
+		this->participantList[getNumberOfParticipants()] = new participant(p.getName(), p.getLastName(), p.getOrganization(), p.getPosition());
+		this->numberOfParticipants++;
 	}
 			return *this;
 }

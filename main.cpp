@@ -67,11 +67,31 @@ int main()
 			participant* id1 = new participant("David", "Musaev", "Ruppin", "student");
 			participant* id2 = new participant("Yakir", "Maymon", "Ruppin", "student");
 			participant* id3 = new participant("Yakir", "Maymon", "Ruppin", "student");
+			participant* id4 = new participant();
+
+			resource* res1 = new resource("notebook", "piece", 3);
+			resource* res2 = new resource("wood", "kg", 3);
+			resource* res3 = new resource();
+
+
 			process[0] = new meeting( "23 / 09 / 2020", "25 / 09 / 2020",  "RFI", "israel", 0);
-			
+			process[1] = new meeting("24 / 09 / 2020", "25 / 09 / 2020", "RPI", "usa", 0);
+			process[2] = new payment("12 / 10 / 2020", "14 / 10 / 2020", "pdr",  "NIS", "israel", 0, 2000 );
+
 			meeting* meetingProceess = dynamic_cast<meeting*>(process[0]);
 			*meetingProceess += *id1;
 			*meetingProceess += *id2;
+			meeting* meetingProceess1 = dynamic_cast<meeting*>(process[1]);
+			*meetingProceess1 += *id1;
+			*meetingProceess1 += *id2;
+			meeting* meetingProceess2 = dynamic_cast<meeting*>(process[2]);
+			*meetingProceess2 += *id3;
+			*meetingProceess2 += *id4;
+
+			process[3] = new install( "15 / 10 / 2020", "30 / 10 / 2020", "installation of the component", 0, true);
+			install* installProceess1 = dynamic_cast<install*>(process[1]);
+			*installProceess1 += *res1;
+			*installProceess1 += *res2;
 			/*
 			process[1] = new meeting("israel", "26 / 09 / 2020", "30 / 09 / 2020", "kickoff", 2);
 			process[2] = new payment("NIS", "israel", 2, "12 / 10 / 2020", "14 / 10 / 2020", "pdr", 2000);

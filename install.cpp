@@ -35,7 +35,7 @@ and check if th number of resources is logic
 */
 void install::setNumberOfResource(int numberOfResource=0)throw(int)
 {
-	if (numberOfResource < 1)
+	if (numberOfResource < 0)
 		throw numberOfResource;
 	string tmp;
 	double tmp1 = 0.0;
@@ -71,14 +71,13 @@ void install::setTestInclude(bool testInclude)throw(string)
 //operators
 install & install::operator+=(const resource & r)
 {
-	if(this->getNumberOfResource()+1>MAX_AMOUNT_RESOURCE)
+	if(this->getNumberOfResource()>=MAX_AMOUNT_RESOURCE)
 		cout << "Too many Resource in the install" << endl;
 
 	else
 	{
-		this->resourceList[getNumberOfResource() + 1]->setAmountOfResource(r.getAmountOfResource());
-		this->resourceList[getNumberOfResource() + 1]->setNameOfResource(r.getNameOfResource());
-		this->resourceList[getNumberOfResource() + 1]->setUnit(r.getUnit());
+		this->resourceList[this->getNumberOfResource()] = new resource(r.getNameOfResource(), r.getUnit(), r.getAmountOfResource());
+		this->numberOfResource++;
 	}
 	return *this;
 }
