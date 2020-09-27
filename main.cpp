@@ -117,10 +117,10 @@ int main()
 			winterCpp->printInfo();
 		}//end of demo
 		*/
-		int choice, choice1;
+		int choice, choice1;//choices of the switch case
 		project *proj[MAX_PROJ];//list of projects that the program can contain
-		bool flag = 0;//flag
-		int index = 0; // index
+		bool flag = 0;//flag of keep runing the while loop of the main menu
+		int index = 0; // genric index project that saving the last position of the task of t
 		int i = 0;//index counter
 		proj[index] = NULL;//set the first project as NULL
 		int numberOfTasks=0;
@@ -200,7 +200,7 @@ int main()
 					}
 					if (index == MAX_PROJ-1)
 						cout << "\nThe project list is FULL!" << endl;
-				case 4:
+				case 4://find a project by its name
 					projectName = "default";
 					
 					cout << "enter the name of the project" << endl;
@@ -217,9 +217,11 @@ int main()
 						}
 						
 					break;
+				case 5://find a project by its unique project number
 
+					break;
 
-				case 5:
+				case 6:
 					//exit
 					flag = true;
 					break;
@@ -254,11 +256,11 @@ int main()
 	
 	catch (string error)
 	{
-		cout << error;
+		cout << error<<endl;
 	}
 	catch (int error)
 	{
-		cout << "the value has set to:" << error;
+		cout << "the value has set to BAD value, the value that havebeen set:" << error<<endl;
 	}
 	catch (...)
 	{
@@ -315,26 +317,23 @@ project* projectMenu(project &proj)
 
 					//create a meeting
 					setVarsOftasks(globalInt);
-					
-					proj.operator+=(*globalTaskList[globalInt]);//add the task into the task list
-
-
+					//add the task into the task list of proj Project list
+					proj.operator+=(*globalTaskList[globalInt]);
+					//end of list limitation
 					if (globalInt == MAX_TOTAL_TASK - 1)break;
-					globalTaskList[globalInt + 1] = NULL;
+					globalTaskList[globalInt + 1] = NULL;//if not in the end of list put the next one in the list as NULL
 					globalInt++;
-					break;
+					break;//end here if all done well, and this task had been added to this project
 				}
 			}
-			
-
-			break;
+			break;//jump here if smth went wrong end of list or smth else
 
 		case 3://remove the last task from the project
 			cout << "\nremoving the last task in the project" << endl;
 			if (proj.getIndexTask() >= 0)
-				proj -= proj.getIndexTask();
+				proj -= proj.getIndexTask();//remove the last one
 			break;
-		case 4:
+		case 4://print one task of index by its unique taskNumber
 			cout << "\nenter the number of the task:" << endl;
 			cin >> taskN;
 
@@ -389,19 +388,19 @@ void setVarsOftasks(int globalIndex)//initilize task into a project
 	cout << "\nenter the year "; cin >> year;
 	finalDate = intDateToStringDate(day, month, year);
 
-	
+	//choose if this task is a meeting /install/payment
 	cout << "\n if its a meeting enter 1\nif its a install enter 2\nif its a payment meeting enter 3" << endl;
 	cin >> choice;
 		switch (choice)
 		{
-			case 1:
+			case 1://meeting choice
 				cout << "\nenter the location place" << endl;
 				cin >> location;
 				cout << "\nenter the number of participants" << endl;
 				cin >> numberOfparticipants;
 				globalTaskList[globalIndex] = new meeting(iniDate, finalDate, location, numberOfparticipants);
 				break;
-			case 2:
+			case 2://install choice
 				cout << "\nenter 1 if tests included" << endl;
 				cin >> tests;
 				cout << "\nenter the number of resources" << endl;
@@ -409,7 +408,7 @@ void setVarsOftasks(int globalIndex)//initilize task into a project
 				globalTaskList[globalIndex] = new install(iniDate, finalDate, taskName, resources);
 			
 				break;
-			case 3:
+			case 3://payment meeting choice
 				cout << "\nenter the location place" << endl;
 				cin >> location;
 				cout << "\nenter the number of participants" << endl;
