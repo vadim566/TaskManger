@@ -120,11 +120,7 @@ int main()
 			
 			summerCpp->printInfo();//print information about the summer project
 					
-			summerCpp->printInfo(summerCpp->searchlist(process[3]->getNumberOfTask()));//find and print by unique id
-			int indexToPrint= summerCpp->searchlist(process[3]->getNumberOfTask());//get index to print
-			*summerCpp -= indexToPrint;//remove index to print
-			summerCpp->printInfo(summerCpp->searchlist(process[3]->getNumberOfTask()));//try to print the index that had removed
-			summerCpp->printInfo();//print the whole project.
+		
 
 			//project number 2
 			project* oath = new project(4,"Oath project");
@@ -138,6 +134,13 @@ int main()
 			oath->printInfo();
 
 			
+
+
+			summerCpp->printInfo(summerCpp->searchlist(process[3]->getNumberOfTask()));//find and print by unique id
+			int indexToPrint = summerCpp->searchlist(process[3]->getNumberOfTask());//get index to print
+			*summerCpp -= indexToPrint;//remove index to print
+			summerCpp->printInfo(summerCpp->searchlist(process[3]->getNumberOfTask()));//try to print the index that had removed
+			summerCpp->printInfo();//print the whole project.
 		}//end of demo
 		
 		int choice, choice1;//choices of the switch case
@@ -160,7 +163,7 @@ int main()
 			}
 			if (choice == 1) // choice1 - what do you want to do in this project
 			{
-				cout << "Please choose which project type do you want :\n1.Empty project\n2.Project with tasks\n3.Project with name and tasks\n4.manage a project by its name\n5.manage a project by its unique number\n6.exit" << endl;
+				cout << "Please choose which project type do you want :\n1.Empty project\n2.Project with tasks\n3.Project with name and tasks\n4.manage a project by its name\n5.manage a project by its unique number\n6.print info of all projects\n0.EXIT" << endl;
 				cin >> choice1;//get choice for main menu
 
 				switch (choice1)
@@ -190,6 +193,7 @@ int main()
 						{
 							cout << "Please enter number of tasks:" << endl;//set number of tasks
 							cin >> numberOfTasks;
+							cin.clear();//to prevent a loop and flash the input
 							proj[index] = new project(numberOfTasks);//the rest of here the same as case 1
 							if (index == MAX_PROJ - 1)break;
 							proj[index + 1] = NULL;
@@ -212,8 +216,10 @@ int main()
 							//constructor with name and number of task
 							cout << "Please enter project's name:" << endl;
 							cin >> projectName;
+							cin.clear();//to prevent a loop and flash the input
 							cout << "Please enter number of tasks:" << endl;
 							cin >> numberOfTasks;
+							cin.clear();//to prevent a loop and flash the input
 							proj[index] = new project(numberOfTasks, projectName);//the same as case 1 and 2
 							if (index == MAX_PROJ - 1)break;
 							proj[index + 1] = NULL;
@@ -221,10 +227,11 @@ int main()
 							break;
 						}
 						index++;
+						break;//prevent the while
 					}
 					if (index == MAX_PROJ-1)
 						cout << "\nThe project list is FULL!" << endl;
-
+					break;
 				case 4://find a project by its name and mange it
 					projectName = "default";
 					
@@ -261,12 +268,7 @@ int main()
 					break;
 
 				case 6:
-					//exit
-					flag = true;
-					break;
-				case 7:
-					cout << "enter the unique number of the project" << endl;
-					if (!index == 0)//if project list is empty
+						if (!index == 0)//if project list is empty
 						for (i = 0; i < index; i++)//find project by its name
 						{
 							cout << "*******************************" << endl;
@@ -274,7 +276,13 @@ int main()
 							cout << "-------------------------------" << endl;
 							cout << "its unique Id is:" << proj[i]->getProjectNumber() << endl;
 							cout << "project Name: "<<proj[i]->getProjectName() << endl;
+							cout << "*******************************" << endl;
 						}
+						break;
+				case 0:
+					//exit
+					flag = true;
+					break;
 				 default:
 					cin.clear();
 					break;
