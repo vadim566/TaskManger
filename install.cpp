@@ -93,8 +93,6 @@ install & install::operator=(const install & other)
 	for (int i = 0; i < this->numberOfResource; i++)
 	{
 		this->resourceList[i] = new resource(other.resourceList[i]->getNameOfResource(), other.resourceList[i]->getUnit(), other.resourceList[i]->getAmountOfResource());
-		
-
 	}
 	return *this;
 	// TODO: insert return statement here

@@ -210,6 +210,7 @@ int main()
 							{
 								if (proj[i]->getProjectName() == projectName)
 									proj[i] = projectMenu(*proj[i]);
+								if (proj[i] == NULL)index--;
 							}
 						else
 						{
@@ -223,9 +224,10 @@ int main()
 					cin >> taskNumber;
 					if (!index == 0)//if project list is empty
 						for (i = 0; i < index; i++)//find project by its name
-						{
+						{	
 							if (proj[i]->getProjectNumber() == taskNumber)
 								proj[i] = projectMenu(*proj[i]);
+							if (proj[i] == NULL)index--;
 						}
 					else
 					{
@@ -238,7 +240,17 @@ int main()
 					//exit
 					flag = true;
 					break;
-					
+				case 7:
+					cout << "enter the unique number of the project" << endl;
+					if (!index == 0)//if project list is empty
+						for (i = 0; i < index; i++)//find project by its name
+						{
+							cout << "*******************************" << endl;
+							cout << "project number:" << i + 1 << endl;
+							cout << "-------------------------------" << endl;
+							cout << "its unique Id is:" << proj[i]->getProjectNumber() << endl;
+							cout << "project Name: "<<proj[i]->getProjectName() << endl;
+						}
 				 default:
 					cin.clear();
 					break;
@@ -364,6 +376,7 @@ project* projectMenu(project &proj)
 			cout << "\nremoving project" << endl;
 			 proj.~project();
 			 cout << "\project removed" << endl;
+			 choice2 = 0;//exit
 			 return NULL;
 				}
 			break;
