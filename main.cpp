@@ -349,7 +349,7 @@ project* projectMenu(project &proj)//second menu for project mangemnt
 
 					//create a meeting
 					setVarsOftasks(globalInt);
-					//add the task into the task list of proj Project list
+					//add the task into the task list of proj Project list by using operator +=
 					proj.operator+=(*globalTaskList[globalInt]);
 					//end of list limitation
 					if (globalInt == MAX_TOTAL_TASK - 1)break;
