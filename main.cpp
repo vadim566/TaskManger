@@ -59,13 +59,20 @@ int main()
 		cout << "Welcome to Project Mangment software" << endl;
 		cout << "as a start the the Project can demo 3 projects if you want a demo.\nfor demo enter 1, for skip enter 0" << endl;
 		cin >> demo;
-		/*
+		
 		if (demo)
 		{
 
 			task* process[4], * tasks[4], * quest[4];
-
-			process[0] = new meeting("israel", "23 / 09 / 2020", "25 / 09 / 2020", "RFI", 2);
+			participant* id1 = new participant("David", "Musaev", "Ruppin", "student");
+			participant* id2 = new participant("Yakir", "Maymon", "Ruppin", "student");
+			participant* id3 = new participant("Yakir", "Maymon", "Ruppin", "student");
+			process[0] = new meeting( "23 / 09 / 2020", "25 / 09 / 2020",  "RFI", "israel", 0);
+			
+			meeting* meetingProceess = dynamic_cast<meeting*>(process[0]);
+			*meetingProceess += *id1;
+			*meetingProceess += *id2;
+			/*
 			process[1] = new meeting("israel", "26 / 09 / 2020", "30 / 09 / 2020", "kickoff", 2);
 			process[2] = new payment("NIS", "israel", 2, "12 / 10 / 2020", "14 / 10 / 2020", "pdr", 2000);
 			process[3] = new install(3, true, "15 / 10 / 2020", "30 / 10 / 2020", "installation of the component");
@@ -114,9 +121,9 @@ int main()
 
 			summerCpp->printInfo();
 			oathCpp->printInfo();
-			winterCpp->printInfo();
+			winterCpp->printInfo();*/
 		}//end of demo
-		*/
+		
 		int choice, choice1;//choices of the switch case
 		project *proj[MAX_PROJ];//list of projects that the program can contain
 		bool flag = 0;//flag of keep runing the while loop of the main menu

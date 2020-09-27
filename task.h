@@ -12,6 +12,14 @@ using namespace std;
 
 #endif // !STD_LIB
 
+#ifndef _PART_H
+#define _PART_H
+#include "participant.h"
+#endif // !_PART_H
+#ifndef  _RESOURCE_H
+#define _RESOURCE_H
+#include "resource.h"
+#endif // ! _RESOURCE_H
 
 
 #define _TASK_H
@@ -75,6 +83,7 @@ public:
 	
 
 	}
+	
 
 	virtual task & operator=(const task & other);
 	//Distractors

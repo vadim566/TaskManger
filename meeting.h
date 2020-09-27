@@ -60,8 +60,7 @@ public:
 	 friend bool isExpired(string currentDate,string fDate);
 
 	 /*Operator +=*/
-	 meeting &operator+=(const participant &p);
-
+	 meeting& operator+=(const participant& p);
 	 /*opertaor ==*/
 	 virtual bool operator==(const task& ing) const
 	 {

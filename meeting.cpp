@@ -59,7 +59,7 @@ void meeting::setLocation(string location)throw(string)
 /*set number of oarticipants in the meeting and check if the numbers is logical */
 void meeting::setNumberOfParticipants(int numberOfParticipants)throw(int)
 {
-	if (numberOfParticipants < 1) 
+	if (numberOfParticipants < 0) 
 		throw numberOfParticipants;  /*check if the number of participant is logical */
 	string tmp;
 	this->numberOfParticipants = numberOfParticipants;
