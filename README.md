@@ -1,6 +1,9 @@
 ## Project Manager 
 This app created to manage tasks of a projects with details of task and more
 
+## Porpuse
+The user will enter the project name ,name of meetings, type of meetings, details of the participants and the resources that needed for the project.
+
 ## list of files and depandencies
 ![image](https://user-images.githubusercontent.com/7335823/200966596-5ce817af-f38b-4c1d-a738-b0d58bc6e8f3.png)
 
